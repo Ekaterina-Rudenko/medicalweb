@@ -1,7 +1,6 @@
 package mapper;
 
 import entity.Visit;
-import exception.DaoException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +17,7 @@ public class VisitMapper implements BaseMapper<Visit> {
     public static final String PATIENT_ID = "patient_id";
 
     @Override
-    public Optional<Visit> mapEntity(ResultSet resultSet) throws DaoException {
+    public Optional<Visit> mapEntity(ResultSet resultSet) {
         Visit visit = new Visit();
         Optional<Visit> optionalVisit;
         try {

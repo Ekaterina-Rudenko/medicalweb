@@ -1,7 +1,6 @@
 package mapper;
 
 import entity.MedicalService;
-import exception.DaoException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +12,7 @@ public class MedicalServiceMapper implements BaseMapper<MedicalService> {
     public static final String SERVICE_PRICE = "service_price";
 
     @Override
-    public Optional<MedicalService> mapEntity(ResultSet resultSet) throws DaoException {
+    public Optional<MedicalService> mapEntity(ResultSet resultSet){
         MedicalService service = new MedicalService();
         Optional<MedicalService> optionalMedicalService;
         try {

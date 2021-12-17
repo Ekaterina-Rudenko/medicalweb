@@ -1,8 +1,6 @@
 package mapper;
 
-import entity.MedicalService;
 import entity.Specialization;
-import exception.DaoException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +11,7 @@ public class SpecializationMapper implements BaseMapper<Specialization>{
     public static final String SPECIALIZATION_NAME = "specialization_name";
 
     @Override
-    public Optional<Specialization> mapEntity(ResultSet resultSet) throws DaoException {
+    public Optional<Specialization> mapEntity(ResultSet resultSet){
         Specialization specialization = new Specialization();
         Optional<Specialization> optionalSpecialization;
         try {
