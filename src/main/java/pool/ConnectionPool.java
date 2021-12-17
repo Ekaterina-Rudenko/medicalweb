@@ -48,11 +48,6 @@ public class ConnectionPool {
             logger.log(Level.ERROR, "No connections were created");
             throw new ExceptionInInitializerError();
         }
-
-        //properties init перенести в другой класс
-        //метод получения конненкшена, внутрь цикла, который создает коннекшн и глушить его логами
-        //после цикла проконтролировать сколько коннекшенов  в пуле, есть смысл выбросить инишиалайзер еррор
-        //если коннекшенов создалось меньше, то можно попробовать досоздать до нужного количества
     }
 
     public static ConnectionPool getInstance() {
