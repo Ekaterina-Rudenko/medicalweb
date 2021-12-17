@@ -46,7 +46,7 @@ public class ConnectionPool {
         }
         if(availableConnections.isEmpty()){
             logger.log(Level.ERROR, "No connections were created");
-            throw new ExceptionInInitializerError();
+            throw new RuntimeException("No connections were created");
         }
     }
 
