@@ -25,7 +25,6 @@ public class User extends AbstractEntity {
     private String password;
     private String email;
     private String phoneNumber;
-    private LocalDateTime registrationDate;
     private UserState state;
     private UserRole role;
 
@@ -35,7 +34,7 @@ public class User extends AbstractEntity {
 
     public User(long userId, String firstName, String middleName, String lastName,
                 String login, String password, String email, String phoneNumber,
-                LocalDateTime registrationDate, UserState state, UserRole role) {
+                UserState state, UserRole role) {
         this.userId = userId;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -44,7 +43,6 @@ public class User extends AbstractEntity {
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.registrationDate = registrationDate;
         this.state = state;
         this.role = role;
     }
@@ -129,14 +127,6 @@ public class User extends AbstractEntity {
         this.role = role;
     }
 
-    public LocalDateTime getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(LocalDateTime registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -150,7 +140,6 @@ public class User extends AbstractEntity {
                 password != null ? password.equals(user.password) : user.password == null &&
                 email != null ? email.equals(user.email) : user.email == null &&
                 phoneNumber != null ? phoneNumber.equals(user.phoneNumber) : user.phoneNumber == null &&
-                registrationDate != null ? registrationDate.equals(user.registrationDate) : user.registrationDate == null&&
                 state == user.state &&
                 role == user.role;
     }
@@ -165,7 +154,6 @@ public class User extends AbstractEntity {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (registrationDate != null ? registrationDate.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
@@ -182,7 +170,6 @@ public class User extends AbstractEntity {
         sb.append(", password='").append(password).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", phoneNumber='").append(phoneNumber).append('\'');
-        sb.append(", registrationDate='").append(registrationDate).append('\'');
         sb.append(", state=").append(state);
         sb.append(", role=").append(role);
         sb.append('}');

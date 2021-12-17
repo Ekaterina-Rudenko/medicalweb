@@ -32,7 +32,7 @@ public class Patient extends User {
     }
 
     public Patient(long userId, String firstName, String middleName, String lastName, String login, String password, String email, String phoneNumber, LocalDateTime registrationDate, UserState state, UserRole role, Gender gender, LocalDate birthDate, BigDecimal balance) {
-        super(userId, firstName, middleName, lastName, login, password, email, phoneNumber, registrationDate, state, role);
+        super(userId, firstName, middleName, lastName, login, password, email, phoneNumber, state, role);
         this.gender = gender;
         this.birthDate = birthDate;
         this.balance = balance;

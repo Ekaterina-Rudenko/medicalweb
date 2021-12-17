@@ -13,7 +13,7 @@ public class Admin extends User {
     }
 
     public Admin(long userId, String firstName, String middleName, String lastName, String login, String password, String email, String phoneNumber, UserState state, LocalDateTime registrationDate, UserRole role, String photoPath) {
-        super(userId, firstName, middleName, lastName, login, password, email, phoneNumber, registrationDate, state, role);
+        super(userId, firstName, middleName, lastName, login, password, email, phoneNumber, state, role);
         this.photoPath = photoPath;
     }
 
