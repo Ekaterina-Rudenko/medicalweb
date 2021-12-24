@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="medicalweb:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>medicalweb</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="medicalweb-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="medicalweb:war exploded" />
+    </root>
+  </artifact>
+</component>
