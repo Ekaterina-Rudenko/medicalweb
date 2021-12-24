@@ -7,7 +7,7 @@ import by.epam.medicalweb.dao.AdminDao;
 import java.util.List;
 
 public class AdminDaoImpl extends AbstractDao<Admin> implements AdminDao {
-    private static final String SQL_FIND_ALL_ADMINS =
+    /*private static final String SQL_FIND_ALL_ADMINS =*/
 
 
     @Override

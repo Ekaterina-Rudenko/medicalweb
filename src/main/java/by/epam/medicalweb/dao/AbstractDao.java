@@ -1,6 +1,7 @@
 package by.epam.medicalweb.dao;
 
 import by.epam.medicalweb.entity.AbstractEntity;
+import by.epam.medicalweb.pool.ProxyConnection;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public abstract class AbstractDao <T extends AbstractEntity> {
     static Logger logger = LogManager.getLogger();
-    protected Connection connection;
+    protected ProxyConnection proxyConnection;
 
     public abstract List<T> findAll();
     public abstract T findEntityById(long id);
@@ -21,7 +22,7 @@ public abstract class AbstractDao <T extends AbstractEntity> {
     public abstract boolean create(T entity);
     public abstract T update(T entity);
 
-    public void close(Statement statement){
+    protected void closeStatement(Statement statement){
         try{
             if (statement != null){
                 statement.close();
@@ -30,5 +31,7 @@ public abstract class AbstractDao <T extends AbstractEntity> {
             logger.log(Level.ERROR, "Failed to close statement", e);
         }
     }
-    void setConnection(Connection connection) {this.connection = connection;}
+
+    void setConnection(Connection connection) {
+        this.proxyConnection = (ProxyConnection) connection;}
 }

@@ -43,9 +43,9 @@
         <Logger name="Log_Console" level="debug" additivity="false">
                 <AppenderRef ref ="Console"/>
         </Logger>
-        <Logger name="Log_File" level="trace" additivity="false">
+        <!--<Logger name="Log_File" level="trace" additivity="false">
             <AppenderRef ref ="File1"/>
-        </Logger>
+        </Logger>-->
        <!-- <Logger name="Zip_File" level="debug" additivity="true">
             <AppenderRef ref ="FileZip"/>
         </Logger>-->
@@ -54,7 +54,7 @@
         </Logger>
 
         <Root level="debug">
-            <AppenderRef ref= "File1"/>
+            <!--<AppenderRef ref= "File1"/>-->
             <AppenderRef ref= "FileRolling"/>
             <AppenderRef ref="Console" level = "trace"/>
         </Root>

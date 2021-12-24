@@ -2,6 +2,7 @@ package by.epam.medicalweb.dao;
 
 import by.epam.medicalweb.pool.ConnectionPool;
 import by.epam.medicalweb.exception.ConnectionPoolException;
+import by.epam.medicalweb.pool.ProxyConnection;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,7 +14,7 @@ public class EntityTransaction {
     static Logger logger = LogManager.getLogger();
     private Connection connection;
 
-    public void begin(AbstractDao dao, AbstractDao... daos) {
+    public void beginTransaction(AbstractDao dao, AbstractDao... daos) {
         if (connection == null) {
             connection = ConnectionPool.getInstance().takeConnection();
         }
@@ -22,13 +23,12 @@ public class EntityTransaction {
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to change connection autocommit", e);
         }
-        dao.setConnection(connection);
         for (AbstractDao daoElement : daos) {
             daoElement.setConnection(connection);
         }
     }
 
-    public void end() throws ConnectionPoolException {
+    public void endTransaction() throws ConnectionPoolException {
         //check
         if (connection != null) {
             try {
@@ -39,6 +39,18 @@ public class EntityTransaction {
             ConnectionPool.getInstance().releaseConnection(connection);
             connection = null;
         }
+    }
+    public void beginQuery(AbstractDao dao) {
+        if (connection == null) {
+            connection = ConnectionPool.getInstance().takeConnection();
+        }
+        dao.setConnection(connection);
+    }
+    public void endQuery() throws ConnectionPoolException {
+        if (connection != null) {
+            ConnectionPool.getInstance().releaseConnection(connection);
+        }
+        connection = null;
     }
     public void commit(){
         try{
