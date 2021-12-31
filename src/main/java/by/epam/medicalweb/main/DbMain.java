@@ -1,6 +1,6 @@
 package by.epam.medicalweb.main;
 
-import by.epam.medicalweb.entity.MedicalService;
+import by.epam.medicalweb.model.entity.MedicalService;
 
 import java.math.BigDecimal;
 import java.sql.*;

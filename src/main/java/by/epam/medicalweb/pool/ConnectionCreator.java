@@ -22,7 +22,7 @@ class ConnectionCreator {
 
     static final String DB_URL;
     static final String DB_DRIVER;
-    //static final String POOL_SIZE;
+    static final int POOL_SIZE;
 
     static {
         try {
@@ -35,6 +35,7 @@ class ConnectionCreator {
             PROPERTY_FILE = resource.getFile();
             properties.load(new FileReader(PROPERTY_FILE));
             DB_DRIVER = (String) properties.get("db.driver");
+            POOL_SIZE = Integer.parseInt((String) properties.get("poolSize"));
         } catch (IOException e) {
             logger.log(Level.FATAL, "Database properties are not defined", e);
             throw new RuntimeException("Database properties are not defined", e);
@@ -56,11 +57,6 @@ class ConnectionCreator {
             instance = new ConnectionCreator();
         }
         return instance;
-    }
-
-    static int getPoolSize() {
-        int poolSize = Integer.parseInt((String) properties.get("poolSize"));
-        return poolSize;
     }
 
     static Connection createConnection() throws ConnectionPoolException {

@@ -20,13 +20,12 @@ public class ConnectionPool {
     private BlockingQueue<ProxyConnection> usedConnections;
     private static ReentrantLock lock = new ReentrantLock();
     private static AtomicBoolean create = new AtomicBoolean(false);
-    private static final int POOL_SIZE = ConnectionCreator.getInstance().getPoolSize();
 
     private ConnectionPool() {
-        availableConnections = new LinkedBlockingQueue<>(POOL_SIZE);
-        usedConnections = new LinkedBlockingQueue<>();
         ConnectionCreator creator = ConnectionCreator.getInstance();
-        for (int i = 0; i < POOL_SIZE; i++) {
+        availableConnections = new LinkedBlockingQueue<>(creator.POOL_SIZE);
+        usedConnections = new LinkedBlockingQueue<>();
+        for (int i = 0; i < creator.POOL_SIZE; i++) {
             try {
                 ProxyConnection connection = new ProxyConnection(creator.createConnection());
                 availableConnections.offer(connection);
@@ -34,8 +33,8 @@ public class ConnectionPool {
                 logger.log(Level.ERROR, "Failed to create connection pool", e);
             }
         }
-        if(availableConnections.size() < POOL_SIZE){
-            for(int i = 0; i < (POOL_SIZE - availableConnections.size()); i++) {
+        if(availableConnections.size() < creator.POOL_SIZE){
+            for(int i = 0; i < (creator.POOL_SIZE - availableConnections.size()); i++) {
                 try {
                     ProxyConnection connection = new ProxyConnection(creator.createConnection());
                     availableConnections.offer(connection);
@@ -94,7 +93,7 @@ public class ConnectionPool {
     }
 
     public void closePool() {
-        for (int i = 0; i <= POOL_SIZE; i++) {
+        for (int i = 0; i <= ConnectionCreator.POOL_SIZE; i++) {
             try {
                 availableConnections.take().reallyClose();
                 logger.log(Level.INFO, "Connection was closed");
