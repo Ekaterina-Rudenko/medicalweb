@@ -9,6 +9,9 @@ import java.util.List;
 public interface VisitDao {
     static final int START_OF_WORKING_DAY = 8;
     static final int FINISH_OF_WORKING_DAY = 18;
+
+    Visit update(Visit entity);
+
     List<Visit> findAllByPatientId(long patientId) throws DaoException;
     List<Visit> findAllByDoctorId(long doctorId) throws DaoException;
     List<Visit> findAllBySpecializationId(long specializationId) throws DaoException;

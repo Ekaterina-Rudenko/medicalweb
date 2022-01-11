@@ -75,18 +75,19 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
             FROM users
             WHERE email = ? AND password = ?;""";
 
+    public UserDaoImpl() {
+    }
 
     @Override
     public List<User> findAll() throws DaoException {
         List<User> userList = new ArrayList<>();
-        PreparedStatement statement = null;
-        try {
-            statement = proxyConnection.prepareStatement(SQL_SELECT_ALL_USERS);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
-                if (optionalUser.isPresent()) {
-                    userList.add(optionalUser.get());
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_ALL_USERS)) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
+                    if (optionalUser.isPresent()) {
+                        userList.add(optionalUser.get());
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -101,9 +102,10 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
         Optional<User> optionalUser = Optional.empty();
         try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_ID)) {
             statement.setLong(1, id);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                optionalUser = new UserMapper().mapEntity(resultSet);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    optionalUser = new UserMapper().mapEntity(resultSet);
+                }
             }
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to find user by id", e);
@@ -115,9 +117,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean delete(long id) throws DaoException {
         boolean isDeleted;
-        PreparedStatement statement = null;
-        try {
-            statement = proxyConnection.prepareStatement(SQL_DELETE_USER_BY_ID);
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_DELETE_USER_BY_ID)) {
             statement.setLong(1, id);
             isDeleted = (statement.executeUpdate() == 1);
             logger.log(Level.DEBUG, "User with id " + id + " was deleted");
@@ -131,9 +131,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean delete(User entity) throws DaoException {
         boolean isDeleted;
-        PreparedStatement statement = null;
-        try {
-            statement = proxyConnection.prepareStatement(SQL_DELETE_USER_BY_ID);
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_DELETE_USER_BY_ID)) {
             statement.setLong(1, entity.getUserId());
             isDeleted = (statement.executeUpdate() == 1);
             logger.log(Level.DEBUG, "User with id " + entity.getUserId() + " was deleted");
@@ -158,10 +156,11 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
             statement.setString(8, entity.getState().getStateValue());
             statement.setString(9, entity.getRole().getRoleValue());
             statement.executeUpdate();
-            ResultSet resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                userId = resultSet.getLong(1);
-                logger.log(Level.DEBUG, " User with id " + userId + " was added to database ");
+            try (ResultSet resultSet = statement.getGeneratedKeys()) {
+                if (resultSet.next()) {
+                    userId = resultSet.getLong(1);
+                    logger.log(Level.DEBUG, " User with id " + userId + " was added to database ");
+                }
             }
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to create user", e);
@@ -171,29 +170,34 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public Optional<User> findUserByLastName(String lastName) throws DaoException {
-        Optional<User> optionalUser = Optional.empty();
+    public List<User> findUserByLastName(String lastName) throws DaoException {
+        List<User> usersList = new ArrayList<>();
         try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_NAME)) {
             statement.setString(1, lastName);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                optionalUser = new UserMapper().mapEntity(resultSet);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
+                    if(optionalUser.isPresent()){
+                        usersList.add(optionalUser.get());
+                    }
+                }
             }
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to find user by name", e);
             throw new DaoException("Failed to find user by name", e);
         }
-        return optionalUser;
+        return usersList;
     }
 
     @Override
     public Optional<User> findUserByLogin(String login) throws DaoException {
         Optional<User> optionalUser = Optional.empty();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_PHONE)) {
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_LOGIN)) {
             statement.setString(1, login);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                optionalUser = new UserMapper().mapEntity(resultSet);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    optionalUser = new UserMapper().mapEntity(resultSet);
+                }
             }
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to find user by login", e);
@@ -207,9 +211,10 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
         Optional<User> optionalUser = Optional.empty();
         try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_EMAIL)) {
             statement.setString(1, email);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                optionalUser = new UserMapper().mapEntity(resultSet);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    optionalUser = new UserMapper().mapEntity(resultSet);
+                }
             }
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to find user by email", e);
@@ -221,11 +226,12 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public Optional<User> findUserByPhoneNumber(String phoneNumber) throws DaoException {
         Optional<User> optionalUser = Optional.empty();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_EMAIL)) {
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_PHONE)) {
             statement.setString(1, phoneNumber);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                optionalUser = new UserMapper().mapEntity(resultSet);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    optionalUser = new UserMapper().mapEntity(resultSet);
+                }
             }
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to find user by phone number", e);
@@ -239,11 +245,12 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
         List<User> userList = new ArrayList<>();
         try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USERS_BY_STATE)) {
             statement.setString(1, userState);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
-                if (optionalUser.isPresent()) {
-                    userList.add(optionalUser.get());
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
+                    if (optionalUser.isPresent()) {
+                        userList.add(optionalUser.get());
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -256,13 +263,14 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public List<User> findUsersByRole(String role) throws DaoException {
         List<User> userList = new ArrayList<>();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USERS_BY_STATE)) {
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USERS_BY_ROLE)) {
             statement.setString(1, role);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
-                if (optionalUser.isPresent()) {
-                    userList.add(optionalUser.get());
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
+                    if (optionalUser.isPresent()) {
+                        userList.add(optionalUser.get());
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -275,7 +283,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserStateById(Long id, String state) throws DaoException {
         boolean isUpdated;
-        try(PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_STATE_BY_ID)){
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_STATE_BY_ID)) {
             statement.setString(1, state);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -289,7 +297,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserFirstNameByID(long id, String firstName) throws DaoException {
         boolean isUpdated;
-        try(PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_FIRST_NAME_BY_ID)){
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_FIRST_NAME_BY_ID)) {
             statement.setString(1, firstName);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -303,7 +311,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserMiddleNameByID(long id, String middleName) throws DaoException {
         boolean isUpdated;
-        try(PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_MIDDLE_NAME_BY_ID)){
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_MIDDLE_NAME_BY_ID)) {
             statement.setString(1, middleName);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -317,7 +325,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserLastNameByID(long id, String lastName) throws DaoException {
         boolean isUpdated;
-        try(PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_LAST_NAME_BY_ID)){
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_LAST_NAME_BY_ID)) {
             statement.setString(1, lastName);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -331,7 +339,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserEmailByID(long id, String email) throws DaoException {
         boolean isUpdated;
-        try(PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_EMAIL_BY_ID)){
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_EMAIL_BY_ID)) {
             statement.setString(1, email);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -345,7 +353,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserPhoneNumberByID(long id, String phoneNumber) throws DaoException {
         boolean isUpdated;
-        try(PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_PHONE_BY_ID)){
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_PHONE_BY_ID)) {
             statement.setString(1, phoneNumber);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -362,9 +370,10 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
         try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_LOGIN_AND_PASSWORD)) {
             statement.setString(1, login);
             statement.setString(2, password);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                optionalUser = new UserMapper().mapEntity(resultSet);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    optionalUser = new UserMapper().mapEntity(resultSet);
+                }
             }
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to find user by phone number due to database error", e);

@@ -15,22 +15,21 @@ import java.util.Properties;
 
 class ConnectionCreator {
     static Logger logger = LogManager.getLogger();
-    static ConnectionCreator instance;
     static final String PROPERTY_FILE_PATH = "data\\database.properties";
     static final Properties properties = new Properties();
     static final String PROPERTY_FILE;
-
     static final String DB_URL;
     static final String DB_DRIVER;
     static final int POOL_SIZE;
+    static ConnectionCreator instance;
 
     static {
         try {
             ClassLoader loader = ConnectionCreator.class.getClassLoader();
             URL resource = loader.getResource(PROPERTY_FILE_PATH);
             if (resource == null) {
-                logger.log(Level.ERROR, "File was not found");
-                throw new IllegalArgumentException();
+                logger.log(Level.ERROR, "File was not found " + PROPERTY_FILE_PATH);
+                throw new IllegalArgumentException("Database properties file was not found");
             }
             PROPERTY_FILE = resource.getFile();
             properties.load(new FileReader(PROPERTY_FILE));

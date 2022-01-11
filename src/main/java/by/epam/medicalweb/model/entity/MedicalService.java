@@ -4,14 +4,16 @@ import java.math.BigDecimal;
 
 public class MedicalService extends AbstractEntity {
     private long serviceId;
+    private Specialization specialization;
     private String serviceName;
     private BigDecimal price;
 
     public MedicalService() {
     }
 
-    public MedicalService(long serviceId, String serviceName, BigDecimal price) {
+    public MedicalService(long serviceId, Specialization specialization, String serviceName, BigDecimal price) {
         this.serviceId = serviceId;
+        this.specialization = specialization;
         this.serviceName = serviceName;
         this.price = price;
     }
@@ -20,6 +22,10 @@ public class MedicalService extends AbstractEntity {
         MedicalService medicalService = new MedicalService();
         public ServiceBuilder setServiceId(long id){
             medicalService.setServiceId(id);
+            return this;
+        }
+        public ServiceBuilder setSpecialization(Specialization specialization){
+            medicalService.setSpecialization(specialization);
             return this;
         }
         public ServiceBuilder setServiceName(String name){
@@ -59,6 +65,14 @@ public class MedicalService extends AbstractEntity {
         this.price = price;
     }
 
+    public Specialization getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,7 +95,8 @@ public class MedicalService extends AbstractEntity {
     public String toString() {
         final StringBuilder sb = new StringBuilder("MedicalService{");
         sb.append("serviceId=").append(serviceId);
-        sb.append(", serviceName='").append(serviceName).append('\'');
+        sb.append(", specialization=").append(specialization);
+        sb.append(", serviceName='").append(serviceName);
         sb.append(", price=").append(price);
         sb.append('}');
         return sb.toString();

@@ -5,13 +5,16 @@ import by.epam.medicalweb.util.Validator;
 import java.util.Map;
 
 public class ValidatorImpl implements Validator {
-    private static ValidatorImpl instance;
+ /*   private static ValidatorImpl instance;
     private static final String INCORRECT_VALUE_PARAMETER = "incorrect";
     private static final String NAME_REGEX = "[А-ЯA-Z][а-яa-z]{3,30}";
     private static final String LOGIN_REGEX = "[a-zA-Z][A-Za-z\\d]{4,30}";
-    private static final String PASSWORD_REGEX = "[a-zA-Z][A-Za-z\\d]{7,29}";
-    private static final String EMAIL_REGEX = "(([A-Za-z\\d._]+){5,25}@([a-z]+){3,7}\\.([a-z]+){2,3})";
+    private static final String PASSWORD_REGEX = "[a-zA-Z][A-Za-z\\d]{7,45}";
+    private static final String EMAIL_REGEX = "(([A-Za-z\\d._]+){3,30}@([a-z]+){2,7}\\.([a-z]+){2,3})";
+    private static final String BIRTDATE_REGEX = "
     private static final String PHONE_NUMBER_REGEX = "\\+375\\(\\d{2}\\)\\d{3}-\\d{2}-\\d{2}";
+    private static final String PHONE_NUMBER_SECOND_REGEX = "\\d{9}";
+
 
     private ValidatorImpl() {
     }
@@ -73,5 +76,5 @@ public class ValidatorImpl implements Validator {
             isValid = false;
         }
         return isValid;
-    }
+    }*/
 }

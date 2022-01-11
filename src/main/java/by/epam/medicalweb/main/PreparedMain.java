@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.Properties;
 
 public class PreparedMain {
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -19,7 +19,7 @@ public class PreparedMain {
         prop.put("characterEncoding", "UTF-8");
         prop.put("useUnicode", "true");
 
-      /*  try (
+      *//*  try (
                 Connection connection = DriverManager.getConnection(url, prop)){
             String sql = "INSERT INTO services (service_id, service_name, service_price) values (?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -30,7 +30,7 @@ public class PreparedMain {
             System.out.println(rowsUpdate);
         }catch (SQLException e){
             e.printStackTrace();
-        }*/
+        }*//*
 
         try (
                 Connection connection = DriverManager.getConnection(url, prop)) {
@@ -48,5 +48,5 @@ public class PreparedMain {
             e.printStackTrace();
         }
 
-    }
+    }*/
 }

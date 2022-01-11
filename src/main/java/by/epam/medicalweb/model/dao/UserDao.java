@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserDao {
-    Optional<User> findUserByLastName(String lastName) throws DaoException;
+    List<User> findUserByLastName(String lastName) throws DaoException;
     Optional<User> findUserByLogin(String login) throws DaoException;
     Optional<User> findUserByEmail(String email) throws DaoException;
     Optional<User> findUserByPhoneNumber(String phoneNumber) throws DaoException;
@@ -20,4 +20,5 @@ public interface UserDao {
     boolean updateUserEmailByID (long id, String email) throws DaoException;
     boolean updateUserPhoneNumberByID (long id, String phoneNumber) throws DaoException;
     Optional<User> findUserByPasswordAndLogin (String login, String password) throws DaoException;
+
 }

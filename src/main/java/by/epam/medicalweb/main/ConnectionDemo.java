@@ -17,7 +17,7 @@ public class ConnectionDemo {
 //            e.printStackTrace();
 //        }
         try {
-           Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/medical_centre", "root", "Rfnzrfnz7830448-");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/medical_centre", "root", "Rfnzrfnz7830448-");
         } catch (SQLException e) {
             e.printStackTrace();
         }

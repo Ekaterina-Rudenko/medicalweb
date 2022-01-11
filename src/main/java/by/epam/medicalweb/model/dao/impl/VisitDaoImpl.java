@@ -5,7 +5,6 @@ import by.epam.medicalweb.model.dao.VisitDao;
 import by.epam.medicalweb.model.entity.Visit;
 import by.epam.medicalweb.exception.DaoException;
 
-import java.sql.SQLData;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
