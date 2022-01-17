@@ -1,0 +1,11 @@
+2022-01-17 02:29:36 [main] FATAL by.epam.medicalweb.pool.ConnectionCreator - Database properties are not defined
+java.io.FileNotFoundException: C:\Users\Rudebox\IdeaProjects\medicalweb\target\classes\data%5cdatabase.properties (Не удается найти указанный файл)
+	at java.io.FileInputStream.open0(Native Method) ~[?:?]
+	at java.io.FileInputStream.open(FileInputStream.java:216) ~[?:?]
+	at java.io.FileInputStream.<init>(FileInputStream.java:157) ~[?:?]
+	at java.io.FileInputStream.<init>(FileInputStream.java:111) ~[?:?]
+	at java.io.FileReader.<init>(FileReader.java:60) ~[?:?]
+	at by.epam.medicalweb.pool.ConnectionCreator.<clinit>(ConnectionCreator.java:35) [classes/:?]
+	at by.epam.medicalweb.pool.ConnectionPool.<init>(ConnectionPool.java:25) [classes/:?]
+	at by.epam.medicalweb.pool.ConnectionPool.getInstance(ConnectionPool.java:57) [classes/:?]
+	at by.epam.medicalweb.main.ConnectionDemo.main(ConnectionDemo.java:26) [classes/:?]

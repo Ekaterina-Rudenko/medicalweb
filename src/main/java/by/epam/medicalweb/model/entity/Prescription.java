@@ -8,10 +8,10 @@ public class Prescription extends AbstractEntity {
     public Prescription() {
     }
 
-    public Prescription(long prescriptionId, long visitId, String prescription) {
+    public Prescription(long prescriptionId, long visitId, String prescriptionText) {
         this.prescriptionId = prescriptionId;
         this.visitId = visitId;
-        this.prescriptionText = prescription;
+        this.prescriptionText = prescriptionText;
     }
 
     public long getPrescriptionId() {

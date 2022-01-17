@@ -21,7 +21,7 @@ public abstract class AbstractDao <T extends AbstractEntity> {
     public abstract Optional<T> findEntityById(long id) throws DaoException;
     public abstract boolean delete(long id) throws DaoException;
     public abstract boolean delete(T entity) throws DaoException;
-    public abstract long create(T entity) throws DaoException;
+    public abstract long create(T entity) throws DaoException, SQLException;
 
     protected void closeStatement(Statement statement){
         try{

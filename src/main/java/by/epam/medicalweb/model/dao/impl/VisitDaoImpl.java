@@ -17,8 +17,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
                 JOIN specializations ON specializations.spec_id = visits.spec_id
                 JOIN users u1 ON u1.user_id = doctor_id
                 JOIN services ON services.service_id = visits.service_id
-                JOIN users u2 ON u2.user_id = visits.patient_id
-            WHERE visits.specialization_id = ? AND visits.visit_date = ?;""";
+                JOIN users u2 ON u2.user_id = visits.patient_id;""";
     private static final String SQL_SELECT_VISIT_BY_ID = """
             SELECT spec_name,u1.last_name AS doctor_surname, service_name, visit_date, visit_time,u2.last_name AS patient_surname, type_payment, visit_state
             FROM visits

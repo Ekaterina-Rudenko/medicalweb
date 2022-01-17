@@ -37,6 +37,12 @@ public class Patient extends User {
         this.birthDate = birthDate;
         this.balance = balance;
     }
+    public Patient(String firstName, String middleName, String lastName, String login, String password, String email, String phoneNumber, LocalDateTime registrationDate, UserState state, UserRole role, Gender gender, LocalDate birthDate, BigDecimal balance) {
+        super(firstName, middleName, lastName, login, password, email, phoneNumber, state, role);
+        this.gender = gender;
+        this.birthDate = birthDate;
+        this.balance = balance;
+    }
     public static class PatientBuilder {
         private Patient patient = new Patient();
 

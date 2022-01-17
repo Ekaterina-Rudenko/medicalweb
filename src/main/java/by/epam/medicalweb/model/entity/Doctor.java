@@ -17,8 +17,6 @@ public class Doctor extends User {
         }
     }
 
-    public static final int START_OF_WORKING_DAY = 8;
-    public static final int FINISH_OF_WORKING_DAY = 18;
     private Category category;
     private String photoPath;
     private long specializationId;
@@ -35,12 +33,22 @@ public class Doctor extends User {
     public Doctor(long userId, String firstName, String middleName, String lastName,
                   String login, String password, String email, String phoneNumber,
                   LocalDateTime registrationDate, UserState state, UserRole role,
-                  Category category, LocalDate experience, String photoPath, long specializationId) {
+                  Category category, String photoPath, long specializationId) {
         super(userId, firstName, middleName, lastName, login, password, email, phoneNumber, state, role, registrationDate);
         this.category = category;
         this.photoPath = photoPath;
         this.specializationId = specializationId;
     }
+    public Doctor(String firstName, String middleName, String lastName,
+                  String login, String password, String email, String phoneNumber,
+                  UserState state, UserRole role,
+                  Category category, String photoPath, long specializationId) {
+        super(firstName, middleName, lastName, login, password, email, phoneNumber, state, role);
+        this.category = category;
+        this.photoPath = photoPath;
+        this.specializationId = specializationId;
+    }
+
     public static class DoctorBuilder {
         private Doctor doctor = new Doctor();
 

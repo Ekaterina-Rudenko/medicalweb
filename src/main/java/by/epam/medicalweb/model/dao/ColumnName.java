@@ -17,10 +17,7 @@ public class ColumnName {
     public static final String BIRTHDATE = "birthdate";
     public static final String BALANCE = "balance";
 
-    public static final String ADMIN_PHOTO = "admin_photo";
-
     public static final String CATEGORY = "category";
-    public static final String EXPERIENCE = "experience";
     public static final String DOCTOR_PHOTO = "doctor_photo";
 
     public static final String SERVICE_ID = "service_id";
@@ -31,8 +28,8 @@ public class ColumnName {
     public static final String VISIT_ID = "visit_id";
     public static final String PRESCRIPTION_TEXT = "prescription_text";
 
-    public static final String SPECIALIZATION_ID = "specialization_id";
-    public static final String SPECIALIZATION_NAME = "specialization_name";
+    public static final String SPECIALIZATION_ID = "spec_id";
+    public static final String SPECIALIZATION_NAME = "spec_name";
 
     public static final String DOCTOR_ID = "doctor_id";
     public static final String VISIT_DATE = "visit_date";

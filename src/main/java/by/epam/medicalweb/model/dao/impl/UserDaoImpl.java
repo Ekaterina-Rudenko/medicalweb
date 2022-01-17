@@ -81,16 +81,15 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public List<User> findAll() throws DaoException {
         List<User> userList = new ArrayList<>();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_ALL_USERS)) {
-            try (ResultSet resultSet = statement.executeQuery()) {
+        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_ALL_USERS);
+             ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
                     if (optionalUser.isPresent()) {
                         userList.add(optionalUser.get());
                     }
                 }
-            }
-        } catch (SQLException e) {
+            } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to find all users, access database error", e);
             throw new DaoException("Failed to find all users, access database error", e);
         }

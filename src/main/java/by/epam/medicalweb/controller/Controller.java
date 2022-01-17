@@ -11,9 +11,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
-import static by.epam.medicalweb.controller.ParameterName.COMMAND;
+import static by.epam.medicalweb.controller.RequestParameterName.COMMAND;
 
-@WebServlet("/controller")
+@WebServlet(name = "controller", urlPatterns = "/controller")
+
 public class Controller extends HttpServlet {
     static Logger logger = LogManager.getLogger();
 

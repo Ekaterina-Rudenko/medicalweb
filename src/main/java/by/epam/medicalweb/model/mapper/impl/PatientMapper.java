@@ -1,6 +1,5 @@
 package by.epam.medicalweb.model.mapper.impl;
 
-import by.epam.medicalweb.model.entity.Doctor;
 import by.epam.medicalweb.model.entity.Patient;
 import by.epam.medicalweb.model.entity.User;
 import by.epam.medicalweb.model.mapper.BaseMapper;
@@ -31,7 +30,7 @@ public class PatientMapper implements BaseMapper<Patient> {
         return optionalPatient;
     }
 
-    public Optional<Patient> mapEntityPartially(ResultSet resultSet) {
+    public Optional<Patient> mapEntityPatientInfo(ResultSet resultSet) {
         Patient patient = new Patient();
         Optional<Patient> optionalPatient;
         try {

@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/log4j-api-2.16.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/mail-1.4.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/activation-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/log4j-core-2.16.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-8.0.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/protobuf-java-3.11.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/commons-codec-1.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/commons-codec-1.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

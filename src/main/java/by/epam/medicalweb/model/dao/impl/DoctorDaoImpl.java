@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
-    static Logger logger = LogManager.getLogger();
+    private static Logger logger = LogManager.getLogger();
 
     private static final String SQL_FIND_DOCTOR_BY_ID = """
             SELECT user_id, first_name, middle_name, last_name, login, password, email, phone, user_state, user_role, registration_date, category, doctor_photo, specialization_id
@@ -26,7 +26,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
             WHERE user_id = (?);""";
 
     private static final String SQL_FIND_DOCTOR_INFO_BY_ID = """
-            SELECT category, doctor_photo, specialization_id
+            SELECT doctor_id, category, doctor_photo, specialization_id
             FROM doctors
             WHERE doctor_id = (?);""";
 
@@ -80,16 +80,16 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public List<Doctor> findAll() throws DaoException {
         List<Doctor> listDoctor = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_ALL_DOCTORS)) {
-            try (ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
-                    Optional<Doctor> optionalDoctor = new DoctorMapper().mapEntity(resultSet);
-                    if (optionalDoctor.isPresent()) {
-                        listDoctor.add(optionalDoctor.get());
-                    }
+        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_ALL_DOCTORS);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                Optional<Doctor> optionalDoctor = new DoctorMapper().mapEntity(resultSet);
+                if (optionalDoctor.isPresent()) {
+                    listDoctor.add(optionalDoctor.get());
                 }
             }
-        } catch (SQLException e) {
+        } catch (
+                SQLException e) {
             logger.log(Level.ERROR, "Failed to select all the doctors", e);
             throw new DaoException("Failed to select all the doctors", e);
         }
@@ -204,7 +204,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    doctor = new DoctorMapper().mapEntity(resultSet);
+                    doctor = new DoctorMapper().mapEntityPartially(resultSet);
                 }
             }
         } catch (SQLException e) {
@@ -285,7 +285,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
             statement.setString(3, photo);
             statement.setLong(4, specializationId);
             isInserted = (statement.executeUpdate() == 1);
-            if(isInserted) {
+            if (isInserted) {
                 logger.log(Level.DEBUG, "Info for doctor with id " + id + " was added to database ");
             }
         } catch (SQLException e) {

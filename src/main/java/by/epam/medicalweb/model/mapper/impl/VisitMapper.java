@@ -11,7 +11,7 @@ import static by.epam.medicalweb.model.dao.ColumnName.*;
 
 public class VisitMapper implements BaseMapper<Visit> {
 
-    public Optional<Visit> mapEntityWithReadableNames(ResultSet resultSet) {
+    public Optional<Visit> mapEntityWithNames(ResultSet resultSet) {
         Visit visit = new Visit();
         Optional<Visit> optionalVisit = null;
         try {
