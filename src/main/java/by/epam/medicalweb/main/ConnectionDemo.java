@@ -23,6 +23,6 @@ public class ConnectionDemo {
        } catch (SQLException e) {
            e.printStackTrace();
        }*/
-      // ConnectionPool.getInstance().takeConnection();
+      //ConnectionPool.getInstance().takeConnection();
    }
 }

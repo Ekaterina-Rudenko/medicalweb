@@ -15,7 +15,6 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.16.0" />
-          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.16.0" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.26" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.15" />
@@ -26,6 +25,8 @@
           <element id="library" level="project" name="Maven: jakarta.el:jakarta.el-api:4.0.0" />
           <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.0" />
           <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:2.0.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.17.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

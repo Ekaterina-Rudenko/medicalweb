@@ -1,4 +1,90 @@
 package by.epam.medicalweb.model.dao.impl;
 
-public class SpecializationDaoImpl {
+import by.epam.medicalweb.exception.DaoException;
+import by.epam.medicalweb.model.dao.AbstractDao;
+import by.epam.medicalweb.model.dao.SpecializationDao;
+import by.epam.medicalweb.model.entity.Specialization;
+import by.epam.medicalweb.model.mapper.impl.SpecializationMapper;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+public class SpecializationDaoImpl extends AbstractDao<Specialization> implements SpecializationDao {
+    private static Logger logger = LogManager.getLogger();
+
+    private static final String SQL_FIND_SPECIALIZATION_BY_ID = """
+            SELECT spec_name
+            FROM specializations
+            WHERE spec_id = (?);""";
+    private static final String SQL_FIND_ALL_SPECIALIZATIONS = """
+            SELECT spec_name
+            FROM specializations
+            ORDER BY spec_name;""";
+    private static final String SQL_DELETE_SPECIALIZATIONS_BY_ID = """
+            DELETE
+            FROM specializations
+            WHERE spec_id = (?);""";
+    private static final String SQL_UPDATE_SPECIALIZATIONS_BY_ID = """
+            UPDATE specializations
+            SET spec_name = ?
+            WHERE spec_id = (?);""";
+
+    public SpecializationDaoImpl(){}
+    @Override
+    public List<Specialization> findAll() throws DaoException {
+        List<Specialization> listSpecialization = new ArrayList<>();
+        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_ALL_SPECIALIZATIONS);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                Optional<Specialization> optionalSpecialization = new SpecializationMapper().mapEntity(resultSet);
+                if (optionalSpecialization.isPresent()) {
+                    listSpecialization.add(optionalSpecialization.get());
+                }
+            }
+        } catch (
+                SQLException e) {
+            logger.log(Level.ERROR, "Failed to select all the specialization", e);
+            throw new DaoException("Failed to select all the specialization", e);
+        }
+        return listSpecialization;
+    }
+
+    @Override
+    public Optional<Specialization> findEntityById(long id) throws DaoException {
+        Optional<Specialization> specialization = Optional.empty();
+        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_SPECIALIZATION_BY_ID)) {
+            statement.setLong(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    specialization = new SpecializationMapper().mapEntity(resultSet);
+                }
+            }
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Failed to select specialization by id", e);
+            throw new DaoException("Failed to select specialization by id", e);
+        }
+        return specialization;
+    }
+
+    @Override
+    public boolean delete(long id) throws DaoException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(Specialization entity) throws DaoException {
+        return false;
+    }
+
+    @Override
+    public long create(Specialization entity) throws DaoException, SQLException {
+        return 0;
+    }
 }

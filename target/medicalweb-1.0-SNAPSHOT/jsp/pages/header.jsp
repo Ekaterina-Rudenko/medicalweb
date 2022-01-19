@@ -6,12 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmr" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<fmt:setLocale value="${language}" scope="session"/>
-<fmt:setBundle basename="bundle.language"/>
+<fmt:setLocale value="${sessionScope.locale}" scope="session"/>
+<fmt:setBundle basename="bundle/locale"/>
 
 <fmt:message key="header.home" var="home"/>
 <fmt:message key="header.title" var="title"/>
@@ -32,27 +31,32 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/style.css">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
     <title>Title</title>
-
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/pages/main.jsp">
-            <img src="${pageContext.request.contextPath}/images/logo.jpg" alt="logo"/></a>
-
+            <img src="${pageContext.request.contextPath}/images/logo.jpg" alt="logo" width="130" height="130"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav">
+                <li class="nav-item fixed-top text-center">
+                    <span class="navbar-brand mb-0 h1">${title}</span>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
                        href=${pageContext.request.contextPath}/jsp/pages/main.jsp">${home}</a>
@@ -75,17 +79,20 @@
                 </li>
 
 
-
-
-            </ul>>
+            </ul>
+            <div id="locale">
+                <p>${language}</p>
+                <div>
+                    <p><a href="${pageContext.request.contextPath}/controller?command=change_locale&locale=en">EN</a></p>
+                    <p><a href="${pageContext.request.contextPath}/controller?command=change_locale&locale=ru">RU</a></p>
+                </div>
+            </div>
 
         </div>
     </div>
 
 
-
 </nav>
-
 
 
 </body>

@@ -5,7 +5,7 @@ public class Router {
         FORWARD, REDIRECT
     }
 
-    private String page = PagePath.INDEX_PAGE;
+    private String page = PagePath.MAIN_PAGE;
     private RouterType routerType = RouterType.FORWARD;
 
     public Router(String pagePath, RouterType routerType) {

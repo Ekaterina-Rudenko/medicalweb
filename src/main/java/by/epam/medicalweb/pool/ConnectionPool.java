@@ -69,6 +69,7 @@ public class ConnectionPool {
         try {
             connection = availableConnections.take();
             usedConnections.offer(connection);
+            logger.log(Level.INFO, "Connection was taken");
         } catch (InterruptedException e) {
             logger.log(Level.ERROR, "Failed to take connection");
             Thread.currentThread().interrupt();

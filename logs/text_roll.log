@@ -9,3 +9,5 @@ java.io.FileNotFoundException: C:\Users\Rudebox\IdeaProjects\medicalweb\target\c
 	at by.epam.medicalweb.pool.ConnectionPool.<init>(ConnectionPool.java:25) [classes/:?]
 	at by.epam.medicalweb.pool.ConnectionPool.getInstance(ConnectionPool.java:57) [classes/:?]
 	at by.epam.medicalweb.main.ConnectionDemo.main(ConnectionDemo.java:26) [classes/:?]
+2022-01-19 20:35:41 [main] INFO  by.epam.medicalweb.pool.ConnectionPool - Connection was taken
+2022-01-19 20:45:12 [main] INFO  by.epam.medicalweb.pool.ConnectionPool - Connection was taken

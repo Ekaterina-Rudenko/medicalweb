@@ -1,10 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Index</title>
-</head>
+    <title>Title</title></head>
 <body>
-<h1>HELLO</h1>
-<a href="jsp/pages/header.jsp">go to main</a>
+<jsp:forward page="/jsp/pages/main.jsp"></jsp:forward>
 </body>
 </html>
