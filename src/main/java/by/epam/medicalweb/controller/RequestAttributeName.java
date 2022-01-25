@@ -4,4 +4,6 @@ public class RequestAttributeName {
     public static final String CURRENT_PAGE = "current_page";
     public static final String LOCALE = "locale";
     public static final String SPECIALIZATION_LIST = "specialization_list";
+    public static final String WRONG_COMMAND = "wrong_command";
+
 }

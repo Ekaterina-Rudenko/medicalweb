@@ -41,7 +41,6 @@ public class User extends AbstractEntity {
     private UserRole role;
     private LocalDateTime registrationDate;
 
-
     public User() {
     }
 

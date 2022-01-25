@@ -38,6 +38,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Title</title>
 </head>
 
@@ -77,16 +78,17 @@
                     <a class="nav-link active" aria-current="page"
                        href="${pageContext.request.contextPath}/jsp/pages/contacts.jsp">${contacts}</a>
                 </li>
-
-
             </ul>
-            <div id="locale">
-                <p>${language}</p>
-                <div>
-                    <p><a href="${pageContext.request.contextPath}/controller?command=change_locale&locale=en">EN</a></p>
-                    <p><a href="${pageContext.request.contextPath}/controller?command=change_locale&locale=ru">RU</a></p>
+                <div class="dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                        ${language}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/controller?command_name=change_locale&amp;locale=en">ENG</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/controller?command_name=change_locale&amp;locale=ru">RU</a></li>
+                    </ul>
                 </div>
-            </div>
+
 
         </div>
     </div>

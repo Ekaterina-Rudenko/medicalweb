@@ -8,17 +8,15 @@ public class CommandFactory {
     private static Logger logger = LogManager.getLogger();
 
     public static Command defineCommandType(String command) {
-        Command definedCommand;
-        if (command == null || command.isEmpty()) {
-            return CommandType.DEFAULT.getCommand();
-        }
+        Command definedCommand = CommandType.DEFAULT.getCommand();
         try{
-            definedCommand = CommandType.valueOf(command.toUpperCase()).getCommand();
+            if (command != null && !command.isEmpty()) {
+                CommandType commandType = CommandType.valueOf(command.toUpperCase());
+                definedCommand = commandType.getCommand();
+            }
         } catch (IllegalArgumentException e){
             logger.log(Level.ERROR, "Error while defining command type ", e);
-            definedCommand = CommandType.DEFAULT.getCommand();
         }
         return definedCommand;
     }
-
 }
