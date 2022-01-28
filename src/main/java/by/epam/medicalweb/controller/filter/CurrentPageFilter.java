@@ -1,6 +1,6 @@
 package by.epam.medicalweb.controller.filter;
 
-import by.epam.medicalweb.controller.SessionAttribute;
+import by.epam.medicalweb.controller.command.SessionAttribute;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,7 +17,7 @@ public class CurrentPageFilter implements Filter {
         String currentPage = httpRequest.getRequestURL().toString();
 
         if (currentPage.contains("jsp/")) {
-            int index = currentPage.indexOf("jsp/") ;
+            int index = currentPage.indexOf("jsp/") + 5;
             currentPage = currentPage.substring(index);
             httpRequest.getSession().setAttribute(SessionAttribute.CURRENT_PAGE, currentPage);
         }

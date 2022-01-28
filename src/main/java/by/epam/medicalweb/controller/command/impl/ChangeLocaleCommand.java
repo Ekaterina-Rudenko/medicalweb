@@ -1,13 +1,10 @@
 package by.epam.medicalweb.controller.command.impl;
 
-import by.epam.medicalweb.controller.*;
+import by.epam.medicalweb.controller.command.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import static by.epam.medicalweb.controller.SessionAttribute.LANGUAGE;
 
 public class ChangeLocaleCommand implements Command {
     private static Logger logger = LogManager.getLogger();

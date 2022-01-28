@@ -10,135 +10,154 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2c2eda0-36d9-40e5-b78e-a6e45e8657b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowPatientVisitCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/CurrentPageFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/LocaleFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/listener/SessionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/error/error400.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cfe14194-493b-4a0b-90c8-3d9bef24b598/storage_v2/_src_/schema/information_schema.FNRwLQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cfe14194-493b-4a0b-90c8-3d9bef24b598/storage_v2/_src_/schema/information_schema.FNRwLQ.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_1_2_api_2_11_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/UploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/PatientServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/VisitServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/appointment.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/registration.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.by.epam.medicalweb/ValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/medicalweb_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/medicalweb_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cfe14194-493b-4a0b-90c8-3d9bef24b598.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cfe14194-493b-4a0b-90c8-3d9bef24b598.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_16_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_17_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/text_roll.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/text_roll.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/CommandFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/PagePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/PagePath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/RequestAttributeName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/RequestAttributeName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/medicalweb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/medicalweb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/CommandFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/CommandType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/PagePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/PagePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/RequestAttributeName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/RequestAttributeName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/RequestParameterName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/RequestParameterName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/SessionAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/SessionAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/AddPrescriptionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/AddPrescriptionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/CancelVisitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/CancelVisitCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ChangeLocaleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ChangeLocaleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ChangePasswordCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ChangePasswordCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/CreateVisitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/CreateVisitCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/DefaultCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/DefaultCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/CommandAccessFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/CommandRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/EncodingFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/ServletSecurityFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/listener/ContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/listener/ContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/main/ConnectionDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/main/ConnectionDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/entity/entityMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bundle/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bundle/locale_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bundle/locale_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bundle/locale_ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/EditProfileCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/EditProfileCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/EditServiceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/EditServiceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/FindUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/FindUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/InsertNewServiceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/InsertNewServiceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/LogInCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/LogInCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/LogOutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/LogOutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/RegisterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/RegisterCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllDoctorsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllDoctorsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllServicesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllServicesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllSpecializationsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllSpecializationsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllUsersCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllVisitsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllVisitsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowPatientVisitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowPatientVisitCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowPrescriptionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowPrescriptionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/UploadPhotoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/UploadPhotoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/CurrentPageFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/CurrentPageFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/LocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/filter/LocaleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/listener/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/listener/SessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/main/DbMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/main/DbMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/PrescriptionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/PrescriptionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/SpecializationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/SpecializationDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/VisitDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/VisitDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/impl/PrescriptionDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/impl/PrescriptionDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/impl/SpecializationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/impl/SpecializationDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/impl/VisitDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/dao/impl/VisitDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/util/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/util/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/util/impl/ValidatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/util/impl/ValidatorImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/error/error500.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/error/error500.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/pages/about_us.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/about_us.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/pages/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/pages/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bundle/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bundle/locale_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bundle/locale_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bundle/locale_ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/CommandFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/CommandFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/CommandType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/CommandType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/pages/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.by.epam.medicalweb/resources/test.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/CommandFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/CommandType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/PagePath.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/PagePath.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/RequestAttributeName.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/RequestAttributeName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Router.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Router.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/PagePath.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/RequestAttributeName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/RequestParameterName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Router$RouterType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/Router.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/SessionAttribute.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/AddPrescriptionCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/AddPrescriptionCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/CancelVisitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/CancelVisitCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ChangeLocaleCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ChangeLocaleCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ChangePasswordCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ChangePasswordCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/CreateVisitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/CreateVisitCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/DefaultCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/DefaultCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/EditProfileCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/EditProfileCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/EditServiceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/EditServiceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/FindUserCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/FindUserCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/InsertNewServiceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/InsertNewServiceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/LogInCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/LogInCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/LogOutCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/LogOutCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/RegisterCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/RegisterCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllDoctorsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllDoctorsCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllServicesCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllServicesCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllSpecializationsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllSpecializationsCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/filter/CommandAccessFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/filter/CommandRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/filter/EncodingFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/filter/ServletSecurityFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/listener/ContextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/listener/ContextListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/main/ConnectionDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/main/ConnectionDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/entity/User$UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/entity/entityMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/bundle/language_en.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/bundle/language_ru.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/bundle/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/bundle/locale_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/bundle/locale_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/bundle/locale_ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/Email.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/MailProperty.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/MailSender$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/MailSender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/SessionCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllUsersCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllUsersCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllVisitsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowAllVisitsCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowPatientVisitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowPatientVisitCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowPrescriptionCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/ShowPrescriptionCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/UploadPhotoCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/impl/UploadPhotoCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/filter/CurrentPageFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/filter/CurrentPageFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/listener/SessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/listener/SessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/PrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/PrescriptionDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/SpecializationDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/SpecializationDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/VisitDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/VisitDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/impl/PrescriptionDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/impl/PrescriptionDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/impl/SpecializationDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/impl/SpecializationDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/impl/VisitDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/dao/impl/VisitDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/util/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/util/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/util/impl/ValidatorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/util/impl/ValidatorImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/CommandFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/CommandFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/CommandType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/CommandType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/PagePath.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/PagePath.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/ParameterName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/RequestAttributeName.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/RequestAttributeName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/Router.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/Router.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/AddPrescriptionCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/AddPrescriptionCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/CancelVisitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/CancelVisitCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ChangeLocaleCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ChangeLocaleCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ChangePasswordCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ChangePasswordCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/CreateVisitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/CreateVisitCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/DefaultCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/DefaultCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/EditProfileCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/EditProfileCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/EditServiceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/EditServiceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/FindUserCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/FindUserCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/InsertNewServiceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/InsertNewServiceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/LogInCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/LogInCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/LogOutCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/LogOutCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/RegisterCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/RegisterCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllDoctorsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllDoctorsCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllServicesCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllServicesCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllSpecializationsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllSpecializationsCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/filter/CommandAccessFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/filter/CommandRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/filter/EncodingFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/filter/ServletSecurityFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/listener/ContextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/listener/ContextListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/AbstractDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/AdminDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/DoctorDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/EntityTransaction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/MedicalServiceDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/PatientDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/PrescriptionDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/SpecializationDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/VisitDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/impl/AdminDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/impl/DoctorDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/dao/impl/VisitDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/AbstractEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Doctor$Category.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Doctor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/MedicalService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Patient$Gender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Patient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Prescription.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Specialization.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/User$UserRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/User$UserState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Visit$TypePayment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Visit$VisitState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/entity/Visit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/main/ConnectionDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/main/ConnectionDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/BaseMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/impl/AdminMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/impl/DoctorMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/impl/MedicalServiceMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/impl/PatientMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/impl/PrescriptionMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/impl/SpecializationMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/impl/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/mapper/impl/VisitMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/entity/User$UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/localization/language_en_US.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/localization/language_ru_RU.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllUsersCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllUsersCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllVisitsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowAllVisitsCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowPatientVisitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowPatientVisitCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowPrescriptionCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/ShowPrescriptionCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/UploadPhotoCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/impl/UploadPhotoCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/filter/CurrentPageFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/filter/CurrentPageFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/listener/SessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/listener/SessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/PrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/PrescriptionDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/SpecializationDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/SpecializationDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/VisitDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/VisitDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/impl/PrescriptionDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/impl/PrescriptionDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/impl/SpecializationDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/impl/SpecializationDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/impl/VisitDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/dao/impl/VisitDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/mail/mail.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/commons-codec-1.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/log4j-core-2.16.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/lib/mail-1.4.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/error/error500.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/error/error500.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/about_us.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/about_us.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/pages/error500.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/pages/main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/uploads/f89e830a-433b-4e14-919f-dbe868ae2296.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/main.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,13 +167,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/jsp/pages/header.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -209,7 +231,7 @@
       <recent name="C:\Users\Rudebox\IdeaProjects\medicalweb\src\main\webapp\error" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.0.14">
+  <component name="RunManager" selected="Application.ConnectionDemo">
     <configuration name="ConnectionDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="by.epam.medicalweb.main.ConnectionDemo" />
       <module name="medicalweb" />
@@ -250,6 +272,54 @@
         </MavenSettings>
         <targetMavenLocalRepo />
       </QsMavenRunConfiguration>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidatorTest.checkBirthDateTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="medicalweb" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ValidatorTest" />
+      <option name="METHOD_NAME" value="checkBirthDateTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidatorTest.checkLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="medicalweb" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ValidatorTest" />
+      <option name="METHOD_NAME" value="checkLoginTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidatorTest.checkPasswordTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="medicalweb" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ValidatorTest" />
+      <option name="METHOD_NAME" value="checkPasswordTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidatorTest.checkPhoneNumberTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="medicalweb" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ValidatorTest" />
+      <option name="METHOD_NAME" value="checkPhoneNumberTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -344,11 +414,19 @@
     <list>
       <item itemvalue="Application.ConnectionDemo" />
       <item itemvalue="Quarkus.Unnamed" />
+      <item itemvalue="TestNG.ValidatorTest.checkLoginTest" />
+      <item itemvalue="TestNG.ValidatorTest.checkPasswordTest" />
+      <item itemvalue="TestNG.ValidatorTest.checkPhoneNumberTest" />
+      <item itemvalue="TestNG.ValidatorTest.checkBirthDateTest" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.14" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ConnectionDemo" />
+        <item itemvalue="TestNG.ValidatorTest.checkBirthDateTest" />
+        <item itemvalue="TestNG.ValidatorTest.checkPhoneNumberTest" />
+        <item itemvalue="TestNG.ValidatorTest.checkPasswordTest" />
+        <item itemvalue="TestNG.ValidatorTest.checkLoginTest" />
       </list>
     </recent_temporary>
   </component>
@@ -377,7 +455,14 @@
       <workItem from="1643003846955" duration="3883000" />
       <workItem from="1643021933745" duration="5186000" />
       <workItem from="1643066868205" duration="10459000" />
-      <workItem from="1643093673129" duration="1895000" />
+      <workItem from="1643093673129" duration="7984000" />
+      <workItem from="1643108381715" duration="10685000" />
+      <workItem from="1643202016242" duration="2511000" />
+      <workItem from="1643242195406" duration="5438000" />
+      <workItem from="1643248316014" duration="2126000" />
+      <workItem from="1643250624564" duration="10000" />
+      <workItem from="1643256822085" duration="15220000" />
+      <workItem from="1643352986607" duration="598000" />
     </task>
     <servers />
   </component>

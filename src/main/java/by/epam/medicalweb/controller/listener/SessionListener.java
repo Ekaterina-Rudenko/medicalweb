@@ -1,13 +1,13 @@
 package by.epam.medicalweb.controller.listener;
 
-import by.epam.medicalweb.controller.PagePath;
+import by.epam.medicalweb.controller.command.PagePath;
 import by.epam.medicalweb.model.entity.User;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
 
-import static by.epam.medicalweb.controller.SessionAttribute.*;
+import static by.epam.medicalweb.controller.command.SessionAttribute.*;
 @WebListener
 public class SessionListener implements HttpSessionListener {
     private static final String DEFAULT_LOCALE = "en_US";

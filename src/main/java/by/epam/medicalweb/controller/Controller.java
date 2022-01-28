@@ -1,5 +1,9 @@
 package by.epam.medicalweb.controller;
 
+import by.epam.medicalweb.controller.command.Command;
+import by.epam.medicalweb.controller.command.CommandFactory;
+import by.epam.medicalweb.controller.command.PagePath;
+import by.epam.medicalweb.controller.command.Router;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,10 +15,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
-import static by.epam.medicalweb.controller.RequestParameterName.COMMAND;
+import static by.epam.medicalweb.controller.command.RequestParameterName.COMMAND;
 
 @WebServlet(name = "controller", urlPatterns = "/controller")
-
 public class Controller extends HttpServlet {
     static Logger logger = LogManager.getLogger();
 

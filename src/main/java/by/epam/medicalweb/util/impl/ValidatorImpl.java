@@ -2,18 +2,18 @@ package by.epam.medicalweb.util.impl;
 
 import by.epam.medicalweb.util.Validator;
 
-import java.util.Map;
-
 public class ValidatorImpl implements Validator {
- /*   private static ValidatorImpl instance;
+    private static ValidatorImpl instance;
     private static final String INCORRECT_VALUE_PARAMETER = "incorrect";
-    private static final String NAME_REGEX = "[А-ЯA-Z][а-яa-z]{3,30}";
-    private static final String LOGIN_REGEX = "[a-zA-Z][A-Za-z\\d]{4,30}";
-    private static final String PASSWORD_REGEX = "[a-zA-Z][A-Za-z\\d]{7,45}";
-    private static final String EMAIL_REGEX = "(([A-Za-z\\d._]+){3,30}@([a-z]+){2,7}\\.([a-z]+){2,3})";
-    private static final String BIRTDATE_REGEX = "
-    private static final String PHONE_NUMBER_REGEX = "\\+375\\(\\d{2}\\)\\d{3}-\\d{2}-\\d{2}";
+    private static final String NAME_REGEX = "[А-Я\\p{Upper}][а-яё\\p{Lower}]{1,30}";;
+    private static final String LOGIN_REGEX = "\\w{4,30}";
+    private static final String PASSWORD_REGEX = "\\w{7,45}";
+    private static final String EMAIL_REGEX =  "(([\\w.]+){5,25}@([\\p{Lower}]+){3,7}\\.([\\p{Lower}]+){2,3})";
+    private static final String BIRTHDATE_REGEX = "(((19\\d{2})|(20[0-2]\\d))-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1]))";;
+    private static final String PHONE_NUMBER_REGEX = "(25|29|33|44)\\d{7}";;
     private static final String PHONE_NUMBER_SECOND_REGEX = "\\d{9}";
+    private static final String MONEY_REGEX = "\\d{1,4}\\.?\\d{0,2}";
+    private static final String PHOTO_URL_REGEX = "([^\\s]+(\\.(?i)(jpe?g|png|gif|bmp))$)";
 
 
     private ValidatorImpl() {
@@ -25,7 +25,7 @@ public class ValidatorImpl implements Validator {
         }
         return instance;
     }
-    @Override
+@Override
     public boolean checkName(String name) {
         return name != null && name.matches(NAME_REGEX);
     }
@@ -40,7 +40,6 @@ public class ValidatorImpl implements Validator {
         return password != null && password.matches(PASSWORD_REGEX);
     }
 
-
     @Override
     public boolean checkEmail(String email) {
         return email != null && email.matches(EMAIL_REGEX);
@@ -50,9 +49,20 @@ public class ValidatorImpl implements Validator {
     public boolean checkPhoneNumber(String number) {
         return number != null && number.matches(PHONE_NUMBER_REGEX);
     }
-
     @Override
-    public boolean checkUserData(Map<String, String> userData) {
+    public boolean checkBirthDate(String date) {
+        return date != null && date.matches(BIRTHDATE_REGEX);
+    }
+    @Override
+    public boolean checkMoney(String price) {
+        return price != null && price.matches(MONEY_REGEX);
+    }
+    @Override
+    public boolean checkPhotoUrl(String photoUrl) {
+        return photoUrl != null && photoUrl.matches(PHOTO_URL_REGEX);
+    }
+
+/*    public boolean checkUserData(Map<String, String> userData) {
         boolean isValid = true;
         if (!checkName(userData.get(NAME))) {
             userData.put(NAME, INCORRECT_VALUE_PARAMETER);
@@ -75,6 +85,6 @@ public class ValidatorImpl implements Validator {
             userData.put(PHONE_NUMBER, INCORRECT_VALUE_PARAMETER);
             isValid = false;
         }
-        return isValid;
-    }*/
+        return isValid;*/
+
 }

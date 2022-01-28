@@ -10,16 +10,15 @@ public interface VisitDao {
     static final int START_OF_WORKING_DAY = 8;
     static final int FINISH_OF_WORKING_DAY = 18;
 
-    Visit update(Visit entity);
-
     List<Visit> findAllByPatientId(long patientId) throws DaoException;
     List<Visit> findAllByDoctorId(long doctorId) throws DaoException;
     List<Visit> findAllBySpecializationId(long specializationId) throws DaoException;
     List<Visit> findAllByServiceId(long serviceId) throws DaoException;
     List<Visit> findAllByVisitDate(LocalDate date) throws DaoException;
     List<Visit> findAllByPaymentType(Visit.TypePayment paymentType) throws DaoException;
+    boolean updateVisitDateAndTime(long visitId, LocalDate visitDate, int time) throws DaoException;
     boolean updateVisitStateByVisitId(long visitId, Visit.VisitState visitState)throws DaoException;
-
+    List<Integer> findAvailableTime(LocalDate visitDate, long doctorId) throws DaoException;
 
 
 }

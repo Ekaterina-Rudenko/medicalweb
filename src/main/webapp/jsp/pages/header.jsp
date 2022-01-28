@@ -33,12 +33,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/style.css">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
     <title>Title</title>
 </head>
 
@@ -53,7 +51,7 @@
         </button>
 
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <li class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item fixed-top text-center">
                     <span class="navbar-brand mb-0 h1">${title}</span>
@@ -79,22 +77,50 @@
                        href="${pageContext.request.contextPath}/jsp/pages/contacts.jsp">${contacts}</a>
                 </li>
 
-                <div class="dropdown">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                <li>
+                    <form class="container-fluid justify-content-start">
+                        <button class="btn btn-outline-success me-2" type="button">
+                            <a href="${pageContext.request.contextPath}/jsp/pages/appointment.jsp">${make_an_appointment}</a>
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary" type="button">
+                            <a href="${pageContext.request.contextPath}/jsp/pages/registration.jsp">${register}</a>
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary" type="button">
+                            <a href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${log_in}</a></button>
+                    </form>
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         ${language}
-                    </button>
+                    </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/controller?command_name=change_locale&amp;locale=en">ENG</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/controller?command_name=change_locale&amp;locale=ru">RU</a></li>
+                        <li><a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/controller?command=change_locale&locale=en">ENG</a>
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/controller?command=change_locale&locale=ru">RU</a>
+                        </li>
                     </ul>
-                </div>
+                </li>
 
             </ul>
-        </div>
+    </div>
     </div>
 
 
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+</body>
+</html>
 
 
 </body>

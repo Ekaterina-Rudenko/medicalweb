@@ -1,15 +1,15 @@
 package by.epam.medicalweb.controller.filter;
 
-import by.epam.medicalweb.controller.RequestAttributeName;
+/*import by.epam.medicalweb.controller.command.RequestAttributeName;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 
-/*@WebFilter(urlPatterns = {"/jsp/*"})*/
-public class LocaleFilter /*implements Filter*/ {
-/*    private static final String EN = "en";
+@WebFilter(urlPatterns = {"/jsp/*"})*/
+public class LocaleFilter /*implements Filter */{
+/*   private static final String EN = "en";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

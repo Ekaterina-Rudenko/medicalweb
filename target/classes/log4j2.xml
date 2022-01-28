@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="info">
+<Configuration status="WARN">
     <Properties>
-        <property name="LOG_DIR">logs</property>
         <property name="pattern_file">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{5} - %msg%n</property>
         <property name="pattern_console">%d{HH:mm:ss} %-5level %logger{1} - %msg%n</property>
     </Properties>
@@ -9,19 +8,15 @@
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="${pattern_console}"/>
-            <Filters>
-                <MarkerFilter marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL"/>
-                <MarkerFilter marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
-            </Filters>
         </Console>
 
         <File name="File1" fileName="${LOG_DIR}/text.log" bufferedIO="true">
             <PatternLayout pattern="${pattern_file}"/>
         </File>
 
-        <RollingFile name="FileRolling"  fileName="logs/text_roll.log"
-                     append="true"
-                     filePattern="logs/${date:yyyy-MM-dd}/%d{yyyy-MM-dd_HH-mm}_%i.log">
+        <RollingFile name="FileRolling" fileName="log/app.log"
+                     filePattern="log/app-%d{MM-dd-yyyy}.log.gz"
+                     ignoreExceptions="false">
             <PatternLayout pattern="${pattern_file}"/>
             <Policies>
                 <SizeBasedTriggeringPolicy size="10 KB"/>
@@ -30,16 +25,16 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Logger name="Log_Console" level="info" additivity="false">
+      <!--  <Logger name="Log_Console" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="Rolling_File" level="info" additivity="false" >
+        <Logger name="Rolling_File" level="info" additivity="false">
             <AppenderRef ref="FileRolling"/>
-        </Logger>
+        </Logger>-->
 
-        <Root level="info">
+        <Root level="debug">
             <AppenderRef ref="FileRolling"/>
-            <AppenderRef ref="Console" level="trace"/>
+            <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
 </Configuration>
