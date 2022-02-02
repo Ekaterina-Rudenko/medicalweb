@@ -26,7 +26,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
             JOIN patients ON users.user_id = patients.patient_id
             WHERE user_id = (?);""";
     private static final String SQL_FIND_PATIENT_INFO_BY_ID = """
-            SELECT gender, birthdate, balance
+            SELECT patient_id, gender, birthdate, balance
             FROM patients
             WHERE patient_id = (?);""";
     private static final String SQL_FIND_ALL_PATIENTS = """
@@ -57,7 +57,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
     @Override
     public List<Patient> findAll() throws DaoException {
         List<Patient> listPatient = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_ALL_PATIENTS);
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_ALL_PATIENTS);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Optional<Patient> optionalPatient = new PatientMapper().mapEntity(resultSet);
@@ -75,7 +75,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
     @Override
     public Optional<Patient> findEntityById(long id) throws DaoException {
         Optional<Patient> patient = Optional.empty();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_PATIENT_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_PATIENT_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -91,7 +91,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
 
     @Override
     public boolean delete(long id) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_PATIENT_INFO_BY_ID)){
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_PATIENT_INFO_BY_ID)){
             statement.setLong(1, id);
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -103,7 +103,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
 
     @Override
     public boolean delete(Patient entity) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_PATIENT_INFO_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_PATIENT_INFO_BY_ID)) {
             statement.setLong(1, entity.getUserId());
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -116,10 +116,10 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
     @Override
     public long create(Patient entity) throws DaoException {
         long patientId = 0;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_INSERT_PATIENT_INFO)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_INSERT_PATIENT_INFO)) {
             statement.setLong(1, entity.getUserId());
-            statement.setString(2, entity.getGender().toString());
-            statement.setDate(3, Date.valueOf(entity.getBirthDate()));
+            statement.setString(2, entity.getGender().getGenderString());
+            statement.setDate(3, Date.valueOf(entity.getBirthDate().toString()));
             int isUpdated = statement.executeUpdate();
             if (isUpdated == 1) {
                 patientId = entity.getUserId();
@@ -135,7 +135,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
     @Override
     public boolean updatePatientBalance(long patientId, BigDecimal money) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_BALANCE_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_BALANCE_BY_ID)) {
             statement.setBigDecimal(1, money);
             statement.setLong(2, patientId);
             isUpdated = (statement.executeUpdate() == 1);
@@ -149,7 +149,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
     @Override
     public List<Patient> findPatientsByLastName(String lastName) throws DaoException {
         List<Patient> listPatient = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_PATIENT_BY_LAST_NAME)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_PATIENT_BY_LAST_NAME)) {
             statement.setString(1, lastName);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -168,7 +168,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
     @Override
     public Optional<Patient> findPatientInfoById(long id) throws DaoException {
         Optional<Patient> patient = Optional.empty();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_PATIENT_INFO_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_PATIENT_INFO_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {

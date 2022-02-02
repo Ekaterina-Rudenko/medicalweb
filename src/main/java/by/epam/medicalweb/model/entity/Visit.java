@@ -1,6 +1,5 @@
 package by.epam.medicalweb.model.entity;
 
-import javax.print.Doc;
 import java.time.LocalDate;
 
 public class Visit extends AbstractEntity {
@@ -12,7 +11,7 @@ public class Visit extends AbstractEntity {
             this.typeOfPayment = typeOfPayment;
         }
 
-        public String getTypeOfPayment() {
+        public String getTypePaymentString() {
             return typeOfPayment;
         }
     }
@@ -25,7 +24,7 @@ public class Visit extends AbstractEntity {
             this.visitState = visitState;
         }
 
-        public String getVisitState() {
+        public String getStateString() {
             return visitState;
         }
     }

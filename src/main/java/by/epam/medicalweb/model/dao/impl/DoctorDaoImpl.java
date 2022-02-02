@@ -80,7 +80,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public List<Doctor> findAll() throws DaoException {
         List<Doctor> listDoctor = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_ALL_DOCTORS);
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_ALL_DOCTORS);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Optional<Doctor> optionalDoctor = new DoctorMapper().mapEntity(resultSet);
@@ -99,7 +99,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public Optional<Doctor> findEntityById(long id) throws DaoException {
         Optional<Doctor> doctor = Optional.empty();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_DOCTOR_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_DOCTOR_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -115,7 +115,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
 
     @Override
     public boolean delete(long id) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_DOCTOR_INFO_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_DOCTOR_INFO_BY_ID)) {
             statement.setLong(1, id);
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -127,7 +127,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
 
     @Override
     public boolean delete(Doctor doctor) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_DOCTOR_INFO_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_DOCTOR_INFO_BY_ID)) {
             statement.setLong(1, doctor.getUserId());
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -140,7 +140,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public long create(Doctor entity) throws DaoException {
         long doctorId = 0;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_INSERT_DOCTOR_INFO)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_INSERT_DOCTOR_INFO)) {
             statement.setLong(1, entity.getUserId());
             statement.setString(2, entity.getCategory().toString());
             statement.setString(3, entity.getPhotoPath());
@@ -160,7 +160,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public List<Doctor> findDoctorsByCategory(String category) throws DaoException {
         List<Doctor> listDoctor = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_DOCTORS_BY_CATEGORY)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_DOCTORS_BY_CATEGORY)) {
             statement.setString(1, category);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -180,7 +180,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public List<Doctor> findDoctorsBySpecializationId(String specializationId) throws DaoException {
         List<Doctor> listDoctor = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_DOCTORS_BY_SPECIALIZATION)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_DOCTORS_BY_SPECIALIZATION)) {
             statement.setString(1, specializationId);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -200,7 +200,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public Optional<Doctor> findDoctorInfoById(long id) throws DaoException {
         Optional<Doctor> doctor = Optional.empty();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_DOCTOR_INFO_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_DOCTOR_INFO_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -217,7 +217,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public List<Doctor> findDoctorsByLastName(String lastName) throws DaoException {
         List<Doctor> listDoctor = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_DOCTOR_BY_LAST_NAME)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_DOCTOR_BY_LAST_NAME)) {
             statement.setString(1, lastName);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -237,7 +237,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public boolean updateDoctorPhotoById(String photo, long id) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_DOCTOR_PHOTO_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_DOCTOR_PHOTO_BY_ID)) {
             statement.setString(1, photo);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -251,7 +251,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public boolean updateDoctorSpecializationById(long specializationId, long doctorId) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_DOCTOR_SPECIALIZATION_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_DOCTOR_SPECIALIZATION_BY_ID)) {
             statement.setLong(1, specializationId);
             statement.setLong(2, doctorId);
             isUpdated = (statement.executeUpdate() == 1);
@@ -265,7 +265,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public boolean updateDoctorCategoryById(String category, long id) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_DOCTOR_CATEGORY_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_DOCTOR_CATEGORY_BY_ID)) {
             statement.setString(1, category);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -279,7 +279,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     @Override
     public boolean insertDoctorAdditionalInfoById(long id, String category, String photo, long specializationId) throws DaoException {
         boolean isInserted = false;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_INSERT_DOCTOR_INFO)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_INSERT_DOCTOR_INFO)) {
             statement.setLong(1, id);
             statement.setString(2, category);
             statement.setString(3, photo);

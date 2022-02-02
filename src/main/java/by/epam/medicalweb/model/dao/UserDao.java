@@ -19,6 +19,6 @@ public interface UserDao {
     boolean updateUserLastNameByID (long id, String lastName) throws DaoException;
     boolean updateUserEmailByID (long id, String email) throws DaoException;
     boolean updateUserPhoneNumberByID (long id, String phoneNumber) throws DaoException;
-    Optional<User> findUserByPasswordAndLogin (String login, String password) throws DaoException;
+    Optional<User> findUserByLoginAndPassword (String login, String password) throws DaoException;
 
 }

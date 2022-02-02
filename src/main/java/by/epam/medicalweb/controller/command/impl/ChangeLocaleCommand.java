@@ -17,13 +17,19 @@ public class ChangeLocaleCommand implements Command {
 
     @Override
     public Router execute(HttpServletRequest request) {
+        Router router = new Router();
         String locale = request.getParameter(RequestParameterName.LOCALE);
         HttpSession session = request.getSession();
+        String currentPage = (String) session.getAttribute(SessionAttribute.CURRENT_PAGE);
         session.setAttribute(SessionAttribute.LOCALE, locale);
-        if (session.getAttribute(SessionAttribute.CURRENT_PAGE) == null) {
-            return new Router(PagePath.MAIN_PAGE, Router.RouterType.FORWARD);
-        }
 
-        return new Router((String) session.getAttribute(SessionAttribute.CURRENT_PAGE), Router.RouterType.FORWARD);
+        if (currentPage == null) {
+            router.setPage(PagePath.MAIN_PAGE);
+            router.setRouterType(Router.RouterType.FORWARD);
+            return router;
+        }
+        router.setPage(currentPage);
+        router.setRouterType(Router.RouterType.FORWARD);
+        return router;
     }
 }

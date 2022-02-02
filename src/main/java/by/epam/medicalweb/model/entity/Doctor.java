@@ -1,6 +1,5 @@
 package by.epam.medicalweb.model.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Doctor extends User {
@@ -12,7 +11,7 @@ public class Doctor extends User {
             this.category = category;
         }
 
-        public String getCategory() {
+        public String getCategoryString() {
             return category;
         }
     }

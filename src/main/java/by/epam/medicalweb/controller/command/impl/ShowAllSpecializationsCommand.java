@@ -4,7 +4,7 @@ import by.epam.medicalweb.controller.command.Command;
 import by.epam.medicalweb.controller.command.Router;
 import by.epam.medicalweb.exception.ServiceException;
 import by.epam.medicalweb.model.entity.Specialization;
-import by.epam.medicalweb.model.service.SpecializationServiceImpl;
+import by.epam.medicalweb.model.service.impl.SpecializationServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.List;

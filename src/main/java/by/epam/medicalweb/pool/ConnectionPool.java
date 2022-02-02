@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ConnectionPool {
-    static Logger logger = LogManager.getLogger();
+    private static Logger logger = LogManager.getLogger();
     private static ConnectionPool instance;
     private BlockingQueue<ProxyConnection> availableConnections;
     private BlockingQueue<ProxyConnection> usedConnections;
@@ -22,7 +22,8 @@ public class ConnectionPool {
     private static AtomicBoolean create = new AtomicBoolean(false);
 
     private ConnectionPool() {
-        ConnectionCreator creator = ConnectionCreator.getInstance();
+        /*ConnectionCreator creator = ConnectionCreator.getInstance();*/
+        ConnectionCreator creator = new ConnectionCreator();
         availableConnections = new LinkedBlockingQueue<>(creator.POOL_SIZE);
         usedConnections = new LinkedBlockingQueue<>();
         for (int i = 0; i < creator.POOL_SIZE; i++) {

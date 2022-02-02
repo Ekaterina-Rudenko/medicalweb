@@ -13,32 +13,32 @@ public class ValidatorTest {
 
     @Test
     public void checkNameTest() {
-        boolean isCorrect = validator.checkName("Ekaterina");
+        boolean isCorrect = validator.isCorrectName("Ekaterina");
         Assert.assertTrue(isCorrect);
     }
     @Test
     public void checkEmailTest() {
-        boolean isCorrect = validator.checkEmail("katestasevich30@gmail.com");
+        boolean isCorrect = validator.isCorrectEmail("katestasevich30@gmail.com");
         Assert.assertTrue(isCorrect);
     }
     @Test
     public void checkLoginTest() {
-        boolean isCorrect = validator.checkLogin("Ekaterina30");
+        boolean isCorrect = validator.isCorrectLogin("Ekaterina30");
         Assert.assertTrue(isCorrect);
     }
     @Test
     public void checkPasswordTest(){
-        boolean isCorrect = validator.checkPassword("ksdfjhbkead_sd");
+        boolean isCorrect = validator.isCorrectPassword("sfhyegjse");
         Assert.assertTrue(isCorrect);
     }
-    @Test
+   /* @Test
     public void checkBirthDateTest(){
-        boolean isCorrect = validator.checkBirthDate("2011-12-12");
+        boolean isCorrect = validator.isCorrectBirthDate("2011-12-12");
         Assert.assertTrue(isCorrect);
-    }
+    }*/
     @Test
     public void checkPhoneNumberTest(){
-        boolean isCorrect = validator.checkPhoneNumber("256783565");
+        boolean isCorrect = validator.isCorrectPhoneNumber("256783565");
         Assert.assertTrue(isCorrect);
     }
 

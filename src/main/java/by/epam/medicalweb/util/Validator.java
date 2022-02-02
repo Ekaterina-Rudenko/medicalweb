@@ -1,17 +1,15 @@
 package by.epam.medicalweb.util;
 
+import java.util.Map;
+
 public interface Validator {
-    boolean checkName(String name);
-    boolean checkLogin(String login);
-    boolean checkPassword(String password);
-    boolean checkEmail(String email);
-    boolean checkPhoneNumber(String email);
-    boolean checkBirthDate(String number);
+    boolean isCorrectName(String name);
+    boolean isCorrectLogin(String login);
+    boolean isCorrectPassword(String password);
+    boolean isCorrectEmail(String email);
+    boolean isCorrectPhoneNumber(String email);
+/*    boolean isCorrectBirthDate(String number);*/
     boolean checkMoney(String price);
-    boolean checkPhotoUrl(String photoUrl);
-
-    /*   boolean checkUserData();*/
-
-
-
+    boolean isCorrectPhotoUrl(String photoUrl);
+    boolean checkRegistration(Map<String, String> data);
 }

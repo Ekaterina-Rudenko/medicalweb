@@ -24,6 +24,6 @@ public class ConnectionDemo {
            e.printStackTrace();
        }*/
 
-      ConnectionPool.getInstance().takeConnection();
+      //ConnectionPool.getInstance().takeConnection();
    }
 }

@@ -48,7 +48,7 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
     @Override
     public List<MedicalService> findAll() throws DaoException {
         List<MedicalService> listServices = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_ALL_SERVICES);
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_ALL_SERVICES);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Optional<MedicalService> optionalService = new MedicalServiceMapper().mapEntity(resultSet);
@@ -66,7 +66,7 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
     @Override
     public Optional<MedicalService> findEntityById(long id) throws DaoException {
         Optional<MedicalService> optionalMedicalService = Optional.empty();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_SERVICE_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_SERVICE_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -82,7 +82,7 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
 
     @Override
     public boolean delete(long id) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_MEDICAL_SERVICE_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_MEDICAL_SERVICE_BY_ID)) {
             statement.setLong(1, id);
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -94,7 +94,7 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
 
     @Override
     public boolean delete(MedicalService entity) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_MEDICAL_SERVICE_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_MEDICAL_SERVICE_BY_ID)) {
             statement.setLong(1, entity.getServiceId());
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -107,7 +107,7 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
     @Override
     public long create(MedicalService entity) throws DaoException, SQLException {
         long medicalServiceId = 0;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_INSERT_MEDICAL_SERVICE, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_INSERT_MEDICAL_SERVICE, Statement.RETURN_GENERATED_KEYS)) {
             statement.setLong(1, entity.getSpecialization().getSpecializationId());
             statement.setString(2, entity.getServiceName());
             statement.setBigDecimal(3, entity.getPrice());
@@ -130,7 +130,7 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
     @Override
     public boolean updateServicePrice(long id, BigDecimal price) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_SERVICE_PRICE_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_SERVICE_PRICE_BY_ID)) {
             statement.setLong(1, id);
             statement.setBigDecimal(2, price);
             isUpdated = (statement.executeUpdate() == 1);
@@ -143,7 +143,7 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
 
     public List<MedicalService> findServicesBySpecializationId(long specializationId) throws DaoException {
         List<MedicalService> listServices = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_SERVICES_BY_SPECIALIZATION_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_SERVICES_BY_SPECIALIZATION_ID)) {
             statement.setLong(1, specializationId);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {

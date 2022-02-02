@@ -4,14 +4,11 @@ import by.epam.medicalweb.exception.DaoException;
 import by.epam.medicalweb.model.dao.AbstractDao;
 import by.epam.medicalweb.model.dao.PrescriptionDao;
 import by.epam.medicalweb.model.entity.Prescription;
-import by.epam.medicalweb.model.entity.Specialization;
 import by.epam.medicalweb.model.mapper.impl.PrescriptionMapper;
-import by.epam.medicalweb.model.mapper.impl.SpecializationMapper;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,7 +40,7 @@ public class PrescriptionDaoImpl extends AbstractDao<Prescription> implements Pr
     @Override
     public List<Prescription> findAll() throws DaoException {
         List<Prescription> listSpecialization = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_ALL_PRESCRIPTIONS);
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_ALL_PRESCRIPTIONS);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Optional<Prescription> optionalPrescription = new PrescriptionMapper().mapEntity(resultSet);
@@ -62,7 +59,7 @@ public class PrescriptionDaoImpl extends AbstractDao<Prescription> implements Pr
     @Override
     public Optional<Prescription> findEntityById(long id) throws DaoException {
         Optional<Prescription> prescription = Optional.empty();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_FIND_PRESCRIPTION_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_PRESCRIPTION_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -78,7 +75,7 @@ public class PrescriptionDaoImpl extends AbstractDao<Prescription> implements Pr
 
     @Override
     public boolean delete(long id) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_PRESCRIPTION)){
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_PRESCRIPTION)){
             statement.setLong(1, id);
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -90,7 +87,7 @@ public class PrescriptionDaoImpl extends AbstractDao<Prescription> implements Pr
 
     @Override
     public boolean delete(Prescription entity) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_PRESCRIPTION)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_PRESCRIPTION)) {
             statement.setLong(1, entity.getPrescriptionId());
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -103,7 +100,7 @@ public class PrescriptionDaoImpl extends AbstractDao<Prescription> implements Pr
     @Override
     public long create(Prescription entity) throws DaoException, SQLException {
         long prescriptionId = 0;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_INSERT_PRESCRIPTION, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_INSERT_PRESCRIPTION, Statement.RETURN_GENERATED_KEYS)) {
             statement.setLong(1, entity.getVisitId());
             statement.setString(2, entity.getPrescriptionText());
             int isUpdated = statement.executeUpdate();
@@ -125,7 +122,7 @@ public class PrescriptionDaoImpl extends AbstractDao<Prescription> implements Pr
     @Override
     public boolean updatePrescription(long id, String text) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_PRESCRIPTION)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_PRESCRIPTION)) {
             statement.setLong(1, id);
             statement.setString(2, text);
             isUpdated = (statement.executeUpdate() == 1);

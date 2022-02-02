@@ -17,6 +17,6 @@ public class SessionListener implements HttpSessionListener {
         HttpSession session = sessionEvent.getSession();
         session.setAttribute(CURRENT_PAGE, PagePath.MAIN_PAGE);
         session.setAttribute(LOCALE, DEFAULT_LOCALE);
-        session.setAttribute(USER_ROLE, User.UserRole.GUEST.getRoleValue());
+        session.setAttribute(USER_ROLE, User.UserRole.GUEST);
     }
 }

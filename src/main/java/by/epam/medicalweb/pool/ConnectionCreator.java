@@ -21,7 +21,6 @@ class ConnectionCreator {
     static final String DB_URL;
     static final String DB_DRIVER;
     static final int POOL_SIZE;
-    static ConnectionCreator instance;
 
     static {
         try {
@@ -48,15 +47,9 @@ class ConnectionCreator {
         DB_URL = (String) properties.get("db.url");
     }
 
-    private ConnectionCreator() {
+    ConnectionCreator() {
     }
 
-    public static ConnectionCreator getInstance() {
-        if (instance != null) {
-            instance = new ConnectionCreator();
-        }
-        return instance;
-    }
 
     static Connection createConnection() throws ConnectionPoolException {
         try {

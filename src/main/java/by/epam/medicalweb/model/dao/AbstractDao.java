@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public abstract class AbstractDao <T extends AbstractEntity> {
     static Logger logger = LogManager.getLogger();
-    protected ProxyConnection proxyConnection;
+    protected Connection connection;
 
     public abstract List<T> findAll() throws DaoException;
     public abstract Optional<T> findEntityById(long id) throws DaoException;
@@ -34,5 +34,5 @@ public abstract class AbstractDao <T extends AbstractEntity> {
     }
 
     void setConnection(Connection connection) {
-        this.proxyConnection = (ProxyConnection) connection;}
+        this.connection = connection;}
 }

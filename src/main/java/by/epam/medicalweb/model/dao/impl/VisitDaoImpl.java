@@ -136,7 +136,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     @Override
     public List<Visit> findAll() throws DaoException {
         List<Visit> listVisit = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_SELECT_ALL_VISITS);
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_ALL_VISITS);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Optional<Visit> optionalVisit = new VisitMapper().mapEntity(resultSet);
@@ -154,7 +154,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     @Override
     public Optional<Visit> findEntityById(long id) throws DaoException {
         Optional<Visit> visit = Optional.empty();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_SELECT_VISIT_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_VISIT_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -170,7 +170,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
 
     @Override
     public boolean delete(long id) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_VISIT_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_VISIT_BY_ID)) {
             statement.setLong(1, id);
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -182,7 +182,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
 
     @Override
     public boolean delete(Visit entity) throws DaoException {
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_DELETE_VISIT_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_VISIT_BY_ID)) {
             statement.setLong(1, entity.getVisitId());
             int update = statement.executeUpdate();
             return (update > 0) ? true : false;
@@ -195,13 +195,13 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     @Override
     public long create(Visit entity) throws DaoException {
         long visitId = 0;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_INSERT_NEW_VISIT, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_INSERT_NEW_VISIT, Statement.RETURN_GENERATED_KEYS)) {
             statement.setLong(1, entity.getSpecialization().getSpecializationId());
             statement.setLong(2, entity.getDoctor().getUserId());
             statement.setLong(3, entity.getService().getServiceId());
             statement.setDate(4, Date.valueOf(entity.getDate().toString()));
             statement.setInt(5, entity.getTime());
-            statement.setString(6, entity.getTypeOfPayment().getTypeOfPayment());
+            statement.setString(6, entity.getTypeOfPayment().getTypePaymentString());
             statement.setLong(7, entity.getPatient().getUserId());
             int isUpdated = statement.executeUpdate();
             try (ResultSet resultSet = statement.getGeneratedKeys();) {
@@ -221,7 +221,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     @Override
     public boolean updateVisitDateAndTime(long visitId, LocalDate visitDate, int time) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_VISIT_DATE_AND_TIME_BY_VISIT_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_VISIT_DATE_AND_TIME_BY_VISIT_ID)) {
             statement.setLong(1, visitId);
             statement.setDate(2, Date.valueOf(visitDate.toString()));
             statement.setInt(3, time);
@@ -266,9 +266,9 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     @Override
     public boolean updateVisitStateByVisitId(long visitId, Visit.VisitState visitState) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_VISIT_STATE_BY_VISIT_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_VISIT_STATE_BY_VISIT_ID)) {
             statement.setLong(1, visitId);
-            statement.setString(2, visitState.getVisitState());
+            statement.setString(2, visitState.getStateString());
             isUpdated = (statement.executeUpdate() == 1);
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to update visit state", e);
@@ -282,7 +282,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
         int startTime = START_OF_WORKING_DAY;
         int endTime = FINISH_OF_WORKING_DAY;
         List<Integer> availableSlots = new ArrayList<>();
-        try (PreparedStatement statement = this.proxyConnection.prepareStatement(SQL_SELECT_FREE_TIME_SLOTS_BY_DATE_AND_DOCTOR_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_FREE_TIME_SLOTS_BY_DATE_AND_DOCTOR_ID)) {
             statement.setDate(1, Date.valueOf(visitDate.toString()));
             statement.setLong(2, doctorId);
             statement.setInt(3, startTime);

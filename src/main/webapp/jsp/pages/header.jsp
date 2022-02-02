@@ -28,15 +28,15 @@
 
 <html>
 <head>
-
+    <!-- Обязательные метатеги -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/style.css">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/style.css">
     <title>Title</title>
 </head>
 
@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
-                       href=${pageContext.request.contextPath}/jsp/pages/main.jsp">${home}</a>
+                       href="${pageContext.request.contextPath}/jsp/pages/main.jsp">${home}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
@@ -77,18 +77,41 @@
                        href="${pageContext.request.contextPath}/jsp/pages/contacts.jsp">${contacts}</a>
                 </li>
 
-                <li>
-                    <form class="container-fluid justify-content-start">
+                <c:choose>
+                    <c:when test="${sessionScope.user_role eq 'ADMIN'}">
+                        <%@include file="fragment/admin_part.jspf" %>
+                    </c:when>
+                    <c:when test="${sessionScope.user_role eq 'PATIENT'}">
+                        <%@include file="fragment/patient_part.jspf" %>
+                    </c:when>
+                    <c:when test="${sessionScope.user_role eq 'DOCTOR'}">
+                        <%@include file="fragment/doctor_part.jspf" %>
+                    </c:when>
+                    <c:otherwise>
                         <button class="btn btn-outline-success me-2" type="button">
-                            <a href="${pageContext.request.contextPath}/jsp/pages/appointment.jsp">${make_an_appointment}</a>
+                            <a href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${make_an_appointment}</a>
                         </button>
-                        <button class="btn btn-sm btn-outline-secondary" type="button">
-                            <a href="${pageContext.request.contextPath}/jsp/pages/registration.jsp">${register}</a>
-                        </button>
-                        <button class="btn btn-sm btn-outline-secondary" type="button">
-                            <a href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${log_in}</a></button>
-                    </form>
-                </li>
+                        <div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/jsp/pages/registration.jsp">${register}</a>
+                            </li>
+                        </div>
+                    </c:otherwise>
+
+                </c:choose>
+
+                <c:choose>
+                    <c:when test="${sessionScope.user_role eq 'PATIENT' or 'ADMIN' or 'DOCTOR'}">
+                        <li class="nav-item"><a class="nav-link"
+                                                href="${pageContext.request.contextPath}/controller?command=log_out"> ${log_out}</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${log_in}</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
 
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -110,18 +133,17 @@
 
 
 </nav>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
-        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
-        crossorigin="anonymous"></script>
-</body>
-</html>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
+

@@ -13,7 +13,7 @@ public class EntityTransaction {
     static Logger logger = LogManager.getLogger();
     private Connection connection;
 
-    public void beginTransaction(AbstractDao dao, AbstractDao... daos) {
+    public void beginTransaction(AbstractDao dao, AbstractDao...daos) {
         if (connection == null) {
             connection = ConnectionPool.getInstance().takeConnection();
         }
@@ -22,6 +22,7 @@ public class EntityTransaction {
         } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to change connection autocommit", e);
         }
+        dao.setConnection(connection);
         for (AbstractDao daoElement : daos) {
             daoElement.setConnection(connection);
         }
@@ -62,7 +63,7 @@ public class EntityTransaction {
         try{
             connection.rollback();
         } catch (SQLException e){
-            logger.log(Level.ERROR, "", e);
+            logger.log(Level.ERROR, "Failed to rollback", e);
         }
     }
 

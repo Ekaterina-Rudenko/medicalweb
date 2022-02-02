@@ -29,7 +29,8 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     private static final String SQL_DELETE_USER_BY_ID = """
             DELETE FROM users WHERE user_id = ?;""";
     private static final String SQL_CREATE_USER = """
-            INSERT INTO users(first_name, middle_name, last_name, login, password, email, phone, user_state, user_role);""";
+            INSERT INTO users(first_name, middle_name, last_name, login, password, email, phone, user_state, user_role)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);""";
     private static final String SQL_SELECT_USER_BY_NAME = """
             SELECT user_id, first_name, middle_name, last_name, login, password, email, phone, user_state, user_role, registration_date
             FROM users
@@ -73,7 +74,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     private static final String SQL_SELECT_USER_BY_LOGIN_AND_PASSWORD = """
             SELECT user_id, first_name, middle_name, last_name, login, password, email, phone, user_state, user_role, registration_date
             FROM users
-            WHERE email = ? AND password = ?;""";
+            WHERE login = ? AND password = ?;""";
 
     public UserDaoImpl() {
     }
@@ -81,7 +82,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public List<User> findAll() throws DaoException {
         List<User> userList = new ArrayList<>();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_ALL_USERS);
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_ALL_USERS);
              ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Optional<User> optionalUser = new UserMapper().mapEntity(resultSet);
@@ -99,7 +100,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public Optional<User> findEntityById(long id) throws DaoException {
         Optional<User> optionalUser = Optional.empty();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -116,7 +117,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean delete(long id) throws DaoException {
         boolean isDeleted;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_DELETE_USER_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_USER_BY_ID)) {
             statement.setLong(1, id);
             isDeleted = (statement.executeUpdate() == 1);
             logger.log(Level.DEBUG, "User with id " + id + " was deleted");
@@ -130,7 +131,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean delete(User entity) throws DaoException {
         boolean isDeleted;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_DELETE_USER_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_USER_BY_ID)) {
             statement.setLong(1, entity.getUserId());
             isDeleted = (statement.executeUpdate() == 1);
             logger.log(Level.DEBUG, "User with id " + entity.getUserId() + " was deleted");
@@ -144,7 +145,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public long create(User entity) throws DaoException {
         long userId = 0;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_CREATE_USER, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_CREATE_USER, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, entity.getFirstName());
             statement.setString(2, entity.getMiddleName());
             statement.setString(3, entity.getLastName());
@@ -171,7 +172,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public List<User> findUserByLastName(String lastName) throws DaoException {
         List<User> usersList = new ArrayList<>();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_NAME)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_NAME)) {
             statement.setString(1, lastName);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -191,7 +192,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public Optional<User> findUserByLogin(String login) throws DaoException {
         Optional<User> optionalUser = Optional.empty();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_LOGIN)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_LOGIN)) {
             statement.setString(1, login);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -208,7 +209,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public Optional<User> findUserByEmail(String email) throws DaoException {
         Optional<User> optionalUser = Optional.empty();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_EMAIL)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_EMAIL)) {
             statement.setString(1, email);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -225,7 +226,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public Optional<User> findUserByPhoneNumber(String phoneNumber) throws DaoException {
         Optional<User> optionalUser = Optional.empty();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_PHONE)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_PHONE)) {
             statement.setString(1, phoneNumber);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -242,7 +243,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public List<User> findUsersByState(String userState) throws DaoException {
         List<User> userList = new ArrayList<>();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USERS_BY_STATE)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USERS_BY_STATE)) {
             statement.setString(1, userState);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -262,7 +263,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public List<User> findUsersByRole(String role) throws DaoException {
         List<User> userList = new ArrayList<>();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USERS_BY_ROLE)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USERS_BY_ROLE)) {
             statement.setString(1, role);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -282,7 +283,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserStateById(Long id, String state) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_STATE_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_USER_STATE_BY_ID)) {
             statement.setString(1, state);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -296,7 +297,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserFirstNameByID(long id, String firstName) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_FIRST_NAME_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_USER_FIRST_NAME_BY_ID)) {
             statement.setString(1, firstName);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -310,7 +311,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserMiddleNameByID(long id, String middleName) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_MIDDLE_NAME_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_USER_MIDDLE_NAME_BY_ID)) {
             statement.setString(1, middleName);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -324,7 +325,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserLastNameByID(long id, String lastName) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_LAST_NAME_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_USER_LAST_NAME_BY_ID)) {
             statement.setString(1, lastName);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -338,7 +339,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserEmailByID(long id, String email) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_EMAIL_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_USER_EMAIL_BY_ID)) {
             statement.setString(1, email);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -352,7 +353,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public boolean updateUserPhoneNumberByID(long id, String phoneNumber) throws DaoException {
         boolean isUpdated;
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_UPDATE_USER_PHONE_BY_ID)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_USER_PHONE_BY_ID)) {
             statement.setString(1, phoneNumber);
             statement.setLong(2, id);
             isUpdated = (statement.executeUpdate() == 1);
@@ -364,9 +365,9 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public Optional<User> findUserByPasswordAndLogin(String login, String password) throws DaoException {
+    public Optional<User> findUserByLoginAndPassword(String login, String password) throws DaoException {
         Optional<User> optionalUser = Optional.empty();
-        try (PreparedStatement statement = proxyConnection.prepareStatement(SQL_SELECT_USER_BY_LOGIN_AND_PASSWORD)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_LOGIN_AND_PASSWORD)) {
             statement.setString(1, login);
             statement.setString(2, password);
             try (ResultSet resultSet = statement.executeQuery()) {

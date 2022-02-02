@@ -13,7 +13,7 @@ public class Patient extends User {
             this.gender = gender;
         }
 
-        public String getGender() {
+        public String getGenderString() {
             return gender;
         }
     }

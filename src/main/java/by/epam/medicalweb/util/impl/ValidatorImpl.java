@@ -1,17 +1,25 @@
 package by.epam.medicalweb.util.impl;
 
 import by.epam.medicalweb.util.Validator;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Map;
+
+
+import static by.epam.medicalweb.controller.command.RequestParameterName.*;
 
 public class ValidatorImpl implements Validator {
+    private static Logger logger = LogManager.getLogger();
     private static ValidatorImpl instance;
     private static final String INCORRECT_VALUE_PARAMETER = "incorrect";
-    private static final String NAME_REGEX = "[А-Я\\p{Upper}][а-яё\\p{Lower}]{1,30}";;
-    private static final String LOGIN_REGEX = "\\w{4,30}";
-    private static final String PASSWORD_REGEX = "\\w{7,45}";
-    private static final String EMAIL_REGEX =  "(([\\w.]+){5,25}@([\\p{Lower}]+){3,7}\\.([\\p{Lower}]+){2,3})";
-    private static final String BIRTHDATE_REGEX = "(((19\\d{2})|(20[0-2]\\d))-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1]))";;
-    private static final String PHONE_NUMBER_REGEX = "(25|29|33|44)\\d{7}";;
-    private static final String PHONE_NUMBER_SECOND_REGEX = "\\d{9}";
+    private static final String NAME_REGEX = "^[A-Za-zА-Яа-я]{3,30}$";;
+    private static final String LOGIN_REGEX = "\\w{3,30}";
+    private static final String PASSWORD_REGEX = "[\\w.]{5,45}";
+    private static final String EMAIL_REGEX =  "(([\\w.]+){3,30}@([\\p{Lower}]+){2,7}\\.([\\p{Lower}]+){2,4})";
+    //private static final String BIRTHDATE_REGEX = "(((19\\d{2})|(20[0-2]\\d))-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1]))";;
+    private static final String PHONE_NUMBER_REGEX = "\\d{9}";;
     private static final String MONEY_REGEX = "\\d{1,4}\\.?\\d{0,2}";
     private static final String PHOTO_URL_REGEX = "([^\\s]+(\\.(?i)(jpe?g|png|gif|bmp))$)";
 
@@ -26,65 +34,88 @@ public class ValidatorImpl implements Validator {
         return instance;
     }
 @Override
-    public boolean checkName(String name) {
+    public boolean isCorrectName(String name) {
         return name != null && name.matches(NAME_REGEX);
     }
 
     @Override
-    public boolean checkLogin(String login) {
+    public boolean isCorrectLogin(String login) {
         return login != null && login.matches(LOGIN_REGEX);
     }
 
     @Override
-    public boolean checkPassword(String password) {
+    public boolean isCorrectPassword(String password) {
         return password != null && password.matches(PASSWORD_REGEX);
     }
 
     @Override
-    public boolean checkEmail(String email) {
+    public boolean isCorrectEmail(String email) {
         return email != null && email.matches(EMAIL_REGEX);
     }
 
     @Override
-    public boolean checkPhoneNumber(String number) {
-        return number != null && number.matches(PHONE_NUMBER_REGEX);
+    public boolean isCorrectPhoneNumber(String number) {
+        boolean result = true;
+        if (number == null){
+            logger.log(Level.ERROR, "number is null" );
+            result = false;
+        }
+        if(!number.matches(PHONE_NUMBER_REGEX)){
+            logger.log(Level.ERROR, "number doesn't match" );
+            result=false;
+        }
+        return result;
     }
-    @Override
-    public boolean checkBirthDate(String date) {
+    /*@Override
+    public boolean isCorrectBirthDate(String date) {
         return date != null && date.matches(BIRTHDATE_REGEX);
-    }
+    }*/
     @Override
     public boolean checkMoney(String price) {
         return price != null && price.matches(MONEY_REGEX);
     }
     @Override
-    public boolean checkPhotoUrl(String photoUrl) {
+    public boolean isCorrectPhotoUrl(String photoUrl) {
         return photoUrl != null && photoUrl.matches(PHOTO_URL_REGEX);
     }
 
-/*    public boolean checkUserData(Map<String, String> userData) {
+    @Override
+    public boolean checkRegistration(Map<String, String> data) {
         boolean isValid = true;
-        if (!checkName(userData.get(NAME))) {
-            userData.put(NAME, INCORRECT_VALUE_PARAMETER);
+        if (!isCorrectName(data.get(FIRST_NAME))) {
+            data.put(FIRST_NAME, INVALID_FIRST_NAME);
             isValid = false;
         }
-        if (!checkLogin(userData.get(LOGIN))) {
-            userData.put(LOGIN, INCORRECT_VALUE_PARAMETER);
+        if (!isCorrectName(data.get(MIDDLE_NAME))) {
+            data.put(MIDDLE_NAME, INVALID_MIDDLE_NAME);
             isValid = false;
         }
-        if (!checkPassword(userData.get(PASSWORD))) {
-            userData.put(PASSWORD, INCORRECT_VALUE_PARAMETER);
+        if (!isCorrectName(data.get(LAST_NAME))) {
+            data.put(LAST_NAME, INVALID_LAST_NAME);
+            isValid = false;
+        }
+        if (!isCorrectLogin(data.get(LOGIN))) {
+            data.put(LOGIN, INVALID_LOGIN);
             isValid = false;
         }
 
-        if (!checkEmail(userData.get(EMAIL))) {
-            userData.put(EMAIL, INCORRECT_VALUE_PARAMETER);
+        if (!isCorrectPassword(data.get(PASSWORD))) {
+            data.put(PASSWORD, INVALID_PASSWORD);
             isValid = false;
         }
-        if (!checkPhoneNumber(userData.get(PHONE_NUMBER))) {
-            userData.put(PHONE_NUMBER, INCORRECT_VALUE_PARAMETER);
+        if (!isCorrectPhoneNumber(data.get(PHONE))) {
+            data.put(PHONE, INVALID_PHONE_NUMBER);
             isValid = false;
         }
-        return isValid;*/
+        if (!isCorrectEmail(data.get(EMAIL))) {
+            data.put(EMAIL, INVALID_EMAIL);
+            isValid = false;
+        }
 
+        /*if (!isCorrectBirthDate(data.get(BIRTHDATE))) {
+            data.put(BIRTHDATE, INVALID_BIRTHDATE);
+            isValid = false;
+        }*/
+        return isValid;
+    }
 }

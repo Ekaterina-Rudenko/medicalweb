@@ -1,4 +1,4 @@
-package by.epam.medicalweb.model.service;
+package by.epam.medicalweb.model.service.impl;
 
 import by.epam.medicalweb.exception.DaoException;
 import by.epam.medicalweb.exception.ServiceException;

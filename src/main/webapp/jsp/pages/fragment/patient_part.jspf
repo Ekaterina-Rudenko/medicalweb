@@ -1,0 +1,18 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Rudebox
+  Date: 01.02.2022
+  Time: 20:00
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<button class="btn btn-outline-success me-2" type="button">
+    <a href="${pageContext.request.contextPath}/jsp/pages/appointment.jsp">${make_an_appointment}</a>
+</button>
+</body>
+</html>
