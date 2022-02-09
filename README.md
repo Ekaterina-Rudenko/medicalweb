@@ -5,11 +5,11 @@ There are three roles: Guest, Patient, Doctor, Administrator
 **Guest** can:
 - log in
 - register
-- see services and prices
+- see all services and prices
 - filter services by specializations
-- see doctors
+- see all doctors
 - filter doctors by specializations
--change language
+- change language
 
 **Patient** can:
 - log out
@@ -21,16 +21,16 @@ There are three roles: Guest, Patient, Doctor, Administrator
 - see the list of his/her appointments
 - see reccomendations from doctors
 - see and top up the balance
-- see services and prices
+- see all services and prices
 - filter services by specializations
-- see doctors
+- see all doctors
 - filter doctors by specializations
 
 **Doctor** can:
 - log out
 - change password
 - change language
-- see planned visits for chosen date
+- see planned visits for a chosen date
 - see patient info
 - make recommendation (linked to certain visit)
 - see/filter recommendations by visit id
@@ -40,16 +40,18 @@ There are three roles: Guest, Patient, Doctor, Administrator
 - change language
 - see his/her profile info
 - change password
-- add/update sevice
-- see/filter services by specialization
+- add/update service
+- see all services
+- filter services by specialization
 - add specialization
 - add doctor
 - see/update doctor profile
-- see/filter doctors
+- see all doctors
+- filter doctors
 - add administrator
 - see/update admin profile
 - block/unblock patient/doctor/admin
-- see visits
+- see all visits
 - filter visits by date, doctor
 - change visit status
 
