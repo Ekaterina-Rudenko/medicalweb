@@ -77,6 +77,7 @@
                        href="${pageContext.request.contextPath}/jsp/pages/contacts.jsp">${contacts}</a>
                 </li>
 
+
                 <c:choose>
                     <c:when test="${sessionScope.user_role eq 'ADMIN'}">
                         <%@include file="fragment/admin_part.jspf" %>
@@ -89,16 +90,22 @@
                     </c:when>
                     <c:otherwise>
                         <button class="btn btn-outline-success me-2" type="button">
-                            <a href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${make_an_appointment}</a>
+                            <a href="${pageContext.request.contextPath}/jsp/pages/login.jsp" >${make_an_appointment}</a>
                         </button>
                         <div>
                             <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/jsp/pages/registration.jsp">${register}</a>
+                                <a class="nav-link"
+                                   href="${pageContext.request.contextPath}/jsp/pages/registration.jsp">${register}</a>
                             </li>
                         </div>
                     </c:otherwise>
-
                 </c:choose>
+
+                <li class="nav-item">
+                    <c:if test="${not empty sessionScope.user}">
+                        <c:out value="${sessionScope.user.role}: ${sessionScope.user.firstName} ${sessionScope.user.middleName} ${sessionScope.user.lastName}"/>
+                    </c:if>
+                </li>
 
                 <c:choose>
                     <c:when test="${sessionScope.user_role eq 'PATIENT' or 'ADMIN' or 'DOCTOR'}">
@@ -112,6 +119,7 @@
                         </li>
                     </c:otherwise>
                 </c:choose>
+
 
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
