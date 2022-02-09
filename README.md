@@ -1,4 +1,4 @@
- ## Application for a medical centre where a patient can make an appointment in order to see a doctor
+ ## Application for a medical centre where a patient can make an appointment with a doctor
 
 There are three roles: Guest, Patient, Doctor, Administrator
 
@@ -53,7 +53,7 @@ There are three roles: Guest, Patient, Doctor, Administrator
 - filter visits by date, doctor
 - change visit status
 
-The UML schema for data base is attached:
+The EER diagram for data base is attached below:
 
 ![medical_web](https://user-images.githubusercontent.com/81095100/153303794-a2198f86-d557-48bd-bcee-a5ca21af71a4.png)
 
