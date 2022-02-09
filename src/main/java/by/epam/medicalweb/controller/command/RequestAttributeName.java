@@ -9,6 +9,7 @@ public class RequestAttributeName {
     public static final String USER_ROLE_UNDEFINED = "user_role_undefined";
     public static final String USER_STATUS_BLOCKED = "user_status_blocked";
     public static final String INCORRECT_LOGIN_OR_PASS = "incorrect_login_or_pass";
+    public static final String REGISTRATION_SUCCESS = "registration_success";
 
 
 }
