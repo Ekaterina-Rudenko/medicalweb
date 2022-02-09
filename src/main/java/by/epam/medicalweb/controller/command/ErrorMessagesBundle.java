@@ -13,8 +13,8 @@ public class ErrorMessagesBundle {
     public static final String NOT_UNIQUE_EMAIL_MESSAGE = "registration.non_unique.email";
     public static final String NOT_UNIQUE_LOGIN_MESSAGE = "registration.non_unique.login";
     public static final String INVALID_REPEATED_PASSWORD_MESSAGE = "registration.invalid.repeated_pass";
-    public static final String USER_ROLE_UNDEFINED_MESSAGE = "user.role_undefined.message";
-    public static final String USER_BLOCKED_MESSAGE = "user.status_blocked.message";
-    public static final String INCORRECT_LOGIN_OR_PASSWORD_MESSAGE = "login.incorrect_login_or_password.message";
+    public static final String USER_ROLE_UNDEFINED_MESSAGE = "log_in.role_undefined.message";
+    public static final String USER_BLOCKED_MESSAGE = "log_in.status_blocked.message";
+    public static final String INCORRECT_LOGIN_OR_PASSWORD_MESSAGE = "log_in.incorrect_login_or_password.message";
     ErrorMessagesBundle(){}
 }
