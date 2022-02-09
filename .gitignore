@@ -1,3 +1,4 @@
 /src/main/java/by/epam/medicalweb/main/*
 .idea
 target/
+*.iml
