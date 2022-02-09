@@ -17,8 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static by.epam.medicalweb.controller.command.ErrorMessagesBundle.*;
-import static by.epam.medicalweb.controller.command.PagePath.LOG_IN_PAGE;
-import static by.epam.medicalweb.controller.command.PagePath.REGISTRATION_PAGE;
+import static by.epam.medicalweb.controller.command.PagePath.*;
 import static by.epam.medicalweb.controller.command.RequestParameterName.*;
 import static by.epam.medicalweb.controller.command.SessionAttribute.CURRENT_PAGE;
 
@@ -49,7 +48,7 @@ public class RegisterCommand implements Command {
                     String currentPage = (String) session.getAttribute(CURRENT_PAGE);
                     router.setPage(currentPage);
                 }else {
-                    router.setPage(LOG_IN_PAGE);
+                    router.setPage(SUCCESSFUL_REGISTRATION);
                 }
             } else {
                 for (String key : mapData.keySet()) {
