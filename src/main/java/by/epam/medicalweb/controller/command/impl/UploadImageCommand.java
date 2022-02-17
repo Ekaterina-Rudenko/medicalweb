@@ -14,6 +14,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
+import static by.epam.medicalweb.model.dao.ColumnName.USER_ID;
+
 
 public class UploadImageCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -24,6 +26,8 @@ public class UploadImageCommand implements Command {
         Router router = new Router();
         Part part = request.getPart("IMAGE_PATH");
         String imagePath = ImageUploader.uploadImage(part);
+        String userId = request.getParameter(USER_ID);
+        //todo
 
         return router;
     }
