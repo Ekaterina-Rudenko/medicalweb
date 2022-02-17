@@ -2,18 +2,18 @@ package by.epam.medicalweb.model.entity;
 
 public class Specialization extends AbstractEntity {
     private long specializationId;
-    private String specializationName;
+    private String name;
 
     public Specialization() {
     }
 
-    public Specialization(String specializationName) {
-        this.specializationName = specializationName;
+    public Specialization(String name) {
+        this.name = name;
     }
 
-    public Specialization(long specializationId, String specializationName) {
+    public Specialization(long specializationId, String name) {
         this.specializationId = specializationId;
-        this.specializationName = specializationName;
+        this.name = name;
     }
     public static class Builder{
         private Specialization specialization = new Specialization();
@@ -22,7 +22,7 @@ public class Specialization extends AbstractEntity {
             return this;
         }
         public Builder setSpecializationName(String name){
-            specialization.setSpecializationName(name);
+            specialization.setName(name);
             return this;
         }
         public Specialization build(){
@@ -38,12 +38,12 @@ public class Specialization extends AbstractEntity {
         this.specializationId = specializationId;
     }
 
-    public String getSpecializationName() {
-        return specializationName;
+    public String getName() {
+        return name;
     }
 
-    public void setSpecializationName(String specializationName) {
-        this.specializationName = specializationName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -52,13 +52,13 @@ public class Specialization extends AbstractEntity {
         if (o == null || getClass() != o.getClass()) return false;
         Specialization that = (Specialization) o;
         return specializationId == that.specializationId &&
-                specializationName != null ? specializationName.equals(that.specializationName) : that.specializationName == null;
+                name != null ? name.equals(that.name) : that.name == null;
     }
 
     @Override
     public int hashCode() {
         int result = 31 * (int) specializationId / 13;
-        result = 31 * result + (specializationName != null ? specializationName.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
 
@@ -66,7 +66,7 @@ public class Specialization extends AbstractEntity {
     public String toString() {
         final StringBuilder sb = new StringBuilder("Specialization{");
         sb.append("specializationId=").append(specializationId);
-        sb.append(", specializationName='").append(specializationName).append('\'');
+        sb.append(", specializationName='").append(name).append('\'');
         sb.append('}');
         return sb.toString();
     }

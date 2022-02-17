@@ -16,7 +16,7 @@ public class SpecializationMapper implements BaseMapper<Specialization> {
         Optional<Specialization> optionalSpecialization;
         try {
             specialization.setSpecializationId(resultSet.getLong(SPECIALIZATION_ID));
-            specialization.setSpecializationName(resultSet.getString(SPECIALIZATION_NAME));
+            specialization.setName(resultSet.getString(SPECIALIZATION_NAME));
             optionalSpecialization = Optional.of(specialization);
         } catch (SQLException e) {
             optionalSpecialization = Optional.empty();

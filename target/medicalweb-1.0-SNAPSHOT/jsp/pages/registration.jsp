@@ -28,7 +28,8 @@
 <fmt:message key="register.login.helper" var="login_helper"/>
 <fmt:message key="register.password.helper" var="password_helper"/>
 <fmt:message key="register.phone.helper" var="phone_helper"/>
-<fmt:message key="enter.email" var="enter_email"/>
+<fmt:message key="register.email.helper" var="enter_email"/>
+<fmt:message key="registration.success.message" var="register_success"/>
 <html>
 <head>
     <!-- Обязательные метатеги -->
@@ -69,9 +70,9 @@
                         <fmt:message key="${requestScope.invalid_first_name}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.first_name"/>
-                </div>
+                <%--        <div class="invalid-feedback">
+                            <fmt:message key="registration.invalid.first_name"/>
+                        </div>--%>
             </div>
             <div class="form-group">
                 <label class="form-label">${middle_name}</label>
@@ -83,9 +84,9 @@
                         <fmt:message key="${requestScope.invalid_middle_name}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.middle_name"/>
-                </div>
+                <%--        <div class="invalid-feedback">
+                            <fmt:message key="registration.invalid.middle_name"/>
+                        </div>--%>
             </div>
             <div class="form-group">
                 <label class="form-label">${last_name}</label>
@@ -97,11 +98,11 @@
                         <fmt:message key="${requestScope.invalid_last_name}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.last_name"/>
-                </div>
+                <%--        <div class="invalid-feedback">
+                            <fmt:message key="registration.invalid.last_name"/>
+                        </div>--%>
             </div>
-            <div class="form-group" >
+            <div class="form-group">
                 <label class="form-label">${login}</label>
                 <input type="text" name="login" value="${param.login}" class="form-control"
                        placeholder="${login}" required pattern="^[A-Za-zА-Яа-я0-9_]{3,30}$">
@@ -111,9 +112,9 @@
                         <fmt:message key="${requestScope.invalid_login}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.login"/>
-                </div>
+                <%--     <div class="invalid-feedback">
+                         <fmt:message key="registration.invalid.login"/>
+                     </div>--%>
             </div>
             <div class="form-group">
                 <label class="form-label">${password}</label>
@@ -126,9 +127,9 @@
                         <fmt:message key="${requestScope.invalid_password}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.password"/>
-                </div>
+                <%--     <div class="invalid-feedback">
+                         <fmt:message key="registration.invalid.password"/>
+                     </div>--%>
             </div>
             <div class="form-group">
                 <label class="form-label"><fmt:message key="register.repeated_password"/></label>
@@ -141,9 +142,9 @@
                         <fmt:message key="${requestScope.invalid_repeated_password}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.repeated_pass"/>
-                </div>
+                <%--     <div class="invalid-feedback">
+                         <fmt:message key="registration.invalid.repeated_pass"/>
+                     </div>--%>
             </div>
             <div class="form-group">
                 <label class="form-label">${email}</label>
@@ -156,39 +157,39 @@
                         <fmt:message key="${requestScope.invalid_email}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.email"/>
-                </div>
+                <%--  <div class="invalid-feedback">
+                      <fmt:message key="registration.invalid.email"/>
+                  </div>--%>
             </div>
 
             <div class="form-group">
                 <label class="form-label">${phone}</label>
                 <input type="text" name="phone" value="${param.phone}" class="form-control"
-                       placeholder="44/25/29/33XXXXXXX" required pattern="\d{9}">
+                       placeholder="44/25/29/33XXXXXXX" required pattern="(44|25|29|33)\d{7}">
                 <small id="passwordHelpBlock" class="form-text text-muted">${phone_helper}</small>
                 <c:if test="${!empty requestScope.invalid_phone_number}">
                     <div class="invalid-feedback-backend" style="color: red">
                         <fmt:message key="${requestScope.invalid_phone_number}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.phone"/>
+                <%-- <div class="invalid-feedback">
+                     <fmt:message key="registration.invalid.phone"/>
+                 </div>--%>
+            </div>
+            <div>
+                <label class="form-label">${gender}: </label>
+                <p>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="FEMALE" checked>
+                    <label class="form-check-label" for="inlineRadio1">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="MALE">
+                    <label class="form-check-label" for="inlineRadio2">Male</label>
                 </div>
             </div>
+
             <div class="form-group">
-                <label class="form-label">${gender}</label>
-                <input type="text" name="gender" value="${param.gender}"
-                       class="form-control" placeholder="Male or Female" required>
-                <%--<c:if test="${!empty invalid_gender}">
-                    <div class="invalid-feedback-backend" style="color: red">
-                        <fmt:message key="${invalid_gender}"/>
-                    </div>
-                </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.gender"/>
-                </div>--%>
-            </div>
-           <div class="form-group">
                 <label class="form-label">${birthdate}</label>
                 <input type="date" name="birthdate" value="${param.birthdate}"
                        class="form-control" placeholder="Choose birthdate" required>
@@ -197,15 +198,16 @@
                         <fmt:message key="${requestScope.invalid_birthdate}"/>
                     </div>
                 </c:if>
-                <div class="invalid-feedback">
-                    <fmt:message key="registration.invalid.birthdate"/>
-                </div>
+                <%--  <div class="invalid-feedback">
+                      <fmt:message key="registration.invalid.birthdate"/>
+                  </div>--%>
             </div>
 
 
             <div class="text-center mb-3">
                 <button type="submit" class="btn btn-success"><fmt:message key="register.submit"/></button>
             </div>
+
         </div>
     </form>
 </div>

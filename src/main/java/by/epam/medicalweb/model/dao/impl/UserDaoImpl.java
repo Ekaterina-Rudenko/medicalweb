@@ -367,7 +367,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public Optional<User> findUserByLoginAndPassword(String login, String password) throws DaoException {
         Optional<User> optionalUser = Optional.empty();
-        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_LOGIN_AND_PASSWORD)) {
+        try (PreparedStatement statement = this.connection.prepareStatement(SQL_SELECT_USER_BY_LOGIN_AND_PASSWORD)) {
             statement.setString(1, login);
             statement.setString(2, password);
             try (ResultSet resultSet = statement.executeQuery()) {

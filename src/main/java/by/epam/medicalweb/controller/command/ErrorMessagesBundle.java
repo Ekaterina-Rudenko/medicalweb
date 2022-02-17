@@ -16,5 +16,6 @@ public class ErrorMessagesBundle {
     public static final String USER_ROLE_UNDEFINED_MESSAGE = "log_in.role_undefined.message";
     public static final String USER_BLOCKED_MESSAGE = "log_in.status_blocked.message";
     public static final String INCORRECT_LOGIN_OR_PASSWORD_MESSAGE = "log_in.incorrect_login_or_password.message";
+    public static final String INVALID_IMAGE_PATH_MESSAGE = "admin.add_user.invalid_image.message";
     ErrorMessagesBundle(){}
 }

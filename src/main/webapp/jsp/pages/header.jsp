@@ -24,7 +24,7 @@
 <fmt:message key="header.log_out" var="log_out"/>
 <fmt:message key="header.profile" var="profile"/>
 <fmt:message key="header.create_a_visit" var="make_an_appointment"/>
-
+<fmt:message key="admin.add.doctor" var="add_doctor"/>
 
 <html>
 <head>
@@ -66,7 +66,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
-                       href="${pageContext.request.contextPath}/jsp/pages/services.jsp">${services}</a>
+                       href="${pageContext.request.contextPath}/controller?command=show_all_specializations">${services}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
@@ -108,14 +108,14 @@
                 </li>
 
                 <c:choose>
-                    <c:when test="${sessionScope.user_role eq 'PATIENT' or 'ADMIN' or 'DOCTOR'}">
+                    <c:when test="${sessionScope.user_role eq 'GUEST'}">
                         <li class="nav-item"><a class="nav-link"
-                                                href="${pageContext.request.contextPath}/controller?command=log_out"> ${log_out}</a>
+                                                href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${log_in}</a>
                         </li>
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item"><a class="nav-link"
-                                                href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${log_in}</a>
+                                                href="${pageContext.request.contextPath}/controller?command=log_out"> ${log_out}</a>
                         </li>
                     </c:otherwise>
                 </c:choose>

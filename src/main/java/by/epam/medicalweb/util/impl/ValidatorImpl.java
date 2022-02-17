@@ -112,10 +112,6 @@ public class ValidatorImpl implements Validator {
             isValid = false;
         }
 
-        /*if (!isCorrectBirthDate(data.get(BIRTHDATE))) {
-            data.put(BIRTHDATE, INVALID_BIRTHDATE);
-            isValid = false;
-        }*/
         return isValid;
     }
 }

@@ -17,10 +17,11 @@
 <fmt:message key="log_in.password" var="password"/>
 <fmt:message key="log_in.submit" var="submit"/>
 <fmt:message key="log_in.register" var="register"/>
-<fmt:message key="user.role_undefined.message" var="role_undefined"/>
-<fmt:message key="user.status_blocked.message" var="status_blocked"/>
-<fmt:message key="login.incorrect_login_or_password.message" var="incorrect_login_or_pass"/>
-<fmt:message key="login.register" var="register_if"></fmt:message>
+<fmt:message key="log_in.role_undefined.message" var="role_undefined"/>
+<fmt:message key="log_in.status_blocked.message" var="status_blocked"/>
+<fmt:message key="log_in.incorrect_login_or_password.message" var="incorrect_login_or_pass"/>
+<fmt:message key="log_in.or_register" var="register_if"/>
+
 <html>
 <head>
     <!-- Обязательные метатеги -->
@@ -83,11 +84,9 @@
                     <fmt:message key="${requestScope.incorrect_login_or_pass}"/>
                 </div>
             </c:if>
-          <%--  <div class="invalid-feedback">
-                ${incorrect_login_or_pass}
-            </div>--%>
+
             <div class="text-center mb-3">
-                <button type="submit" class="btn btn-success"><fmt:message key="log_in.submit"/></button>
+                <button type="submit" class="btn btn-success">${submit}</button>
             </div>
             <div>
                 <button type="button" class="border-primary" >

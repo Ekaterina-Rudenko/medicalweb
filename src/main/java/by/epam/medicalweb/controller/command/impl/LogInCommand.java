@@ -30,7 +30,6 @@ import static by.epam.medicalweb.controller.command.RequestParameterName.*;
 import static by.epam.medicalweb.controller.command.SessionAttribute.*;
 import static by.epam.medicalweb.controller.command.SessionAttribute.USER_ROLE;
 
-
 public class LogInCommand implements Command {
     private static Logger logger = LogManager.getLogger();
 
@@ -71,7 +70,6 @@ public class LogInCommand implements Command {
                             session.setAttribute(USER, user);
                             session.setAttribute(USER_ROLE, user.getRole());
                             session.setAttribute(DOCTOR_CATEGORY, doctor.getCategory());
-                            session.setAttribute(DOCTOR_PHOTO, doctor.getPhotoPath());
                             session.setAttribute(DOCTOR_SPECIALIZATION, doctor.getSpecializationId());
                             router.setPage(MAIN_PAGE);
                         }

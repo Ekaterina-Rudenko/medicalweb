@@ -24,7 +24,7 @@
 <fmt:message key="header.log_out" var="log_out"/>
 <fmt:message key="header.profile" var="profile"/>
 <fmt:message key="header.create_a_visit" var="make_an_appointment"/>
-
+<fmt:message key="admin.add.doctor" var="add_doctor"/>
 
 <html>
 <head>
@@ -66,7 +66,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
-                       href="${pageContext.request.contextPath}/jsp/pages/services.jsp">${services}</a>
+                       href="${pageContext.request.contextPath}/controller?command=show_all_specializations">${services}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
@@ -76,6 +76,7 @@
                     <a class="nav-link active" aria-current="page"
                        href="${pageContext.request.contextPath}/jsp/pages/contacts.jsp">${contacts}</a>
                 </li>
+
 
                 <c:choose>
                     <c:when test="${sessionScope.user_role eq 'ADMIN'}">
@@ -89,29 +90,36 @@
                     </c:when>
                     <c:otherwise>
                         <button class="btn btn-outline-success me-2" type="button">
-                            <a href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${make_an_appointment}</a>
+                            <a href="${pageContext.request.contextPath}/jsp/pages/login.jsp" >${make_an_appointment}</a>
                         </button>
                         <div>
                             <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/jsp/pages/registration.jsp">${register}</a>
+                                <a class="nav-link"
+                                   href="${pageContext.request.contextPath}/jsp/pages/registration.jsp">${register}</a>
                             </li>
                         </div>
                     </c:otherwise>
-
                 </c:choose>
 
+                <li class="nav-item">
+                    <c:if test="${not empty sessionScope.user}">
+                        <c:out value="${sessionScope.user.role}: ${sessionScope.user.firstName} ${sessionScope.user.middleName} ${sessionScope.user.lastName}"/>
+                    </c:if>
+                </li>
+
                 <c:choose>
-                    <c:when test="${sessionScope.user_role eq 'PATIENT' or 'ADMIN' or 'DOCTOR'}">
+                    <c:when test="${sessionScope.user_role eq 'GUEST'}">
                         <li class="nav-item"><a class="nav-link"
-                                                href="${pageContext.request.contextPath}/controller?command=log_out"> ${log_out}</a>
+                                                href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${log_in}</a>
                         </li>
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item"><a class="nav-link"
-                                                href="${pageContext.request.contextPath}/jsp/pages/login.jsp">${log_in}</a>
+                                                href="${pageContext.request.contextPath}/controller?command=log_out"> ${log_out}</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
+
 
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

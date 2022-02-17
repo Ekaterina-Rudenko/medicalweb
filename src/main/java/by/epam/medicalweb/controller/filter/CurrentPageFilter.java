@@ -42,28 +42,4 @@ public class CurrentPageFilter implements Filter {
         }
         filterChain.doFilter(httpRequest, servletResponse);
     }
-
-/* public class CurrentPageFilter implements Filter {
-     private static Logger logger = LogManager.getLogger();
-     private static final String CONTROLLER = "/controller?";
-     private static final String QUESTION = "?";
-
-     @Override
-     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-         HttpServletRequest servletRequest = (HttpServletRequest) request;
-         HttpSession session = servletRequest.getSession();
-         String requestURI = servletRequest.getRequestURI();
-         logger.log(Level.DEBUG,"request URI: " + requestURI);
-         String query = servletRequest.getQueryString();
-         if(query != null){
-             if(servletRequest.getParameter(COMMAND) != null) {
-                 requestURI = CONTROLLER + query;
-             } else {
-                 requestURI = servletRequest.getContextPath() + servletRequest.getServletPath() + QUESTION + query;
-             }
-         }
-         logger.log(Level.DEBUG, query);
-         session.setAttribute(CURRENT_PAGE, requestURI);
-         chain.doFilter(request, response);
-     }*/
 }

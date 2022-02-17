@@ -25,7 +25,8 @@ public class RequestParameterName {
     public static final String BALANCE = "balance";
 
     public static final String CATEGORY = "category";
-    public static final String DOCTOR_PHOTO = "doctor_photo";
+    public static final String SPECIALIZATION_ID = "specialization_id";
+    public static final String IMAGE_PATH = "image_path";
 
     public static final String INVALID_FIRST_NAME = "invalid_first_name";
     public static final String INVALID_MIDDLE_NAME = "invalid_middle_name";
@@ -45,5 +46,8 @@ public class RequestParameterName {
 
     public static final String NOT_UNIQUE_LOGIN = "not_unique_login";
     public static final String NOT_UNIQUE_EMAIL = "not_unique_email";
+
+    public static final String INVALID_IMAGE_PATH = "invalid_image_path";
+
 
 }

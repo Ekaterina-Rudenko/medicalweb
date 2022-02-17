@@ -10,6 +10,7 @@ public class SessionAttribute {
     public static final String PATIENT_BALANCE = "patient_balance";
     public static final String DOCTOR_SPECIALIZATION = "doctor_specialization";
     public static final String DOCTOR_CATEGORY = "doctor_category";
+    public static final String SPECIALIZATION_LIST = "specialization_list";
     private SessionAttribute(){}
 
 }

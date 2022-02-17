@@ -10,6 +10,7 @@ import by.epam.medicalweb.model.dao.impl.UserDaoImpl;
 import by.epam.medicalweb.model.entity.Patient;
 import by.epam.medicalweb.model.entity.User;
 import by.epam.medicalweb.model.service.PatientService;
+import by.epam.medicalweb.model.service.UserService;
 import by.epam.medicalweb.util.PasswordEncoder;
 import by.epam.medicalweb.util.Validator;
 import by.epam.medicalweb.util.impl.ValidatorImpl;
@@ -45,10 +46,11 @@ public class PatientServiceImpl implements PatientService {
     public boolean registerPatient(Map<String, String> data) throws ServiceException, ConnectionPoolException {
         UserDaoImpl userDao = new UserDaoImpl();
         PatientDaoImpl patientDao = new PatientDaoImpl();
+       UserService userService = UserServiceImpl.getInstance();
         EntityTransaction transaction = new EntityTransaction();
         transaction.beginTransaction(userDao, patientDao);
         try {
-            boolean isValidData = validator.checkRegistration(data);
+           /* boolean isValidData = validator.checkRegistration(data);
             logger.log(Level.INFO, "Registration data is valid: " + isValidData);
             if (!isValidData) {
                 return false;
@@ -58,16 +60,17 @@ public class PatientServiceImpl implements PatientService {
             String lastName = data.get(LAST_NAME);
             String login = data.get(LOGIN);
             String password = data.get(PASSWORD);
-            String email = data.get(EMAIL);
-            String phone = data.get(PHONE);
-            String birthday = data.get(BIRTHDATE);
             String repeatedPassword = data.get(REPEATED_PASSWORD);
+            String email = data.get(EMAIL);
+            String phone = data.get(PHONE);*/
+            String birthday = data.get(BIRTHDATE);
             String gender = data.get(GENDER);
+            boolean isCorrectData = userService.checkData(data);
+            if(!isCorrectData){
+                return false;
+            }
 
-            LocalDate birthdate = LocalDate.parse(birthday);
-            Patient.Gender patientGender = Patient.Gender.valueOf(gender.toUpperCase());
-
-            boolean isUniqueResult = true;
+           /* boolean isUniqueResult = true;
             if (userDao.findUserByLogin(login).isPresent()) {
                 data.put(LOGIN, NOT_UNIQUE_LOGIN);
                 isUniqueResult = false;
@@ -84,9 +87,14 @@ public class PatientServiceImpl implements PatientService {
             if (!isUniqueResult) {
                 return false;
             }
-            String encryptPassword = PasswordEncoder.encryptPass(password);
-            User newUser = new User(firstName, middleName, lastName, login,
-                    encryptPassword, email, phone, User.UserState.ACTIVE, User.UserRole.PATIENT);
+            String encryptPassword = PasswordEncoder.encryptPass(password);*/
+
+            LocalDate birthdate = LocalDate.parse(birthday);
+            Patient.Gender patientGender = Patient.Gender.valueOf(gender.toUpperCase());
+           /* User newUser = new User(firstName, middleName, lastName, login,
+                    encryptPassword, email, phone, User.UserState.ACTIVE, User.UserRole.PATIENT);*/
+            User newUser = userService.buildBasicUser(data);
+            newUser.setRole(User.UserRole.PATIENT);
             long userId = userDao.create(newUser);
             Patient patientInfo = new Patient.PatientBuilder()
                     .setUserId(userId)
@@ -99,6 +107,7 @@ public class PatientServiceImpl implements PatientService {
             }*/
             return (patientId != 0);
         } catch (DaoException e) {
+            transaction.rollback();
             logger.log(Level.DEBUG, "New Patient failed to be registered. Error in service method", e);
             throw new ServiceException("New Patient failed to be registered. Error in service method", e);
         } finally {

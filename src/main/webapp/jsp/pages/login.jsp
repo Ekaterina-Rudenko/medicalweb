@@ -84,9 +84,7 @@
                     <fmt:message key="${requestScope.incorrect_login_or_pass}"/>
                 </div>
             </c:if>
-          <%--  <div class="invalid-feedback">
-                ${incorrect_login_or_pass}
-            </div>--%>
+
             <div class="text-center mb-3">
                 <button type="submit" class="btn btn-success">${submit}</button>
             </div>

@@ -10,7 +10,7 @@
             <PatternLayout pattern="${pattern_console}"/>
         </Console>
 
-        <File name="File1" fileName="${LOG_DIR}/text.log" bufferedIO="true">
+        <File name="File1" fileName="logs/text.log" bufferedIO="true">
             <PatternLayout pattern="${pattern_file}"/>
         </File>
 

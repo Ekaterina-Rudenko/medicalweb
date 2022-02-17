@@ -1,6 +1,7 @@
 package by.epam.medicalweb.main;
 
 import by.epam.medicalweb.pool.ConnectionPool;
+import by.epam.medicalweb.util.PasswordEncoder;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,5 +26,8 @@ public class ConnectionDemo {
        }*/
 
       //ConnectionPool.getInstance().takeConnection();
+/*      PasswordEncoder encoder = new PasswordEncoder();
+      String pass = PasswordEncoder.encryptPass("ekaterinapass");
+      System.out.println(pass);*/
    }
 }

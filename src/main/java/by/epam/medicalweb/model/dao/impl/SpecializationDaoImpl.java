@@ -18,11 +18,11 @@ public class SpecializationDaoImpl extends AbstractDao<Specialization> implement
     private static Logger logger = LogManager.getLogger();
 
     private static final String SQL_FIND_SPECIALIZATION_BY_ID = """
-            SELECT spec_name
+            SELECT spec_id, spec_name
             FROM specializations
             WHERE spec_id = (?);""";
     private static final String SQL_FIND_ALL_SPECIALIZATIONS = """
-            SELECT spec_name
+            SELECT spec_id, spec_name
             FROM specializations
             ORDER BY spec_name;""";
     private static final String SQL_DELETE_SPECIALIZATIONS_BY_ID = """
@@ -102,7 +102,7 @@ public class SpecializationDaoImpl extends AbstractDao<Specialization> implement
     public long create(Specialization entity) throws DaoException, SQLException {
         long specId = 0;
         try (PreparedStatement statement = connection.prepareStatement(SQL_INSERT_NEW_SPECIALIZATION, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, entity.getSpecializationName());
+            statement.setString(1, entity.getName());
             int isUpdated = statement.executeUpdate();
             if (isUpdated == 1) {
                 try (ResultSet resultSet = statement.getGeneratedKeys();) {
