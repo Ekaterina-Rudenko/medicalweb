@@ -10,8 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2c2eda0-36d9-40e5-b78e-a6e45e8657b2" name="Changes" comment="add gitignore">
-      <change beforePath="$PROJECT_DIR$/log/app.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/text.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/pages/admin/add_doctor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/admin/add_doctor.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/CommandType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/controller/command/CommandType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/service/impl/DoctorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/epam/medicalweb/model/service/impl/DoctorServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/CommandType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/controller/command/CommandType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/service/impl/DoctorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/medicalweb-1.0-SNAPSHOT/WEB-INF/classes/by/epam/medicalweb/model/service/impl/DoctorServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +353,7 @@
       <workItem from="1644690467360" duration="18945000" />
       <workItem from="1644957703687" duration="9778000" />
       <workItem from="1645038116858" duration="18756000" />
-      <workItem from="1645101273483" duration="2886000" />
+      <workItem from="1645101273483" duration="4114000" />
     </task>
     <task id="LOCAL-00001" summary="add gitignore">
       <created>1644447817806</created>

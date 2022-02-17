@@ -203,7 +203,6 @@
                     <label class="form-label">${photo}</label>
                     <input type="file" name="image_path"  class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm mb-2">Upload photo</button>
             </form>
 
             <div class="text-center mb-3">
