@@ -22,9 +22,16 @@ public class UploadImageCommand implements Command {
     private final DoctorService doctorService = DoctorServiceImpl.getInstance();
 
     @Override
-    public Router execute(HttpServletRequest request) throws IOException, ServletException {
+    public Router execute(HttpServletRequest request)  {
         Router router = new Router();
-        Part part = request.getPart("IMAGE_PATH");
+        Part part = null;
+        try {
+            part = request.getPart("IMAGE_PATH");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
         String imagePath = ImageUploader.uploadImage(part);
         String userId = request.getParameter(USER_ID);
         //todo

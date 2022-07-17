@@ -83,7 +83,7 @@ public class LogInCommand implements Command {
                     router.setPage(LOG_IN_PAGE);
                 }
             } else {
-                logger.log(Level.DEBUG, "Incorrect login ir password, logIn command: ");
+                logger.log(Level.DEBUG, "Incorrect login or password, logIn command: ");
                 request.setAttribute(INCORRECT_LOGIN_OR_PASS, INCORRECT_LOGIN_OR_PASSWORD_MESSAGE);
                 router.setPage(LOG_IN_PAGE);
             }

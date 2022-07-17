@@ -5,6 +5,7 @@ import by.epam.medicalweb.controller.command.CommandFactory;
 import by.epam.medicalweb.controller.command.PagePath;
 import by.epam.medicalweb.controller.command.Router;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +19,9 @@ import java.io.IOException;
 import static by.epam.medicalweb.controller.command.RequestParameterName.COMMAND;
 
 @WebServlet(name = "controller", urlPatterns = "/controller")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024*5,
+        maxFileSize = 1024 * 1024 * 5,
+        maxRequestSize = 1024 * 1024 * 5)
 public class Controller extends HttpServlet {
     static Logger logger = LogManager.getLogger();
 

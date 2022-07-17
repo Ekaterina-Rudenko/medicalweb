@@ -23,7 +23,8 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
     private static final String SQL_FIND_ALL_SERVICES = """
             SELECT service_id, spec_name, service_name, price 
             FROM services
-            JOIN specializations ON specializations.spec_id = services.spec_id""";
+            JOIN specializations ON specializations.spec_id = services.spec_id
+            ORDER BY spec_name""";
     private static final String SQL_FIND_SERVICE_BY_ID = """
             SELECT service_id, spec_name, service_name, price 
             FROM services

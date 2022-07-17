@@ -12,6 +12,7 @@ public enum CommandType {
     INSERT_NEW_SERVICE(new InsertNewServiceCommand(), EnumSet.of(ADMIN)),
     EDIT_SERVICE(new EditServiceCommand(), EnumSet.of(ADMIN)),
     SHOW_ALL_SERVICES(new ShowAllServicesCommand(), EnumSet.of(ADMIN, DOCTOR, PATIENT, GUEST)),
+    FIND_SERVICES_BY_SPECIALIZATION(new FindServicesBySpecializationCommand(), EnumSet.of(PATIENT, GUEST,DOCTOR,ADMIN)),
     ADD_DOCTOR(new AddDoctorCommand(), EnumSet.of(ADMIN)),
 
     CHANGE_LOCALE(new ChangeLocaleCommand(), EnumSet.of(ADMIN, DOCTOR, PATIENT, GUEST)),
@@ -33,6 +34,7 @@ public enum CommandType {
 
     SHOW_ALL_DOCTORS(new ShowAllDoctorsCommand(), EnumSet.of(PATIENT, GUEST,  ADMIN, DOCTOR)),
     SHOW_ALL_SPECIALIZATIONS(new ShowAllSpecializationsCommand(), EnumSet.of(PATIENT, GUEST, ADMIN, DOCTOR)),
+
 
     ADD_PRESCRIPTION(new AddPrescriptionCommand(), EnumSet.of(DOCTOR)),
     SHOW_PRESCRIPTION(new ShowPrescriptionCommand(), EnumSet.of(PATIENT)),

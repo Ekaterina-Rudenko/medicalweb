@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <fmt:setLocale value="${sessionScope.locale}" scope="session"/>
 <fmt:setBundle basename="bundle/locale"/>
@@ -25,18 +26,21 @@
     <div class="container">
         <h3 class="text-center">${services_title}</h3>
         <table class="table table-bordered">
-            <thead>>
             <tr>
-                <th>Специализации</th>
+                <th>Специализация</th>
+                <th>Услуга</th>
+                <th>Цена</th>
             </tr>
-            </thead>
             <tbody>
-            <c:forEach var="specialization" items="${sessionScope.specialization_list}">
-            <tr>
-                <td><c:out value="${specialization.name}"/></td>>
-            </tr>
+                <c:forEach var="service" items="${sessionScope.service_list}">
+                <tr>
+                    <td><c:out value="${service.specializaion.name}"/></td>
+                    <td><c:out value="${service.serviceName}"/></td>
+                    <td><c:out value="${service.price}"/></td>
+                </tr>
+                </c:forEach>
             </tbody>
-            </c:forEach>
+
         </table>
     </div>
 </div>

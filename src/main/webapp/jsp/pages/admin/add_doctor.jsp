@@ -64,7 +64,7 @@
 
 <div class="container justify-content-center col-12 col-sm-6 mt-3">
     <h3 class="text-center p-3">${register_title}</h3>
-    <form role="form" action="${pageContext.request.contextPath}/controller" method="post">
+    <form role="form" action="${pageContext.request.contextPath}/controller" method="post" enctype="multipart/form-data">
         <input type="hidden" name="command" value="add_doctor"/>
         <div class="row gy-3">
             <div class="form-group">
@@ -195,15 +195,15 @@
             </div>
 
 
-            <form name="upload_image" method="post" action="${pageContext.request.contextPath}/controller"
-                  enctype="multipart/form-data">
-                <input type="hidden" name="command" value="upload_image">
+           <%-- <form name="upload_image" method="post" action="${pageContext.request.contextPath}/controller"
+                  enctype="multipart/form-data">--%>
+              <%--  <input type="hidden" name="command" value="upload_image">--%>
                 <br>
                 <div class="form-group">
                     <label class="form-label">${photo}</label>
                     <input type="file" name="image_path"  class="form-control">
                 </div>
-            </form>
+         <%--   </form>--%>
 
             <div class="text-center mb-3">
                 <button type="submit" class="btn btn-success"><fmt:message key="register.submit"/></button>

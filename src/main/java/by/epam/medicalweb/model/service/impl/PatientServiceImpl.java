@@ -46,49 +46,16 @@ public class PatientServiceImpl implements PatientService {
     public boolean registerPatient(Map<String, String> data) throws ServiceException, ConnectionPoolException {
         UserDaoImpl userDao = new UserDaoImpl();
         PatientDaoImpl patientDao = new PatientDaoImpl();
-       UserService userService = UserServiceImpl.getInstance();
+        UserService userService = UserServiceImpl.getInstance();
         EntityTransaction transaction = new EntityTransaction();
         transaction.beginTransaction(userDao, patientDao);
         try {
-           /* boolean isValidData = validator.checkRegistration(data);
-            logger.log(Level.INFO, "Registration data is valid: " + isValidData);
-            if (!isValidData) {
-                return false;
-            }
-            String firstName = data.get(FIRST_NAME);
-            String middleName = data.get(MIDDLE_NAME);
-            String lastName = data.get(LAST_NAME);
-            String login = data.get(LOGIN);
-            String password = data.get(PASSWORD);
-            String repeatedPassword = data.get(REPEATED_PASSWORD);
-            String email = data.get(EMAIL);
-            String phone = data.get(PHONE);*/
             String birthday = data.get(BIRTHDATE);
             String gender = data.get(GENDER);
             boolean isCorrectData = userService.checkData(data);
             if(!isCorrectData){
                 return false;
             }
-
-           /* boolean isUniqueResult = true;
-            if (userDao.findUserByLogin(login).isPresent()) {
-                data.put(LOGIN, NOT_UNIQUE_LOGIN);
-                isUniqueResult = false;
-            }
-            if (userDao.findUserByEmail(email).isPresent()) {
-                data.put(EMAIL, NOT_UNIQUE_EMAIL);
-                isUniqueResult = false;
-            }
-
-            if (!password.equals(repeatedPassword)) {
-                data.put(REPEATED_PASSWORD, INVALID_REPEATED_PASSWORD);
-                isUniqueResult = false;
-            }
-            if (!isUniqueResult) {
-                return false;
-            }
-            String encryptPassword = PasswordEncoder.encryptPass(password);*/
-
             LocalDate birthdate = LocalDate.parse(birthday);
             Patient.Gender patientGender = Patient.Gender.valueOf(gender.toUpperCase());
            /* User newUser = new User(firstName, middleName, lastName, login,

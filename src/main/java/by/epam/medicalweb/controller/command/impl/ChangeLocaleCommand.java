@@ -1,6 +1,7 @@
 package by.epam.medicalweb.controller.command.impl;
 
 import by.epam.medicalweb.controller.command.*;
+import by.epam.medicalweb.controller.command.Router.RouterType;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
@@ -29,7 +30,7 @@ public class ChangeLocaleCommand implements Command {
             return router;
         }
         router.setPage(currentPage);
-        router.setRouterType(Router.RouterType.FORWARD);
+        router.setRouterType(RouterType.FORWARD);
         return router;
     }
 }

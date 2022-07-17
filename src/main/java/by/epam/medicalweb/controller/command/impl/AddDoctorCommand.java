@@ -4,7 +4,6 @@ import by.epam.medicalweb.controller.command.Command;
 import by.epam.medicalweb.controller.command.Router;
 import by.epam.medicalweb.exception.ConnectionPoolException;
 import by.epam.medicalweb.exception.ServiceException;
-import by.epam.medicalweb.model.entity.Specialization;
 import by.epam.medicalweb.model.service.DoctorService;
 import by.epam.medicalweb.model.service.SpecializationService;
 import by.epam.medicalweb.model.service.impl.DoctorServiceImpl;
@@ -23,7 +22,6 @@ import java.util.Map;
 
 import static by.epam.medicalweb.controller.command.ErrorMessagesBundle.*;
 import static by.epam.medicalweb.controller.command.PagePath.MAIN_PAGE;
-import static by.epam.medicalweb.controller.command.PagePath.SUCCESSFUL_REGISTRATION;
 import static by.epam.medicalweb.controller.command.RequestParameterName.*;
 import static by.epam.medicalweb.controller.command.RequestParameterName.REPEATED_PASSWORD;
 
@@ -33,7 +31,7 @@ public class AddDoctorCommand implements Command {
     private SpecializationService specializationService = SpecializationServiceImpl.getInstance();
 
     @Override
-    public Router execute(HttpServletRequest request) throws ServletException, IOException {
+    public Router execute(HttpServletRequest request){
         Router router = new Router();
         Map<String, String> mapData = new HashMap<>();
         mapData.put(FIRST_NAME, request.getParameter(FIRST_NAME));
@@ -48,11 +46,12 @@ public class AddDoctorCommand implements Command {
         mapData.put(SPECIALIZATION_ID, request.getParameter(SPECIALIZATION_ID));
         mapData.put(REPEATED_PASSWORD, request.getParameter(REPEATED_PASSWORD));
 
-        Part part = request.getPart(IMAGE_PATH); //todo
-        String imagePath = ImageUploader.uploadImage(part);
-        mapData.put(IMAGE_PATH, imagePath);
+
 
         try {
+            Part part = request.getPart(IMAGE_PATH); //todo
+            String imagePath = ImageUploader.uploadImage(part);
+            mapData.put(IMAGE_PATH, imagePath);
             if (doctorService.addDoctor(mapData)) {
                 router.setPage(MAIN_PAGE);
             } else {
@@ -75,6 +74,10 @@ public class AddDoctorCommand implements Command {
             }
         } catch (ServiceException|ConnectionPoolException e) {
             logger.log(Level.ERROR, "Failed to register new doctor, exception in add doctor command ", e);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return router;
     }

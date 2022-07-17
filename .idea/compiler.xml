@@ -13,4 +13,9 @@
       <module name="medicalweb" target="15" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="medicalweb" options="--add-modules java.base,java.sql" />
+    </option>
+  </component>
 </project>

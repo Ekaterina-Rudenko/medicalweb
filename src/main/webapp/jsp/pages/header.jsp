@@ -66,7 +66,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
-                       href="${pageContext.request.contextPath}/controller?command=show_all_specializations">${services}</a>
+                       href="${pageContext.request.contextPath}/controller?command=show_all_services">${services}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"

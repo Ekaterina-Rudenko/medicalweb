@@ -4,15 +4,11 @@ import by.epam.medicalweb.controller.command.SessionAttribute;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-
-import static by.epam.medicalweb.controller.command.RequestParameterName.COMMAND;
-import static by.epam.medicalweb.controller.command.SessionAttribute.CURRENT_PAGE;
 
 @WebFilter(urlPatterns = {"/*"})
 public class CurrentPageFilter implements Filter {
@@ -23,7 +19,9 @@ public class CurrentPageFilter implements Filter {
         Logger logger = LogManager.getLogger();
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         String currentPage = httpRequest.getRequestURL().toString();
+        logger.log(Level.DEBUG,SessionAttribute.CURRENT_PAGE);
         logger.log(Level.DEBUG, "currentPage URL: " + currentPage);
+        logger.log(Level.DEBUG, httpRequest.getSession().getAttributeNames());
 
         if (currentPage.contains("jsp/")) {
             int index = currentPage.indexOf("jsp/");

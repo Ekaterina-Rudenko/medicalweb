@@ -34,6 +34,11 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
             SELECT user_id, first_name, middle_name, last_name, login, password, email, phone, user_state, user_role, registration_date, category, doctor_photo, specialization_id
             FROM users 
             JOIN doctors ON users.user_id = doctors.doctor_id;""";
+    private static final String SQL_SELECT_DOCTOR_SUBLIST = """
+            SELECT user_id, first_name, middle_name, last_name,  category, doctor_photo, specialization_id
+            FROM users 
+            JOIN doctors ON users.user_id = doctors.doctor_id;""";
+
 
     private static final String SQL_INSERT_DOCTOR_INFO = """
             INSERT INTO doctors (doctor_id, category, doctor_photo, specialization_id)
