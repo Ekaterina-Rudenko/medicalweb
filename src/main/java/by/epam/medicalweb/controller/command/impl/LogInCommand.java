@@ -88,10 +88,8 @@ public class LogInCommand implements Command {
                 request.setAttribute(INCORRECT_LOGIN_OR_PASS, INCORRECT_LOGIN_OR_PASSWORD_MESSAGE);
                 router.setPage(LOG_IN_PAGE);
             }
-        } catch (ServiceException e) {
-            e.printStackTrace();
-        } catch (ConnectionPoolException e) {
-            e.printStackTrace();
+        } catch (ServiceException| ConnectionPoolException e) {
+           logger.log(Level.DEBUG, "Failed to log in", e);
         }
         return router;
     }

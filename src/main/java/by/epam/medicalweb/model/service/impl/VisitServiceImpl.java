@@ -61,6 +61,23 @@ public class VisitServiceImpl implements VisitService {
   }
 
   @Override
+  public List<Visit> findVisitsByPatientId(long patientId) throws ConnectionPoolException, ServiceException {
+    EntityTransaction entityTransaction = new EntityTransaction();
+    VisitDaoImpl visitDao = new VisitDaoImpl();
+    entityTransaction.beginQuery(visitDao);
+    List<Visit> visitList = new ArrayList<>();
+    try {
+      visitList = visitDao.findVisitsByPatientId(patientId);
+    } catch (DaoException e) {
+      logger.log(Level.DEBUG, "Visits failed to be found");
+      throw new ServiceException("Visits failed to be found", e);
+    } finally {
+      entityTransaction.endQuery();
+    }
+    return visitList;
+  }
+
+  @Override
   public Optional<Visit> findVisitById(long visitId)
       throws ServiceException, ConnectionPoolException {
     EntityTransaction entityTransaction = new EntityTransaction();

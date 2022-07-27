@@ -6,6 +6,20 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
+
+<fmt:setLocale value="${sessionScope.locale}" scope="session"/>
+<fmt:setBundle basename="bundle/locale"/>
+
+<fmt:message key="profile.visits" var="visits"/>
+<fmt:message key="profile.settings" var="settings"/>
+<fmt:message key="profile.patient_info" var="info"/>
+<fmt:message key="profile.prescriptions" var="prescriptions"/>
+<fmt:message key="profile.balance" var="balance"/>
+
 <html>
 <head>
     <!-- Обязательные метатеги -->
@@ -26,11 +40,12 @@
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         ${profile}</a>
     <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/jsp/pages/patient/profile.jsp"><fmt:message key="profile.cabinet"/></a></li>
-        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/controller?command=calculate_user_discount"><fmt:message key="profile.discount"/> </a></li>
-        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/controller?command=go_to_orders_page"><fmt:message key="header.orders"/> </a> </li>
+        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/jsp/pages/patient/patient_profile.jsp">${info}</a></li>
+        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/jsp/pages/patient/appointments.jsp">${visits} </a></li>
+        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/jsp/pages/patient/recommendations.jsp">${prescriptions} </a> </li>
+        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/jsp/pages/patient/top_up_balance.jsp">${balance} </a> </li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/jsp/pages/common/settings.jsp"><fmt:message key="profile.settings"/> </a></li>
+        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/jsp/pages/common/settings.jsp">${settings} </a></li>
     </ul>
 </li>
 

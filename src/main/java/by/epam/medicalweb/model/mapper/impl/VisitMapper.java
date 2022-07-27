@@ -3,6 +3,7 @@ package by.epam.medicalweb.model.mapper.impl;
 import by.epam.medicalweb.model.entity.*;
 import by.epam.medicalweb.model.mapper.BaseMapper;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;

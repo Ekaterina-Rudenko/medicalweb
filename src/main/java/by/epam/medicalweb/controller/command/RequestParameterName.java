@@ -78,6 +78,8 @@ public class RequestParameterName {
     public static final String EMPTY_TYPE_PAYMENT = "empty_type_payment";
     public static final String EMPTY_PATIENT = "empty_patient";
 
+    public static final String VISIT_LIST = "visit_list";
+
 
 
 

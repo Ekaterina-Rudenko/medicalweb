@@ -22,4 +22,7 @@ public interface VisitService {
 
   boolean cancelVisit(long visitId) throws ServiceException, ConnectionPoolException;
 
+  List<Visit> findVisitsByPatientId(long patientId) throws ConnectionPoolException, ServiceException;
+
+
 }
