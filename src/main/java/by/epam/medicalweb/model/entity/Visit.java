@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Visit extends AbstractEntity {
     public enum TypePayment {
-        CASH("cash"), CARD("card"), FREE("free"), INSURANCE("insurance");
+        FREE("free"), INSURANCE("insurance"), BILLABLE("billable");
         String typeOfPayment;
 
         TypePayment(String typeOfPayment) {
@@ -92,7 +92,7 @@ public class Visit extends AbstractEntity {
     }
 
     public void setDate(LocalDate date) {
-        this.date = this.date;
+        this.date = date;
     }
 
     public int getTime() {

@@ -13,6 +13,8 @@ public class SessionAttribute {
     public static final String SPECIALIZATION_LIST = "specialization_list";
     public static final String SERVICE_LIST = "service_list";
     public static final String SERVICES_BY_SPEC_LIST = "services_by_spec_list";
+    public static final String DOCTOR_LIST = "doctor_list";
+    public static final String SLOTS_LIST = "slots_list";
     private SessionAttribute(){}
 
 }

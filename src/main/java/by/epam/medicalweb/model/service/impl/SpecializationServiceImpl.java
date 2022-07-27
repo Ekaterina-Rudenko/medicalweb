@@ -8,6 +8,7 @@ import by.epam.medicalweb.model.dao.EntityTransaction;
 import by.epam.medicalweb.model.dao.impl.SpecializationDaoImpl;
 import by.epam.medicalweb.model.entity.Specialization;
 import by.epam.medicalweb.model.service.SpecializationService;
+import java.util.Optional;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,6 +43,28 @@ public class SpecializationServiceImpl implements SpecializationService {
             entityTransaction.endQuery();
         }
         return specializations;
+    }
+
+    public Specialization findSpecializationById(long id)
+        throws ServiceException, ConnectionPoolException {
+        EntityTransaction entityTransaction = new EntityTransaction();
+        AbstractDao<Specialization> specDao = new SpecializationDaoImpl();
+        entityTransaction.beginQuery(specDao);
+        Specialization specialization;
+        try {
+            Optional<Specialization> optionalSpecialization = specDao.findEntityById(id);
+            if(optionalSpecialization.isPresent()){
+                specialization = optionalSpecialization.get();
+            } else {
+                throw new ServiceException("Specialization with id " + id + " is absent");
+            }
+        } catch (DaoException | ServiceException e) {
+            logger.log(Level.ERROR, "Failed to find all the specializations ", e);
+            throw new ServiceException("Failed to find all the specializations ", e);
+        } finally {
+            entityTransaction.endQuery();
+        }
+        return specialization;
     }
 
 }

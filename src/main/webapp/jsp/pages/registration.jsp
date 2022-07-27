@@ -50,13 +50,14 @@
             window.history.forward();
         }
     </script>
+
     <title>${register_title}</title>
 </head>
+
 <body>
 <c:import url="header.jsp"/>
 
 <div class="container justify-content-center col-12 col-sm-6 mt-3">
-    <h3 class="text-center p-3">${register_title}</h3>
     <form role="form" action="${pageContext.request.contextPath}/controller" method="post">
         <input type="hidden" name="command" value="register"/>
         <div class="row gy-3">
@@ -70,7 +71,7 @@
                         <fmt:message key="${requestScope.invalid_first_name}"/>
                     </div>
                 </c:if>
-                <%--        <div class="invalid-feedback">
+                      <%--  <div class="invalid-feedback">
                             <fmt:message key="registration.invalid.first_name"/>
                         </div>--%>
             </div>

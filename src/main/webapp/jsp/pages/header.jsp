@@ -70,13 +70,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
-                       href="${pageContext.request.contextPath}/jsp/pages/doctors.jsp">${doctors}</a>
+                       href="${pageContext.request.contextPath}/controller?command=show_all_doctors">${doctors}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page"
-                       href="${pageContext.request.contextPath}/jsp/pages/contacts.jsp">${contacts}</a>
-                </li>
-
 
                 <c:choose>
                     <c:when test="${sessionScope.user_role eq 'ADMIN'}">
@@ -103,7 +98,8 @@
 
                 <li class="nav-item">
                     <c:if test="${not empty sessionScope.user}">
-                        <c:out value="${sessionScope.user.role}: ${sessionScope.user.firstName} ${sessionScope.user.middleName} ${sessionScope.user.lastName}"/>
+                        <c:out value="${sessionScope.user.role}:
+                        ${sessionScope.user.firstName} ${sessionScope.user.middleName} ${sessionScope.user.lastName}"/>
                     </c:if>
                 </li>
 

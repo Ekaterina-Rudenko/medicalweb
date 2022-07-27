@@ -18,34 +18,34 @@ public class Doctor extends User {
 
     private Category category;
     private String photoPath;
-    private long specializationId;
+    private Specialization specialization;
 
     public Doctor() {
     }
 
-    public Doctor(Category category, String photoPath, long specializationId) {
+    public Doctor(Category category, String photoPath, Specialization specialization) {
         this.category = category;
         this.photoPath = photoPath;
-        this.specializationId = specializationId;
+        this.specialization = specialization;
     }
 
     public Doctor(long userId, String firstName, String middleName, String lastName,
                   String login, String password, String email, String phoneNumber,
                   LocalDateTime registrationDate, UserState state, UserRole role,
-                  Category category, String photoPath, long specializationId) {
+                  Category category, String photoPath, Specialization specialization) {
         super(userId, firstName, middleName, lastName, login, password, email, phoneNumber, state, role, registrationDate);
         this.category = category;
         this.photoPath = photoPath;
-        this.specializationId = specializationId;
+        this.specialization = specialization;
     }
     public Doctor(String firstName, String middleName, String lastName,
                   String login, String password, String email, String phoneNumber,
                   UserState state, UserRole role,
-                  Category category, String photoPath, long specializationId) {
+                  Category category, String photoPath, Specialization specialization) {
         super(firstName, middleName, lastName, login, password, email, phoneNumber, state, role);
         this.category = category;
         this.photoPath = photoPath;
-        this.specializationId = specializationId;
+        this.specialization = specialization;
     }
 
     public static class DoctorBuilder {
@@ -115,8 +115,8 @@ public class Doctor extends User {
             return this;
         }
 
-        public DoctorBuilder setSpecialization(long specializationId) {
-            doctor.setSpecializationId(specializationId);
+        public DoctorBuilder setSpecialization(Specialization specialization) {
+            doctor.setSpecialization(specialization);
             return this;
         }
 
@@ -140,11 +140,20 @@ public class Doctor extends User {
         this.photoPath = photoPath;
     }
 
-    public long getSpecializationId() {
-        return specializationId;
+    public Specialization getSpecialization() {
+        return specialization;
     }
 
-    public void setSpecializationId(long specializationId) {
-        this.specializationId = specializationId;
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+            "category=" + category +
+            ", photoPath='" + photoPath + '\'' +
+            ", specializationId=" + specialization +
+            "} " + super.toString();
     }
 }

@@ -22,7 +22,7 @@ public class ColumnName {
 
     public static final String SERVICE_ID = "service_id";
     public static final String SERVICE_NAME = "service_name";
-    public static final String SERVICE_PRICE = "service_price";
+    public static final String SERVICE_PRICE = "price";
 
     public static final String PRESCRIPTION_ID = "prescription_id";
     public static final String VISIT_ID = "visit_id";
@@ -32,10 +32,14 @@ public class ColumnName {
     public static final String SPECIALIZATION_NAME = "spec_name";
 
     public static final String DOCTOR_ID = "doctor_id";
+    public static final String DOCTOR_NAME = "doctor_name";
+    public static final String DOCTOR_SURNAME = "doctor_surname";
     public static final String VISIT_DATE = "visit_date";
     public static final String VISIT_TIME = "visit_time";
     public static final String TYPE_PAYMENT = "type_payment";
     public static final String VISIT_STATE = "visit_state";
     public static final String PATIENT_ID = "patient_id";
+    public static final String PATIENT_NAME = "patient_name";
+    public static final String PATIENT_SURNAME = "patient_surname";
 
 }

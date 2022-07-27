@@ -7,9 +7,14 @@ import by.epam.medicalweb.model.mapper.BaseMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import static by.epam.medicalweb.model.dao.ColumnName.*;
 
 public class MedicalServiceMapper implements BaseMapper<MedicalService> {
+    private static Logger logger = LogManager.getLogger();
 
     @Override
     public Optional<MedicalService> mapEntity(ResultSet resultSet){
@@ -24,6 +29,7 @@ public class MedicalServiceMapper implements BaseMapper<MedicalService> {
             service.setPrice(resultSet.getBigDecimal(SERVICE_PRICE));
             optionalMedicalService = Optional.of(service);
         } catch (SQLException e) {
+            logger.log(Level.INFO, "Sql Exception in service mapper");
             optionalMedicalService = Optional.empty();
         }
         return optionalMedicalService;

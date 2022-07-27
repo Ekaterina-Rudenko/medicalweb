@@ -28,13 +28,14 @@ public class MedicalServicesServiceImpl implements MedicalServicesService {
   }
 
   @Override
-  public List<MedicalService> findAll() throws ServiceException, ConnectionPoolException {
+  public List<MedicalService> findAllServices() throws ServiceException, ConnectionPoolException {
     EntityTransaction entityTransaction = new EntityTransaction();
     MedicalServiceDaoImpl medicalServiceDao = new MedicalServiceDaoImpl();
     entityTransaction.beginQuery(medicalServiceDao);
-    List<by.epam.medicalweb.model.entity.MedicalService> services;
+    List<MedicalService> services;
     try {
       services = medicalServiceDao.findAll();
+      System.out.println(services);
     } catch (DaoException e) {
       logger.log(Level.ERROR, "Failed to find all the services ", e);
       throw new ServiceException("Failed to find all the services ", e);

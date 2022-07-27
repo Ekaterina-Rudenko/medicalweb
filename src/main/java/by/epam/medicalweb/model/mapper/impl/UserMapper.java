@@ -6,10 +6,13 @@ import by.epam.medicalweb.model.mapper.BaseMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static by.epam.medicalweb.model.dao.ColumnName.*;
 
 public class UserMapper implements BaseMapper<User> {
+    private static Logger logger = LogManager.getLogger();
 
     @Override
     public Optional<User> mapEntity(ResultSet resultSet) {
@@ -19,6 +22,7 @@ public class UserMapper implements BaseMapper<User> {
             setUserData(resultSet, user);
             optionalUser = Optional.of(user);
         } catch (SQLException e) {
+            logger.error("Sql exception in user mapper");
             optionalUser = Optional.empty();
         }
         return optionalUser;

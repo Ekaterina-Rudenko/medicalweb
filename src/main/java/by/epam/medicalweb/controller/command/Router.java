@@ -18,7 +18,6 @@ public class Router {
     }
 
     public Router() {
-        this.routerType = RouterType.FORWARD;
     }
 
     public String getPage() {

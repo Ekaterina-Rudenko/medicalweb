@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface DoctorDao {
     List<Doctor> findDoctorsByCategory(String category) throws DaoException;
-    List<Doctor> findDoctorsBySpecializationId(String specializationId) throws DaoException;
+    List<Doctor> findDoctorsBySpecializationId(long specializationId) throws DaoException;
     Optional<Doctor> findDoctorInfoById (long id) throws DaoException;
     List<Doctor> findDoctorsByLastName (String lastName) throws DaoException;
     boolean updateDoctorPhotoById(String photo, long id) throws DaoException;

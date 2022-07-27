@@ -4,31 +4,27 @@ import by.epam.medicalweb.exception.ConnectionPoolException;
 import by.epam.medicalweb.exception.DaoException;
 import by.epam.medicalweb.exception.ServiceException;
 import by.epam.medicalweb.model.dao.AbstractDao;
+import by.epam.medicalweb.model.dao.DoctorDao;
 import by.epam.medicalweb.model.dao.EntityTransaction;
 import by.epam.medicalweb.model.dao.impl.DoctorDaoImpl;
 import by.epam.medicalweb.model.dao.impl.UserDaoImpl;
 import by.epam.medicalweb.model.entity.Doctor;
-import by.epam.medicalweb.model.entity.Patient;
+import by.epam.medicalweb.model.entity.Specialization;
 import by.epam.medicalweb.model.entity.User;
 import by.epam.medicalweb.model.service.DoctorService;
 import by.epam.medicalweb.model.service.UserService;
-import by.epam.medicalweb.util.PasswordEncoder;
 import by.epam.medicalweb.util.Validator;
 import by.epam.medicalweb.util.impl.ValidatorImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.print.Doc;
-import java.io.File;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import static by.epam.medicalweb.controller.command.RequestParameterName.*;
-import static by.epam.medicalweb.controller.command.RequestParameterName.INVALID_REPEATED_PASSWORD;
 
 public class DoctorServiceImpl implements DoctorService {
     private static Logger logger = LogManager.getLogger();
@@ -152,7 +148,7 @@ public class DoctorServiceImpl implements DoctorService {
                     .setUserId(userId)
                     .setCategory(doctorCategory)
                     .setPhotoPath(imagePath)
-                    .setSpecialization(specializationId)
+                    .setSpecialization(new Specialization.Builder().setSpecializationId(specializationId).build())
                     .build();
             long doctorId = doctorDao.create(doctorInfo);
             return (doctorId != 0);
@@ -175,6 +171,24 @@ public class DoctorServiceImpl implements DoctorService {
             e.printStackTrace();
         } finally {
             entityTransaction.endTransaction();
+        }
+        return doctorList;
+    }
+
+    public List<Doctor> findDoctorsBySpecializationId(long specId)
+        throws ConnectionPoolException, ServiceException {
+        EntityTransaction entityTransaction = new EntityTransaction();
+        DoctorDaoImpl doctorDao = new DoctorDaoImpl();
+        entityTransaction.beginQuery(doctorDao);
+        List<Doctor> doctorList ;
+        try{
+            doctorList = doctorDao.findDoctorsBySpecializationId(specId);
+            logger.log(Level.DEBUG, doctorList);
+        } catch (DaoException e) {
+            logger.log(Level.DEBUG, "Doctors by specialization id failed to be found");
+            throw new ServiceException("Doctors by specialization id failed to be found");
+        } finally {
+            entityTransaction.endQuery();
         }
         return doctorList;
     }

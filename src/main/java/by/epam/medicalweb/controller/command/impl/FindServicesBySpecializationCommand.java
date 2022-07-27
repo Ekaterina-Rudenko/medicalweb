@@ -2,7 +2,6 @@ package by.epam.medicalweb.controller.command.impl;
 
 import static by.epam.medicalweb.controller.command.PagePath.SERVICES_PAGE;
 import static by.epam.medicalweb.controller.command.RequestParameterName.SPECIALIZATION_ID;
-import static by.epam.medicalweb.controller.command.SessionAttribute.SERVICES_BY_SPEC_LIST;
 import static by.epam.medicalweb.controller.command.SessionAttribute.SERVICE_LIST;
 
 import by.epam.medicalweb.controller.command.Command;
@@ -26,7 +25,7 @@ public class FindServicesBySpecializationCommand implements Command {
     try{
       String idString = request.getParameter(SPECIALIZATION_ID);
       List<MedicalService> servicesBySpec = medicalServicesService.findBySpecialization(Long.parseLong(idString));
-      session.setAttribute(SERVICES_BY_SPEC_LIST, servicesBySpec);
+      session.setAttribute(SERVICE_LIST, servicesBySpec);
       router.setPage(SERVICES_PAGE);
     } catch (ServiceException | ConnectionPoolException e) {
       e.printStackTrace();

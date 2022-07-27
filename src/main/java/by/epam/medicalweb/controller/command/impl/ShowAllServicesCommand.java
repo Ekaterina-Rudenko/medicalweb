@@ -22,7 +22,7 @@ public class ShowAllServicesCommand implements Command {
         HttpSession session = request.getSession();
         MedicalServicesService medicalServicesService = MedicalServicesServiceImpl.getInstance();
         try{
-            List<MedicalService> services = medicalServicesService.findAll();
+            List<MedicalService> services = medicalServicesService.findAllServices();
             session.setAttribute(SERVICE_LIST, services);
             router.setPage(SERVICES_PAGE);
         } catch (ServiceException| ConnectionPoolException e) {

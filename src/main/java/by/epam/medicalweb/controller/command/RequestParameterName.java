@@ -26,6 +26,7 @@ public class RequestParameterName {
 
     public static final String CATEGORY = "category";
     public static final String SPECIALIZATION_ID = "specialization_id";
+    public static final String SPECIALIZATION_NAME = "specialization_name";
     public static final String IMAGE_PATH = "image_path";
 
     public static final String INVALID_FIRST_NAME = "invalid_first_name";
@@ -48,6 +49,40 @@ public class RequestParameterName {
     public static final String NOT_UNIQUE_EMAIL = "not_unique_email";
 
     public static final String INVALID_IMAGE_PATH = "invalid_image_path";
+
+    //visit
+    public static final String DOCTOR_ID = "doctor_id";
+    public static final String PATIENT_ID = "patient_id";
+    public static final String SERVICE_ID = "service_id";
+    public static final String VISIT_DATE = "visit_date";
+    public static final String VISIT_TIME = "visit_time";
+    public static final String TYPE_PAYMENT = "type_payment";
+    public static final String VISIT_STATE = "visit_state";
+
+    public static final String NEW_VISIT_SPECIALIZATION_ID = "visit_specialization_id";
+    public static final String NEW_VISIT_DOCTOR_ID = "new_visit_doctor_id";
+    public static final String NEW_VISIT_DATE = "new_visit_date";
+    public static final String NEW_VISIT_SERVICE_ID = "new_visit_service_id";
+    public static final String VISIT_DOCTOR_ID = "visit_doctor_id";
+    public static final String VISIT_PATIENT_ID = "visit_patient_id";
+    public static final String VISIT_SERVICE_ID = "visit_service_id";
+
+    public static final String INVALID_VISIT_DATE = "invalid_visit_date";
+
+
+    public static final String EMPTY_SPECIALIZATION = "empty_specialization";
+    public static final String EMPTY_DOCTOR = "empty_doctor";
+    public static final String EMPTY_SERVICE = "empty_service";
+    public static final String EMPTY_VISIT_DATE = "empty_visit_date";
+    public static final String EMPTY_VISIT_TIME = "empty_visit_time";
+    public static final String EMPTY_TYPE_PAYMENT = "empty_type_payment";
+    public static final String EMPTY_PATIENT = "empty_patient";
+
+
+
+
+
+
 
 
 }

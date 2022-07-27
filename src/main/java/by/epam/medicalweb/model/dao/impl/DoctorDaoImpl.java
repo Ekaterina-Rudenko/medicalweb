@@ -20,47 +20,53 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     private static Logger logger = LogManager.getLogger();
 
     private static final String SQL_FIND_DOCTOR_BY_ID = """
-            SELECT user_id, first_name, middle_name, last_name, login, password, email, phone, user_state, user_role, registration_date, category, doctor_photo, specialization_id
+            SELECT user_id, first_name, middle_name, last_name, login, password, email, phone, user_state, user_role, registration_date, category, doctor_photo, docotrs.spec_id, spec_name
             FROM users 
             JOIN doctors ON users.user_id = doctors.doctor_id
+            JOIN specializations ON doctors.spec_id = specializations.spec_id
             WHERE user_id = (?);""";
 
     private static final String SQL_FIND_DOCTOR_INFO_BY_ID = """
-            SELECT doctor_id, category, doctor_photo, specialization_id
+            SELECT doctor_id, category, doctor_photo, doctors.spec_id, spec_name
             FROM doctors
+            JOIN specializations ON doctors.spec_id=specializations.spec_id
             WHERE doctor_id = (?);""";
 
     private static final String SQL_FIND_ALL_DOCTORS = """
-            SELECT user_id, first_name, middle_name, last_name, login, password, email, phone, user_state, user_role, registration_date, category, doctor_photo, specialization_id
+            SELECT user_id, first_name, middle_name, last_name, login, password, email, phone, user_state, user_role, registration_date, category, doctor_photo, doctors.spec_id, spec_name
             FROM users 
-            JOIN doctors ON users.user_id = doctors.doctor_id;""";
+            JOIN doctors ON users.user_id = doctors.doctor_id
+            JOIN specializations ON doctors.spec_id = specializations.spec_id;""";
+
     private static final String SQL_SELECT_DOCTOR_SUBLIST = """
-            SELECT user_id, first_name, middle_name, last_name,  category, doctor_photo, specialization_id
+            SELECT user_id, first_name, middle_name, last_name,  category, doctor_photo, spec_id
             FROM users 
             JOIN doctors ON users.user_id = doctors.doctor_id;""";
 
 
     private static final String SQL_INSERT_DOCTOR_INFO = """
-            INSERT INTO doctors (doctor_id, category, doctor_photo, specialization_id)
+            INSERT INTO doctors (doctor_id, category, doctor_photo, spec_id)
             VALUES (?, ?, ? , ?);""";
 
     private static final String SQL_FIND_DOCTORS_BY_SPECIALIZATION = """
-            SELECT  user_id, first_name, middle_name, last_name,email, phone, user_state, user_role, category, doctor_photo,spec_name
+            SELECT  user_id, first_name, middle_name, last_name,email, phone,login, password, user_state, user_role, category, doctor_photo,  registration_date,doctors.spec_id, spec_name
             FROM users
             JOIN doctors ON users.user_id = doctors.doctor_id
-            JOIN specializations ON doctors.specialization_id = s.spec_id
-            WHERE spec_name = (?);""";
+            JOIN specializations ON doctors.spec_id = specializations.spec_id
+            WHERE doctors.spec_id = (?);""";
 
     private static final String SQL_FIND_DOCTORS_BY_CATEGORY = """
-            SELECT  user_id, first_name, middle_name, last_name,email, phone, user_state, user_role, category, doctor_photo
+            SELECT  user_id, first_name, middle_name, last_name,email, phone,login, password, user_state, user_role, category, doctor_photo,  registration_date, docotrs.spec_id, spec_name
             FROM users
             JOIN doctors ON users.user_id = doctors.doctor_id
+            JOIN specializations ON doctors.spec_id = specializations.spec_id
             WHERE category = (?);""";
 
     private static final String SQL_FIND_DOCTOR_BY_LAST_NAME = """
-            SELECT  user_id, first_name, middle_name, last_name,email, phone, user_state, user_role, category, doctor_photo
+            SELECT  user_id, first_name, middle_name, last_name,email, phone, login, password, user_state, user_role, category, doctor_photo, registration_date,spec_id, spec_name
             FROM users
             JOIN doctors ON users.user_id = doctors.doctor_id
+            JOIN specializations ON doctors.spec_id = specializations.spec_id
             WHERE last_name = (?);""";
     private static final String SQL_DELETE_DOCTOR_INFO_BY_ID = """
             DELETE
@@ -77,7 +83,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     private static final String SQL_UPDATE_DOCTOR_CATEGORY_BY_ID = """
             UPDATE doctors SET category = (?) WHERE doctor_id = (?);""";
     private static final String SQL_UPDATE_DOCTOR_SPECIALIZATION_BY_ID = """
-            UPDATE doctors SET specialization_id = (?) WHERE doctor_id = (?);""";
+            UPDATE doctors SET spec_id = (?) WHERE doctor_id = (?);""";
 
     public DoctorDaoImpl() {
     }
@@ -87,14 +93,12 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
         List<Doctor> listDoctor = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_ALL_DOCTORS);
              ResultSet resultSet = statement.executeQuery()) {
+            System.out.println(resultSet);
             while (resultSet.next()) {
                 Optional<Doctor> optionalDoctor = new DoctorMapper().mapEntity(resultSet);
-                if (optionalDoctor.isPresent()) {
-                    listDoctor.add(optionalDoctor.get());
-                }
+                optionalDoctor.ifPresent(listDoctor::add);
             }
-        } catch (
-                SQLException e) {
+        } catch (SQLException e) {
             logger.log(Level.ERROR, "Failed to select all the doctors", e);
             throw new DaoException("Failed to select all the doctors", e);
         }
@@ -149,7 +153,7 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
             statement.setLong(1, entity.getUserId());
             statement.setString(2, entity.getCategory().toString());
             statement.setString(3, entity.getPhotoPath());
-            statement.setLong(4, entity.getSpecializationId());
+            statement.setLong(4, entity.getSpecialization().getSpecializationId());
             int isUpdated = statement.executeUpdate();
             if (isUpdated == 1) {
                 doctorId = entity.getUserId();
@@ -183,16 +187,14 @@ public class DoctorDaoImpl extends AbstractDao<Doctor> implements DoctorDao {
     }
 
     @Override
-    public List<Doctor> findDoctorsBySpecializationId(String specializationId) throws DaoException {
+    public List<Doctor> findDoctorsBySpecializationId(long specializationId) throws DaoException {
         List<Doctor> listDoctor = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_DOCTORS_BY_SPECIALIZATION)) {
-            statement.setString(1, specializationId);
+            statement.setLong(1, specializationId);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Optional<Doctor> optionalDoctor = new DoctorMapper().mapEntity(resultSet);
-                    if (optionalDoctor.isPresent()) {
-                        listDoctor.add(optionalDoctor.get());
-                    }
+                    optionalDoctor.ifPresent(listDoctor::add);
                 }
             }
         } catch (SQLException e) {

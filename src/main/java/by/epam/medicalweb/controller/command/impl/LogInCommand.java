@@ -60,6 +60,7 @@ public class LogInCommand implements Command {
                             Patient patient = patientService.findPatientInfoById(user.getUserId());
                             session.setAttribute(USER, user);
                             session.setAttribute(USER_ROLE, user.getRole() );
+                            session.setAttribute(PATIENT_ID, user.getUserId());
                             session.setAttribute(PATIENT_GENDER, patient.getGender().getGenderString());
                             session.setAttribute(PATIENT_BIRTHDATE, patient.getBirthDate());
                             session.setAttribute(PATIENT_BALANCE, patient.getBalance());
@@ -70,7 +71,7 @@ public class LogInCommand implements Command {
                             session.setAttribute(USER, user);
                             session.setAttribute(USER_ROLE, user.getRole());
                             session.setAttribute(DOCTOR_CATEGORY, doctor.getCategory());
-                            session.setAttribute(DOCTOR_SPECIALIZATION, doctor.getSpecializationId());
+                            session.setAttribute(DOCTOR_SPECIALIZATION, doctor.getSpecialization());
                             router.setPage(MAIN_PAGE);
                         }
                         default -> {

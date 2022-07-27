@@ -185,7 +185,7 @@
             </div>
 
             <div>
-                <label class="form-label">${category}: </label>
+                <label class="form-label">${specialization}: </label>
                 <p>
                     <select name="specialization_id" class="form-select" required placeholder="${specialization}">
                         <c:forEach var="specialization" items="${sessionScope.specialization_list}">

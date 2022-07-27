@@ -51,7 +51,8 @@ public class VisitMapper implements BaseMapper<Visit> {
                     .build());
             visit.setDoctor(new Doctor.DoctorBuilder()
                     .setUserId(resultSet.getLong(DOCTOR_ID))
-                    .setLastName(resultSet.getString(LAST_NAME))
+                    .setFirstName(resultSet.getString(DOCTOR_NAME))
+                    .setLastName(resultSet.getString(DOCTOR_SURNAME))
                     .build());
             visit.setService(new MedicalService.ServiceBuilder()
                     .setServiceId(resultSet.getLong(SERVICE_ID))
@@ -63,7 +64,8 @@ public class VisitMapper implements BaseMapper<Visit> {
             visit.setState(Visit.VisitState.valueOf(resultSet.getString(VISIT_STATE).trim().toUpperCase()));
             visit.setPatient(new Patient.PatientBuilder()
                     .setUserId(resultSet.getLong(PATIENT_ID))
-                    .setLastName(resultSet.getString(LAST_NAME))
+                    .setFirstName(resultSet.getString(PATIENT_NAME))
+                    .setLastName(resultSet.getString(PATIENT_SURNAME))
                     .build());
             optionalVisit = Optional.of(visit);
         } catch (SQLException e) {

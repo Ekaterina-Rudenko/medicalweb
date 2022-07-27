@@ -17,5 +17,15 @@ public class ErrorMessagesBundle {
     public static final String USER_BLOCKED_MESSAGE = "log_in.status_blocked.message";
     public static final String INCORRECT_LOGIN_OR_PASSWORD_MESSAGE = "log_in.incorrect_login_or_password.message";
     public static final String INVALID_IMAGE_PATH_MESSAGE = "admin.add_user.invalid_image.message";
+
+    public static final String EMPTY_DOCTOR_MESSAGE="empty_doctor_message";
+    public static final String EMPTY_VISIT_DATE_MESSAGE="empty_visit_date_message";
+    public static final String EMPTY_SERVICE_MESSAGE="empty_service_message";
+    public static final String INVALID_VISIT_DATE_MESSAGE="invalid_visit_date_message";
+    public static final String NO_SLOTS_FOUND_MESSAGE="no_slots_found_message";
+    public static final String EMPTY_DOCTOR_LIST_MESSAGE = "empty_doctor_list_message";
+    public static final String EMPTY_SERVICE_LIST_MESSAGE="empty_service_list_message";
+
+
     ErrorMessagesBundle(){}
 }

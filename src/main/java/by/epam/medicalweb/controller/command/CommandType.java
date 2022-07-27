@@ -13,6 +13,7 @@ public enum CommandType {
     EDIT_SERVICE(new EditServiceCommand(), EnumSet.of(ADMIN)),
     SHOW_ALL_SERVICES(new ShowAllServicesCommand(), EnumSet.of(ADMIN, DOCTOR, PATIENT, GUEST)),
     FIND_SERVICES_BY_SPECIALIZATION(new FindServicesBySpecializationCommand(), EnumSet.of(PATIENT, GUEST,DOCTOR,ADMIN)),
+    FIND_DOCTORS_BY_SPECIALIZATION(new FindDoctorsBySpecializationCommand(), EnumSet.of(PATIENT, GUEST,DOCTOR,ADMIN)),
     ADD_DOCTOR(new AddDoctorCommand(), EnumSet.of(ADMIN)),
 
     CHANGE_LOCALE(new ChangeLocaleCommand(), EnumSet.of(ADMIN, DOCTOR, PATIENT, GUEST)),
@@ -29,7 +30,7 @@ public enum CommandType {
 
     CREATE_VISIT(new CreateVisitCommand(),  EnumSet.of(PATIENT)),
     CANCEL_VISIT(new CancelVisitCommand(),  EnumSet.of(PATIENT, ADMIN)),
-    SHOW_PATIENT_VISIT(new ShowPatientVisitCommand(),EnumSet.of(PATIENT)),
+    FIND_VISIT_BY_PATIENT_ID(new FindVisitByPatientIdCommand(),EnumSet.of(PATIENT)),
     SHOW_ALL_VISITS(new ShowAllVisitsCommand(), EnumSet.of(ADMIN)),
 
     SHOW_ALL_DOCTORS(new ShowAllDoctorsCommand(), EnumSet.of(PATIENT, GUEST,  ADMIN, DOCTOR)),
@@ -41,7 +42,10 @@ public enum CommandType {
 
     UPLOAD_IMAGE(new UploadImageCommand(), EnumSet.of(ADMIN)),
 
-    DEFAULT(new DefaultCommand(),EnumSet.of(PATIENT, GUEST,  ADMIN, DOCTOR));
+    DEFAULT(new DefaultCommand(),EnumSet.of(PATIENT, GUEST,  ADMIN, DOCTOR)),
+
+    FIND_SPECIALIZATION_BY_ID(new FindSpecializationByIdCommand(), EnumSet.of(PATIENT, GUEST,  ADMIN, DOCTOR)),
+    FIND_TIME_SLOTS_BY_DOCTOR_AND_DATE(new FindTimeSlotsByDoctorAndDateCommand(), EnumSet.of(PATIENT, ADMIN, DOCTOR));
 
     private final Command command;
     private EnumSet<UserRole> allowedRoles;

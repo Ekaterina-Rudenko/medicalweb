@@ -4,6 +4,8 @@ import by.epam.medicalweb.controller.command.Command;
 import by.epam.medicalweb.controller.command.CommandFactory;
 import by.epam.medicalweb.controller.command.PagePath;
 import by.epam.medicalweb.controller.command.Router;
+import by.epam.medicalweb.exception.ConnectionPoolException;
+import by.epam.medicalweb.exception.ServiceException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -36,10 +38,15 @@ public class Controller extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException{
         String commandName = request.getParameter(COMMAND);
         Command command = CommandFactory.defineCommandType(commandName);
-        Router router = command.execute(request);
+        Router router = null;
+        try {
+            router = command.execute(request);
+        } catch (ConnectionPoolException e) {
+            e.printStackTrace();
+        }
         String page = router.getPage();
         switch (router.getRouterType()) {
             case FORWARD:

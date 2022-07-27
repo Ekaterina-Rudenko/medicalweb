@@ -19,13 +19,39 @@
 
 <c:import url="header.jsp"/>
 
-<div class="container">
-    <h1> Our medical centre has different services for every patient</h1>
-    <h4>We aim to serve our local community by providing you and your family with excellent medical
-        care in a modern healthcare facility. By choosing the HEALTHY Medical Centre, you will take
-        a step towards the medical facilities of the future. We hope to provide the best health care
-        for patients.</h4>
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <div class="text-center">
+            <h1>Our medical centre has different services for every patient</h1>
+            <p> We aim to serve our local community by providing you and your family with excellent medical care in a modern healthcare facility. By choosing the HEALTHY Medical Centre, you will take a step towards the medical facilities of the future. We hope to provide the best health care  for patients.</p>>
+            <h1>Get to know our team</h1>
+            <p class="">As a centre focused on family medicine, we are more than happy to look after you and your family in a continuing way, making sure to keep you healthy and well looked after at all times. Get to know the team working
+                at our medical centre in Minsk</p>
+            <a href="${pageContext.request.contextPath}/controller?command=show_all_doctors" class="btn btn-primary ms-2">Our doctors</a>
+        </div>
+    </div>
+</div>
 
+<br>
+
+<br>
+<div class="help-section mt-65">
+    <div class="container">
+        <div class="text-center">
+            <h1>How can we help you today? </h1>
+            <p class="mb-5">Check the list of medical services we provide or book your doctor appointment</p>
+            <a href="${pageContext.request.contextPath}/controller?command=show_all_services" class="btn btn-primary mb-3 mb-lg-0">See medical services</a>
+            <c:choose>
+                <c:when test="${sessionScope.user_role eq 'PATIENT'}">
+                    <a href="${pageContext.request.contextPath}/jsp/pages/patient/make_appointment.jsp" class="btn btn-primary ms-2">Make an appointment</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="${pageContext.request.contextPath}/jsp/pages/login.jsp" class="btn btn-primary ms-2">Make an appointment</a>
+                </c:otherwise>
+            </c:choose>
+
+        </div>
+    </div>
 </div>
 
 <c:import url="footer.jsp"/>
