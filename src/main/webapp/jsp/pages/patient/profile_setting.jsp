@@ -20,6 +20,9 @@
 <fmt:message key="profile.setting.old_psw" var="old_pass"/>
 <fmt:message key="profile.setting.new_psw" var="new_pass"/>
 <fmt:message key="profile.setting.new_psw_confirm" var="conf_new_pass"/>
+<fmt:message key="invalid_new_password_message" var="invalid_new_password_message"/>
+<fmt:message key="incorrect_old_password_message" var="incorrect_old_password_message"/>
+<fmt:message key="password_mismatch_message" var="password_mismatch_message"/>
 
 <html>
 <head>
@@ -42,41 +45,57 @@
 <body>
 <c:import url="../header.jsp"/>
 
+<c:choose>
+    <c:when test="${!empty requestScope.incorrect_old_password}">
+        <div class="alert alert-warning" id="message"><b
+                class="invalid_message">${incorrect_old_password_message}</b></div>
+    </c:when>
+    <c:when test="${!empty requestScope.invalid_new_password}">
+        <div class="alert alert-warning" id="message"><b
+                class="invalid_message">${invalid_new_password_message}</b></div>
+    </c:when>
+    <c:when test="${!empty requestScope.password_mismatch}">
+        <div class="alert alert-warning" id="message"><b
+                class="invalid_message">${password_mismatch_message}</b></div>
+    </c:when>
+</c:choose>
 
 
 <h3 class="text-center p-3">${change_pass}</h3>
-<form action="${pageContext.request.contextPath}/controller" method="post">
-    <input type="hidden" name="command" value="change_password_command">
-    <input type="hidden" name="action" value="new_password">
-    <div class="collapse ${password_change_result eq 'true' or password_change_result eq 'password_mismatch'
-    or password_change_result eq 'invalid_message' or password_change_result eq 'incorrect_message' ? 'in' : ''}"
-         id="psw_change">
-        <div class="row">
-            <div class="form-group col-sm-4 indent">
-                <label for="old_psw">${old_pass}</label>
-                <input type="password" class="form-control" id="old_psw" name="old_password">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-4 indent">
-                <label for="new_psw">${new_pass}</label>
-                <input type="password" class="form-control" id="new_psw" name="new_password">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-4 indent">
-                <label for="psw_confirmation">${conf_new_pass}</label>
-                <input type="password" class="form-control" id="psw_confirmation" name="new_password_confirm">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-1 indent"><button type="submit" class="btn btn-primary">Submit</button></div>
-            <div class="col-sm-2">
-            </div>
-        </div>
-    </div>
-</form>
+<div class="container justify-content-center col-12 col-sm-6 mt-3">
+    <form role="form" action="${pageContext.request.contextPath}/controller" method="post">
+        <input type="hidden" name="command" value="change_password"/>
 
+        <%-- <div class="collapse ${requestScope.password_change_result eq 'true' or requestScope.password_change_result eq 'password_mismatch_message'
+         or requestScope.password_change_result eq 'invalid_new_password_message' or requestScope.password_change_result eq 'incorrect_old_password_message' ? 'in' : ''}"
+              id="psw_change">--%>
+
+        <div class="form-group col-sm-4 indent">
+            <label for="old_psw">${old_pass}</label>
+            <input type="password" class="form-control" id="old_psw" name="old_password">
+        </div>
+
+
+        <div class="form-group col-sm-4 indent">
+            <label for="new_psw">${new_pass}</label>
+            <input type="password" class="form-control" id="new_psw" name="new_password">
+        </div>
+
+        <div class="form-group col-sm-4 indent">
+            <label for="psw_confirmation">${conf_new_pass}</label>
+            <input type="password" class="form-control" id="psw_confirmation"
+                   name="new_password_confirm">
+        </div>
+
+
+        <div class="col-sm-1 indent">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-2">
+        </div>
+
+    </form>
+</div>
 
 
 <c:import url="../footer.jsp"/>

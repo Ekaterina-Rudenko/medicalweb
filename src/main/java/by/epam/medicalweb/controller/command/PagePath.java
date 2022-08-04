@@ -19,7 +19,7 @@ public class PagePath {
     public static final String MAKE_APPOINTMENT_PAGE = "jsp/pages/patient/make_appointment.jsp";
     public static final String APPOINTMENTS_PAGE = "jsp/pages/patient/appointments.jsp";
     public static final String PATIENT_PROFILE_PAGE = "jsp/pages/patient/patient_profile.jsp";
-    public static final String PROFILE_SETTINGS_PAGE = "jsp/pages/patient/profile_settings.jsp";
+    public static final String PROFILE_SETTING_PAGE = "jsp/pages/patient/profile_setting.jsp";
     public static final String RECOMMENDATIONS_PAGE = "jsp/pages/patient/recommendations.jsp";
     public static final String TOP_UP_BALANCE_PAGE = "jsp/pages/patient/top_up_balance.jsp";
 

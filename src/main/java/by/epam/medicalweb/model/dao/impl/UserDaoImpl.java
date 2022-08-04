@@ -124,7 +124,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     boolean result;
     try (PreparedStatement statement = connection.prepareStatement(SQL_FIND_USER_BY_ID_AND_PASSWORD)) {
       statement.setLong(1, id);
-      statement.setString(1, pass);
+      statement.setString(2, pass);
       ResultSet resultSet = statement.executeQuery();
       result = resultSet.isBeforeFirst();
     } catch (SQLException e) {

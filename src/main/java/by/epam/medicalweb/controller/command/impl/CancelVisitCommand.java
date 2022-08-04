@@ -1,9 +1,7 @@
 package by.epam.medicalweb.controller.command.impl;
 
 import static by.epam.medicalweb.controller.command.PagePath.APPOINTMENTS_PAGE;
-import static by.epam.medicalweb.controller.command.PagePath.ERROR_400;
 import static by.epam.medicalweb.controller.command.RequestParameterName.ACTION_RESULT;
-import static by.epam.medicalweb.controller.command.SessionAttribute.CURRENT_PAGE;
 import static by.epam.medicalweb.model.dao.ColumnName.VISIT_ID;
 
 import by.epam.medicalweb.controller.command.Command;

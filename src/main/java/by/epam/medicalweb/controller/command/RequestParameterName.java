@@ -1,7 +1,5 @@
 package by.epam.medicalweb.controller.command;
 
-import by.epam.medicalweb.model.entity.User;
-
 public class RequestParameterName {
 
   public static final String CURRENT_PAGE = "current_page";

@@ -28,7 +28,6 @@ import static by.epam.medicalweb.controller.command.RequestParameterName.REPEATE
 public class AddDoctorCommand implements Command {
     private static Logger logger = LogManager.getLogger();
     private DoctorService doctorService = DoctorServiceImpl.getInstance();
-    private SpecializationService specializationService = SpecializationServiceImpl.getInstance();
 
     @Override
     public Router execute(HttpServletRequest request){
@@ -72,9 +71,7 @@ public class AddDoctorCommand implements Command {
             }
         } catch (ServiceException|ConnectionPoolException e) {
             logger.log(Level.ERROR, "Failed to register new doctor, exception in add doctor command ", e);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
         return router;

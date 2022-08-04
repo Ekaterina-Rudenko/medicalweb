@@ -23,6 +23,7 @@ import org.apache.logging.log4j.Logger;
 
 @WebFilter(urlPatterns = {"*.jsp"})
 public class PageSecurityFilter implements Filter {
+
   private static final Logger logger = LogManager.getLogger();
   private static final String START_URI = "/index.jsp";
   private Set<String> guestPages;
@@ -32,22 +33,26 @@ public class PageSecurityFilter implements Filter {
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
-    guestPages = Set.of(ABOUT_US_PAGE, INDEX_PAGE, HEADER_PAGE, ERROR_400, ERROR_500, DOCTORS_PAGE, MAIN_PAGE,
+    guestPages = Set.of(ABOUT_US_PAGE, INDEX_PAGE, HEADER_PAGE, ERROR_400, ERROR_500, DOCTORS_PAGE,
+        MAIN_PAGE,
         LOG_IN_PAGE, REGISTRATION_PAGE, SERVICES_PAGE, SUCCESSFUL_REGISTRATION);
-    patientPages = Set.of(ABOUT_US_PAGE,INDEX_PAGE, HEADER_PAGE, ERROR_400, ERROR_500, DOCTORS_PAGE, MAIN_PAGE,
+    patientPages = Set.of(ABOUT_US_PAGE, INDEX_PAGE, HEADER_PAGE, ERROR_400, ERROR_500,
+        DOCTORS_PAGE, MAIN_PAGE,
         SERVICES_PAGE, LOG_IN_PAGE, SUCCESSFUL_REGISTRATION,
         MAKE_APPOINTMENT_PAGE,
         APPOINTMENTS_PAGE,
         PATIENT_PROFILE_PAGE,
-        PROFILE_SETTINGS_PAGE,
+        PROFILE_SETTING_PAGE,
         RECOMMENDATIONS_PAGE,
         TOP_UP_BALANCE_PAGE);
-    doctorPages = Set.of(ABOUT_US_PAGE,INDEX_PAGE, HEADER_PAGE, ERROR_400, ERROR_500, DOCTORS_PAGE, MAIN_PAGE,
+    doctorPages = Set.of(ABOUT_US_PAGE, INDEX_PAGE, HEADER_PAGE, ERROR_400, ERROR_500, DOCTORS_PAGE,
+        MAIN_PAGE,
         LOG_IN_PAGE, REGISTRATION_PAGE, SERVICES_PAGE, SUCCESSFUL_REGISTRATION,
         DOCTOR_PROFILE_PAGE,
         MAKE_RECOMMENDATION_PAGE,
         VISITS_PAGE);
-    adminPages = Set.of(ABOUT_US_PAGE,INDEX_PAGE, HEADER_PAGE, ERROR_400, ERROR_500, DOCTORS_PAGE, MAIN_PAGE,
+    adminPages = Set.of(ABOUT_US_PAGE, INDEX_PAGE, HEADER_PAGE, ERROR_400, ERROR_500, DOCTORS_PAGE,
+        MAIN_PAGE,
         LOG_IN_PAGE, REGISTRATION_PAGE, SERVICES_PAGE, SUCCESSFUL_REGISTRATION,
         ADMINISTRATION_PAGE,
         ADMIN_PROFILE_PAGE,

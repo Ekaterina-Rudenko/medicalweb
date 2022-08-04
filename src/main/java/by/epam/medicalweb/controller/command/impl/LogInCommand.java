@@ -53,13 +53,14 @@ public class LogInCommand implements Command {
                         case ADMIN -> {
                             session.setAttribute(USER, user);
                             session.setAttribute(USER_ROLE, user.getRole());
+                            session.setAttribute(USER_ID, user.getUserId());
                             router.setPage(MAIN_PAGE);
-                            //todo
                         }
                         case PATIENT -> {
                             Patient patient = patientService.findPatientInfoById(user.getUserId());
                             session.setAttribute(USER, user);
                             session.setAttribute(USER_ROLE, user.getRole() );
+                            session.setAttribute(USER_ID, user.getUserId());
                             session.setAttribute(PATIENT_ID, user.getUserId());
                             session.setAttribute(PATIENT_GENDER, patient.getGender().getGenderString());
                             session.setAttribute(PATIENT_BIRTHDATE, patient.getBirthDate());
@@ -70,6 +71,7 @@ public class LogInCommand implements Command {
                             Doctor doctor = doctorService.findDoctorInfoById(user.getUserId());
                             session.setAttribute(USER, user);
                             session.setAttribute(USER_ROLE, user.getRole());
+                            session.setAttribute(USER_ID, user.getUserId());
                             session.setAttribute(DOCTOR_CATEGORY, doctor.getCategory());
                             session.setAttribute(DOCTOR_SPECIALIZATION, doctor.getSpecialization());
                             router.setPage(MAIN_PAGE);

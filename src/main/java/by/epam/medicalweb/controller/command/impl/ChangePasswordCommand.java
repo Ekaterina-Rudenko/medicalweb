@@ -4,6 +4,7 @@ import static by.epam.medicalweb.controller.command.ErrorMessagesBundle.INCORREC
 import static by.epam.medicalweb.controller.command.ErrorMessagesBundle.INVALID_NEW_PASSWORD_MESSAGE;
 import static by.epam.medicalweb.controller.command.ErrorMessagesBundle.PASSWORD_MISMATCH_MESSAGE;
 import static by.epam.medicalweb.controller.command.PagePath.LOG_IN_PAGE;
+import static by.epam.medicalweb.controller.command.PagePath.PROFILE_SETTING_PAGE;
 import static by.epam.medicalweb.controller.command.RequestParameterName.INCORRECT_OLD_PASSWORD;
 import static by.epam.medicalweb.controller.command.RequestParameterName.INVALID_NEW_PASSWORD;
 import static by.epam.medicalweb.controller.command.RequestParameterName.NEW_PASSWORD;
@@ -11,6 +12,7 @@ import static by.epam.medicalweb.controller.command.RequestParameterName.NEW_PAS
 import static by.epam.medicalweb.controller.command.RequestParameterName.OLD_PASSWORD;
 import static by.epam.medicalweb.controller.command.RequestParameterName.PASSWORD_CHANGE_RESULT;
 import static by.epam.medicalweb.controller.command.RequestParameterName.PASSWORD_MISMATCH;
+import static by.epam.medicalweb.controller.command.SessionAttribute.USER;
 
 import by.epam.medicalweb.controller.command.Command;
 import by.epam.medicalweb.controller.command.Router;
@@ -30,7 +32,7 @@ public class ChangePasswordCommand implements Command {
     Router router = new Router();
     UserService userService = UserServiceImpl.getInstance();
     HttpSession session = request.getSession();
-    User user = (User) session.getAttribute("USER");
+    User user =  (User) session.getAttribute(USER);
     long userId = user.getUserId();
     Map<String, String> data = new HashMap<>();
     data.put(OLD_PASSWORD, request.getParameter(OLD_PASSWORD));
@@ -40,20 +42,21 @@ public class ChangePasswordCommand implements Command {
       boolean passChangeResult = userService.changePassword(userId, data);
       if (passChangeResult) {
         request.setAttribute(PASSWORD_CHANGE_RESULT, passChangeResult);
+        router.setPage(LOG_IN_PAGE);
       } else {
         for (String key : data.keySet()) {
           String value = data.get(key);
             switch (value) {
-              case INCORRECT_OLD_PASSWORD -> request.setAttribute(PASSWORD_CHANGE_RESULT,
+              case INCORRECT_OLD_PASSWORD -> request.setAttribute(INCORRECT_OLD_PASSWORD,
                   INCORRECT_OLD_PASSWORD_MESSAGE);
-              case INVALID_NEW_PASSWORD -> request.setAttribute(PASSWORD_CHANGE_RESULT,
+              case INVALID_NEW_PASSWORD -> request.setAttribute(INVALID_NEW_PASSWORD,
                   INVALID_NEW_PASSWORD_MESSAGE);
-              case PASSWORD_MISMATCH -> request.setAttribute(PASSWORD_CHANGE_RESULT,
+              case PASSWORD_MISMATCH -> request.setAttribute(PASSWORD_MISMATCH,
                   PASSWORD_MISMATCH_MESSAGE);
           }
         }
+        router.setPage(PROFILE_SETTING_PAGE);
       }
-      router.setPage(LOG_IN_PAGE);
     } catch (ServiceException e) {
       e.printStackTrace();
     }

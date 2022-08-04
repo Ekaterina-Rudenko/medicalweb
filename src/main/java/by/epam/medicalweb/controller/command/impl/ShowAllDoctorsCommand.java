@@ -10,7 +10,6 @@ import by.epam.medicalweb.model.entity.Doctor;
 import by.epam.medicalweb.model.service.DoctorService;
 import by.epam.medicalweb.model.service.impl.DoctorServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,6 @@ public class ShowAllDoctorsCommand implements Command {
     @Override
     public Router execute(HttpServletRequest request){
         Router router = new Router();
-        HttpSession session = request.getSession();
         DoctorService doctorService = DoctorServiceImpl.getInstance();
         List<Doctor> doctorList = new ArrayList<>();
         try {

@@ -86,7 +86,7 @@
     </a>
     <a href="${pageContext.request.contextPath}/jsp/pages/patient/recommendations.jsp" class="list-group-item list-group-item-action">View ${prescriptions}</a>
     <a href="${pageContext.request.contextPath}/jsp/pages/patient/top_up_balance.jsp" class="list-group-item list-group-item-action">Top up ${balance}</a>
-    <a href="${pageContext.request.contextPath}/jsp/pages/common/settings.jsp" class="list-group-item list-group-item-action">$Profile {settings}</a>
+    <a href="${pageContext.request.contextPath}/jsp/pages/patient/profile_setting.jsp" class="list-group-item list-group-item-action">Profile ${settings}</a>
 </div>
 </div>
 
