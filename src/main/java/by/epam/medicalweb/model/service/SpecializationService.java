@@ -9,4 +9,5 @@ import java.util.List;
 public interface SpecializationService {
     List<Specialization> findAll() throws ServiceException, ConnectionPoolException;
     Specialization findSpecializationById(long id) throws ServiceException, ConnectionPoolException;
+    long createSpecialization(String name) throws ConnectionPoolException, ServiceException;
 }

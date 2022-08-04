@@ -43,7 +43,7 @@
 
     <div class="text-center mb-3">
         <button type="submit" class="btn btn-success">Filter</button>
-        <button type="button" class="btn btn-secondary btn-sm">
+        <button type="button" class="btn btn-success">
             <a href="${pageContext.request.contextPath}/controller?command=show_all_services">Disable filter</a>
         </button>
     </div>

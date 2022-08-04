@@ -12,4 +12,6 @@ public interface UserService {
     Optional<User> logIn(String login, String password) throws ServiceException, ConnectionPoolException;
     boolean checkData(Map<String, String> data) throws DaoException, ConnectionPoolException;
     User buildBasicUser(Map<String, String> data) throws ConnectionPoolException;
+    boolean changePassword(long userId, Map<String, String> data)
+        throws ServiceException;
 }

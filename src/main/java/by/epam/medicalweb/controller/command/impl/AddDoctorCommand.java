@@ -46,10 +46,8 @@ public class AddDoctorCommand implements Command {
         mapData.put(SPECIALIZATION_ID, request.getParameter(SPECIALIZATION_ID));
         mapData.put(REPEATED_PASSWORD, request.getParameter(REPEATED_PASSWORD));
 
-
-
         try {
-            Part part = request.getPart(IMAGE_PATH); //todo
+            Part part = request.getPart(IMAGE_PATH);
             String imagePath = ImageUploader.uploadImage(part);
             mapData.put(IMAGE_PATH, imagePath);
             if (doctorService.addDoctor(mapData)) {

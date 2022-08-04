@@ -10,7 +10,6 @@ import java.util.EnumSet;
 
 public enum CommandType {
 
-  INSERT_NEW_SERVICE(new InsertNewServiceCommand(), EnumSet.of(ADMIN)),
   EDIT_SERVICE(new EditServiceCommand(), EnumSet.of(ADMIN)),
   SHOW_ALL_SERVICES(new ShowAllServicesCommand(), EnumSet.of(ADMIN, DOCTOR, PATIENT, GUEST)),
   FIND_SERVICES_BY_SPECIALIZATION(new FindServicesBySpecializationCommand(),
@@ -33,7 +32,6 @@ public enum CommandType {
 
   CREATE_VISIT(new CreateVisitCommand(), EnumSet.of(PATIENT)),
   CANCEL_VISIT(new CancelVisitCommand(), EnumSet.of(PATIENT, ADMIN)),
-  //FIND_VISIT_BY_PATIENT_ID(new FindVisitByPatientIdCommand(), EnumSet.of(PATIENT)),
   SHOW_ALL_VISITS(new ShowAllVisitsCommand(), EnumSet.of(ADMIN)),
 
   SHOW_ALL_DOCTORS(new ShowAllDoctorsCommand(), EnumSet.of(PATIENT, GUEST, ADMIN, DOCTOR)),
@@ -52,7 +50,9 @@ public enum CommandType {
       EnumSet.of(PATIENT, GUEST, ADMIN, DOCTOR)),
   FIND_TIME_SLOTS_BY_DOCTOR_AND_DATE(new FindTimeSlotsByDoctorAndDateCommand(),
       EnumSet.of(PATIENT, ADMIN, DOCTOR)),
-  FIND_VISITS_BY_PATIENT_ID(new FindVisitsByPatientIdCommand(), EnumSet.of(PATIENT, ADMIN, DOCTOR));
+  FIND_VISITS_BY_PATIENT_ID(new FindVisitsByPatientIdCommand(), EnumSet.of(PATIENT, ADMIN, DOCTOR)),
+  ADD_SERVICE(new AddServiceCommand(),EnumSet.of(ADMIN)),
+  ADD_SPECIALIZATION(new AddSpecializationCommand(), EnumSet.of(ADMIN));
 
   private final Command command;
   private EnumSet<UserRole> allowedRoles;

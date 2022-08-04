@@ -25,10 +25,10 @@ import java.util.Optional;
 import static by.epam.medicalweb.controller.command.ErrorMessagesBundle.*;
 import static by.epam.medicalweb.controller.command.PagePath.LOG_IN_PAGE;
 import static by.epam.medicalweb.controller.command.PagePath.MAIN_PAGE;
-import static by.epam.medicalweb.controller.command.RequestAttributeName.*;
+
 import static by.epam.medicalweb.controller.command.RequestParameterName.*;
+import static by.epam.medicalweb.controller.command.RequestParameterName.USER_ROLE;
 import static by.epam.medicalweb.controller.command.SessionAttribute.*;
-import static by.epam.medicalweb.controller.command.SessionAttribute.USER_ROLE;
 
 public class LogInCommand implements Command {
     private static Logger logger = LogManager.getLogger();

@@ -109,7 +109,7 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
   }
 
   @Override
-  public long create(MedicalService entity) throws DaoException, SQLException {
+  public long create(MedicalService entity) throws DaoException {
     long medicalServiceId = 0;
     try (PreparedStatement statement = connection.prepareStatement(SQL_INSERT_MEDICAL_SERVICE,
         Statement.RETURN_GENERATED_KEYS)) {
@@ -124,11 +124,11 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
             logger.log(Level.DEBUG,
                 "Info for doctor with id " + medicalServiceId + " was added to database ");
           }
-        } catch (SQLException e) {
-          logger.log(Level.ERROR, "Failed to insert the doctor's info", e);
-          throw new DaoException("Failed to insert the doctor's info", e);
         }
       }
+    } catch (SQLException e) {
+      logger.log(Level.ERROR, "Failed to insert the doctor's info", e);
+      throw new DaoException("Failed to insert the doctor's info", e);
     }
     return medicalServiceId;
   }
@@ -138,8 +138,8 @@ public class MedicalServiceDaoImpl extends AbstractDao<MedicalService> implement
     boolean isUpdated;
     try (PreparedStatement statement = connection.prepareStatement(
         SQL_UPDATE_SERVICE_PRICE_BY_ID)) {
-      statement.setLong(1, id);
-      statement.setBigDecimal(2, price);
+      statement.setBigDecimal(1, price);
+      statement.setLong(2, id);
       isUpdated = (statement.executeUpdate() == 1);
     } catch (SQLException e) {
       logger.log(Level.ERROR, "Failed to update service price", e);

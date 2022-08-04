@@ -26,6 +26,11 @@ public class ErrorMessagesBundle {
     public static final String EMPTY_DOCTOR_LIST_MESSAGE = "empty_doctor_list_message";
     public static final String EMPTY_SERVICE_LIST_MESSAGE="empty_service_list_message";
 
+    public static final String EMPTY_VISIT_LIST_MESSAGE="empty_visit_list_message";
+    public static final String INCORRECT_OLD_PASSWORD_MESSAGE="incorrect_old_message";
+    public static final String INVALID_NEW_PASSWORD_MESSAGE="invalid_new_password_message";
+    public static final String PASSWORD_MISMATCH_MESSAGE="password_mismatch_message";
+
 
     ErrorMessagesBundle(){}
 }

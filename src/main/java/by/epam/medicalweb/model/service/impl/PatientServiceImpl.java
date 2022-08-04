@@ -14,6 +14,7 @@ import by.epam.medicalweb.model.service.UserService;
 import by.epam.medicalweb.util.PasswordEncoder;
 import by.epam.medicalweb.util.Validator;
 import by.epam.medicalweb.util.impl.ValidatorImpl;
+import java.math.BigDecimal;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -101,6 +102,22 @@ public class PatientServiceImpl implements PatientService {
             entityTransaction.endQuery();
         }
         return patient;
+    }
+
+    public boolean topUpBalance(long patientId, BigDecimal money) throws ServiceException, ConnectionPoolException {
+        PatientDaoImpl patientDao = new PatientDaoImpl();
+        EntityTransaction entityTransaction = new EntityTransaction();
+        entityTransaction.beginTransaction(patientDao);
+        boolean isUpdated;
+        try{
+            isUpdated = patientDao.updatePatientBalance(patientId, money);
+        } catch (DaoException e) {
+            logger.log(Level.ERROR,"Patient balance wasn't updated", e );
+            throw new ServiceException("Patient balance wasn't updated", e);
+        } finally {
+            entityTransaction.endTransaction();
+        }
+        return isUpdated;
     }
 
 }

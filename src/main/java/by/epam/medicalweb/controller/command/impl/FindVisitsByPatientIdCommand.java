@@ -1,18 +1,15 @@
 package by.epam.medicalweb.controller.command.impl;
 
+import static by.epam.medicalweb.controller.command.ErrorMessagesBundle.EMPTY_VISIT_LIST_MESSAGE;
 import static by.epam.medicalweb.controller.command.PagePath.APPOINTMENTS_PAGE;
-import static by.epam.medicalweb.controller.command.PagePath.ERROR_400;
+import static by.epam.medicalweb.controller.command.RequestParameterName.EMPTY_VISIT_LIST;
 import static by.epam.medicalweb.controller.command.RequestParameterName.PATIENT_ID;
-import static by.epam.medicalweb.controller.command.RequestParameterName.USER_ROLE;
 import static by.epam.medicalweb.controller.command.RequestParameterName.VISIT_LIST;
 
 import by.epam.medicalweb.controller.command.Command;
 import by.epam.medicalweb.controller.command.Router;
-import by.epam.medicalweb.controller.command.Router.RouterType;
 import by.epam.medicalweb.exception.ConnectionPoolException;
 import by.epam.medicalweb.exception.ServiceException;
-import by.epam.medicalweb.model.entity.User;
-import by.epam.medicalweb.model.entity.User.UserRole;
 import by.epam.medicalweb.model.entity.Visit;
 import by.epam.medicalweb.model.service.VisitService;
 import by.epam.medicalweb.model.service.impl.VisitServiceImpl;
@@ -33,6 +30,9 @@ public class FindVisitsByPatientIdCommand implements Command {
       long patientId = (Long) session.getAttribute(PATIENT_ID);
       List<Visit> visitList = visitService.findVisitsByPatientId(patientId);
       session.setAttribute(VISIT_LIST, visitList);
+      if(visitList.isEmpty()){
+        request.setAttribute(EMPTY_VISIT_LIST, EMPTY_VISIT_LIST_MESSAGE);
+      }
       router.setPage(APPOINTMENTS_PAGE);
     } catch (ServiceException e) {
       e.printStackTrace();

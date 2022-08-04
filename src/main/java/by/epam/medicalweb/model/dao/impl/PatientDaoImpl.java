@@ -52,7 +52,7 @@ public class PatientDaoImpl extends AbstractDao<Patient> implements PatientDao {
             ON users.user_id = patients.patient_id
             WHERE patient_id = (?);""";
     private static final String SQL_UPDATE_BALANCE_BY_ID = """
-            UPDATE patients SET balance = (?) WHERE patient_id = (?); """;
+            UPDATE patients SET balance = balance + (?) WHERE patient_id = (?); """;
 
     @Override
     public List<Patient> findAll() throws DaoException {

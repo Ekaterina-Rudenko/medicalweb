@@ -5,7 +5,7 @@ import by.epam.medicalweb.controller.command.PagePath;
 import by.epam.medicalweb.controller.command.Router;
 import jakarta.servlet.http.HttpServletRequest;
 
-import static by.epam.medicalweb.controller.command.RequestAttributeName.WRONG_COMMAND;
+import static by.epam.medicalweb.controller.command.RequestParameterName.WRONG_COMMAND;
 
 public class DefaultCommand implements Command {
     @Override

@@ -180,7 +180,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
       WHERE slot NOT IN (
       SELECT visit_time
       FROM visits
-      WHERE visit_date=? AND doctor_id = ?)
+      WHERE visit_date=? AND doctor_id = ? AND visit_state = ?)
       AND slot BETWEEN ? AND ?""";
 
 
@@ -245,7 +245,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_VISIT_BY_ID)) {
       statement.setLong(1, id);
       int update = statement.executeUpdate();
-      return (update > 0) ? true : false;
+      return update > 0;
     } catch (SQLException e) {
       logger.log(Level.ERROR, "Failed to delete the visit info by id", e);
       throw new DaoException("Failed to delete the visit by id", e);
@@ -257,7 +257,7 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     try (PreparedStatement statement = connection.prepareStatement(SQL_DELETE_VISIT_BY_ID)) {
       statement.setLong(1, entity.getVisitId());
       int update = statement.executeUpdate();
-      return (update > 0) ? true : false;
+      return update > 0;
     } catch (SQLException e) {
       logger.log(Level.ERROR, "Failed to delete the visit", e);
       throw new DaoException("Failed to delete the visit", e);
@@ -298,9 +298,9 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     boolean isUpdated;
     try (PreparedStatement statement = connection.prepareStatement(
         SQL_UPDATE_VISIT_DATE_AND_TIME_BY_VISIT_ID)) {
-      statement.setLong(1, visitId);
-      statement.setDate(2, Date.valueOf(visitDate.toString()));
-      statement.setInt(3, time);
+      statement.setDate(1, Date.valueOf(visitDate.toString()));
+      statement.setInt(2, time);
+      statement.setLong(3, visitId);
       isUpdated = (statement.executeUpdate() == 1);
     } catch (SQLException e) {
       logger.log(Level.ERROR, "Failed to update visit date and time", e);
@@ -340,8 +340,8 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
     boolean isUpdated;
     try (PreparedStatement statement = connection.prepareStatement(
         SQL_UPDATE_VISIT_STATE_BY_VISIT_ID)) {
-      statement.setLong(1, visitId);
-      statement.setString(2, visitState.getStateString());
+      statement.setString(1, visitState.getStateString());
+      statement.setLong(2, visitId);
       isUpdated = (statement.executeUpdate() == 1);
     } catch (SQLException e) {
       logger.log(Level.ERROR, "Failed to update visit state", e);
@@ -354,13 +354,15 @@ public class VisitDaoImpl extends AbstractDao<Visit> implements VisitDao {
   public List<Integer> findAvailableTime(LocalDate visitDate, long doctorId) throws DaoException {
     int startTime = START_OF_WORKING_DAY;
     int endTime = FINISH_OF_WORKING_DAY;
+    String visitState = "NEW";
     List<Integer> availableSlots = new ArrayList<>();
     try (PreparedStatement statement = connection.prepareStatement(
         SQL_SELECT_FREE_TIME_SLOTS_BY_DATE_AND_DOCTOR_ID)) {
       statement.setDate(1, Date.valueOf(visitDate.toString()));
       statement.setLong(2, doctorId);
-      statement.setInt(3, startTime);
-      statement.setInt(4, endTime);
+      statement.setString(3, visitState);
+      statement.setInt(4, startTime);
+      statement.setInt(5, endTime);
       try (ResultSet resultSet = statement.executeQuery()) {
         while (resultSet.next()) {
           availableSlots.add(resultSet.getInt(1));
