@@ -1,6 +1,7 @@
  ## Application for a medical centre where a patient can make an appointment with a doctor
 
 There are four roles with access rights: Guest, Patient, Doctor, Administrator
+
 Stack: Java EE, Servlets, JDBC, JSP, MySql, Apache Tomcat, Bootstrap, Html
 
 **Guest** can:
