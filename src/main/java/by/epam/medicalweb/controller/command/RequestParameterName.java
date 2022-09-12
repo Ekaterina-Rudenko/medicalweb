@@ -91,5 +91,8 @@ public class RequestParameterName {
 
   public static final String ACTION_RESULT = "action_result";
 
+  public static final String MONEY = "money";
+  public static final String INVALID_SUM = "invalid_sum";
+
 
 }

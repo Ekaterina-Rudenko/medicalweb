@@ -26,21 +26,14 @@ public enum CommandType {
 
   EDIT_PROFILE(new EditProfileCommand(), EnumSet.of(ADMIN, DOCTOR, PATIENT)),
   CHANGE_PASSWORD(new ChangePasswordCommand(), EnumSet.of(ADMIN, DOCTOR, PATIENT)),
-  SHOW_ALL_USERS(new ShowAllUsersCommand(), EnumSet.of(ADMIN)),
-  FIND_USER(new FindUserCommand(), EnumSet.of(ADMIN)),
   TOP_UP_BALANCE(new TopUpBalanceCommand(), EnumSet.of(PATIENT)),
 
   CREATE_VISIT(new CreateVisitCommand(), EnumSet.of(PATIENT)),
   CANCEL_VISIT(new CancelVisitCommand(), EnumSet.of(PATIENT, ADMIN)),
-  SHOW_ALL_VISITS(new ShowAllVisitsCommand(), EnumSet.of(ADMIN)),
 
   SHOW_ALL_DOCTORS(new ShowAllDoctorsCommand(), EnumSet.of(PATIENT, GUEST, ADMIN, DOCTOR)),
   SHOW_ALL_SPECIALIZATIONS(new ShowAllSpecializationsCommand(),
       EnumSet.of(PATIENT, GUEST, ADMIN, DOCTOR)),
-
-
-  ADD_PRESCRIPTION(new AddPrescriptionCommand(), EnumSet.of(DOCTOR)),
-  SHOW_PRESCRIPTION(new ShowPrescriptionCommand(), EnumSet.of(PATIENT)),
 
   UPLOAD_IMAGE(new UploadImageCommand(), EnumSet.of(ADMIN)),
 

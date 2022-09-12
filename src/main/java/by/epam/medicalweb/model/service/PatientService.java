@@ -10,5 +10,5 @@ import java.util.Map;
 public interface PatientService {
     boolean registerPatient(Map<String, String> data) throws ServiceException, ConnectionPoolException;
     Patient findPatientInfoById(long patientId) throws ServiceException, ConnectionPoolException;
-    boolean topUpBalance(long patientId, BigDecimal money) throws ServiceException, ConnectionPoolException;
+    boolean topUpBalance(long patientId, String money) throws ServiceException, ConnectionPoolException;
 }

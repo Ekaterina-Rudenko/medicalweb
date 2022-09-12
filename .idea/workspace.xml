@@ -9,12 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c2eda0-36d9-40e5-b78e-a6e45e8657b2" name="Changes" comment="Add commands access filter, fix change password command">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e2c2eda0-36d9-40e5-b78e-a6e45e8657b2" name="Changes" comment="Add rus properties">
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/CommandType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/ErrorMessagesBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/ErrorMessagesBundle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/RequestParameterName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/RequestParameterName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/AddPrescriptionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/EditProfileCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/EditProfileCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/FindUserCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllUsersCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllVisitsCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowPrescriptionCommand.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/PatientService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/impl/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/impl/PatientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bundle/locale_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bundle/locale_ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/pages/patient/profile_setting.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pages/patient/profile_setting.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,7 +432,7 @@
       <workItem from="1659511576719" duration="34000" />
       <workItem from="1659615515826" duration="18989000" />
       <workItem from="1659733370574" duration="400000" />
-      <workItem from="1663023840907" duration="1320000" />
+      <workItem from="1663023840907" duration="2143000" />
     </task>
     <task id="LOCAL-00001" summary="add gitignore">
       <created>1644447817806</created>
@@ -475,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659653989908</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add rus properties">
+      <created>1663025209450</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1663025209450</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +527,8 @@
     <MESSAGE value="Add cres=ate service, specialization commands" />
     <MESSAGE value="Add create service, specialization commands" />
     <MESSAGE value="Add commands access filter, fix change password command" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add commands access filter, fix change password command" />
+    <MESSAGE value="Add rus properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add rus properties" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

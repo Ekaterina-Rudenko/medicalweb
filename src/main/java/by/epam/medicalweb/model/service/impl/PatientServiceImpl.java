@@ -107,8 +107,9 @@ public class PatientServiceImpl implements PatientService {
     return patient;
   }
 
+  @Override
   public boolean topUpBalance(long patientId, String moneyString)
-      throws ServiceException, ConnectionPoolException {
+      throws ServiceException {
     PatientDaoImpl patientDao = new PatientDaoImpl();
     EntityTransaction entityTransaction = new EntityTransaction();
     entityTransaction.beginTransaction(patientDao);
