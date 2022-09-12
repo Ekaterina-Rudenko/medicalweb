@@ -23,6 +23,7 @@
 <fmt:message key="invalid_new_password_message" var="invalid_new_password_message"/>
 <fmt:message key="incorrect_old_password_message" var="incorrect_old_password_message"/>
 <fmt:message key="password_mismatch_message" var="password_mismatch_message"/>
+<fmt:message key="register.password.helper" var="password_helper"/>
 
 <html>
 <head>
@@ -72,19 +73,25 @@
 
         <div class="form-group col-sm-4 indent">
             <label for="old_psw">${old_pass}</label>
-            <input type="password" class="form-control" id="old_psw" name="old_password">
+            <input type="password" class="form-control" id="old_psw" name="old_password"
+                   placeholder="Enter old password">
         </div>
 
 
         <div class="form-group col-sm-4 indent">
             <label for="new_psw">${new_pass}</label>
-            <input type="password" class="form-control" id="new_psw" name="new_password">
+            <input type="password" class="form-control" id="new_psw" name="new_password"
+                   placeholder="Enter new password"
+                   required pattern="^[A-Za-zА-Яа-я0-9\.]{5,45}$">
+            <small id="passwordHelpBlock" class="form-text text-muted">${password_helper}</small>
         </div>
 
         <div class="form-group col-sm-4 indent">
             <label for="psw_confirmation">${conf_new_pass}</label>
             <input type="password" class="form-control" id="psw_confirmation"
-                   name="new_password_confirm">
+                   name="new_password_confirm"
+                   placeholder="Repeat new password"
+                   required pattern="^[A-Za-zА-Яа-я0-9\.]{5,45}$>
         </div>
 
 
