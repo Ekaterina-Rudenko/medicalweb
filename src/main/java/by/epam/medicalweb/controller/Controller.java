@@ -46,6 +46,8 @@ public class Controller extends HttpServlet {
             router = command.execute(request);
         } catch (ConnectionPoolException e) {
             e.printStackTrace();
+        } catch (ServiceException e) {
+            e.printStackTrace();
         }
         String page = router.getPage();
         switch (router.getRouterType()) {

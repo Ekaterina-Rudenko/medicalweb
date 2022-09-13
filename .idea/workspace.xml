@@ -9,20 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c2eda0-36d9-40e5-b78e-a6e45e8657b2" name="Changes" comment="Add rus properties">
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/ErrorMessagesBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/ErrorMessagesBundle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/RequestParameterName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/RequestParameterName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/AddPrescriptionCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/EditProfileCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/EditProfileCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/FindUserCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllUsersCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowAllVisitsCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/ShowPrescriptionCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/command/impl/TopUpBalanceCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/impl/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/model/service/impl/PatientServiceImpl.java" afterDir="false" />
+    <list default="true" id="e2c2eda0-36d9-40e5-b78e-a6e45e8657b2" name="Changes" comment="Fixing">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid14964.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/epam/medicalweb/controller/Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +96,14 @@
       <recent name="C:\Users\Rudebox\IdeaProjects\medicalweb\src\main\webapp\images" />
       <recent name="C:\Users\Rudebox\IdeaProjects\medicalweb\src\main\webapp\jsp" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" />
+        <option value="TomeeConfiguration" />
+      </set>
+    </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.0.14">
     <configuration name="ConnectionDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -197,7 +195,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="c36c77e8-9a6a-44f5-a9ee-1b53e94594c6" />
+        <option name="BASE_DIRECTORY_NAME" value="c85e6872-0094-4a65-8750-37271a3c77f9" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -205,7 +203,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="63876" />
+        <option name="DEBUG_PORT" value="54607" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -274,43 +272,16 @@
         </option>
       </method>
     </configuration>
-    <configuration name="users.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 10.0.14" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/jsp/pages/admin/users.jsp" />
-      <deployment>
-        <artifact name="medicalweb:war">
-          <settings>
-            <option name="CONTEXT_PATH" value="/medicalweb_war" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="5d485d64-947b-4b10-98b2-9eddb5239b49" />
-      </server-settings>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings />
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="medicalweb:war" />
-        </option>
       </method>
     </configuration>
     <list>
@@ -320,11 +291,9 @@
       <item itemvalue="TestNG.ValidatorTest.checkBirthDateTest" />
       <item itemvalue="TestNG.ValidatorTest" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.14" />
-      <item itemvalue="Tomcat Server.users.jsp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Tomcat Server.users.jsp" />
         <item itemvalue="Application.ConnectionDemo" />
         <item itemvalue="TestNG.ValidatorTest.checkPasswordTest" />
         <item itemvalue="TestNG.ValidatorTest" />
@@ -432,7 +401,7 @@
       <workItem from="1659511576719" duration="34000" />
       <workItem from="1659615515826" duration="18989000" />
       <workItem from="1659733370574" duration="400000" />
-      <workItem from="1663023840907" duration="2143000" />
+      <workItem from="1663023840907" duration="3565000" />
     </task>
     <task id="LOCAL-00001" summary="add gitignore">
       <created>1644447817806</created>
@@ -490,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663025209450</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixing">
+      <created>1663025998559</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1663025998559</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +504,8 @@
     <MESSAGE value="Add create service, specialization commands" />
     <MESSAGE value="Add commands access filter, fix change password command" />
     <MESSAGE value="Add rus properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add rus properties" />
+    <MESSAGE value="Fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
