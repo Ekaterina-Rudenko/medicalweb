@@ -61,4 +61,18 @@ The EER diagram for data base is attached below:
 
 ![medical_web](https://user-images.githubusercontent.com/81095100/153303794-a2198f86-d557-48bd-bcee-a5ca21af71a4.png)
 
+Some pages:
+![image](https://user-images.githubusercontent.com/81095100/189779100-a25f0951-9bf5-4754-89b4-ed621e8a2e1d.png)
+![image](https://user-images.githubusercontent.com/81095100/189779114-65fd5f0e-d24f-4307-95fa-6518889d727e.png)
+![image](https://user-images.githubusercontent.com/81095100/189779139-aa6f01e0-ebdd-4b7a-9680-1c273de70212.png)
+![image](https://user-images.githubusercontent.com/81095100/189779175-3b311c50-05f7-46ed-98d2-f514ad6648a3.png)
+![image](https://user-images.githubusercontent.com/81095100/189779183-46260206-0266-43da-821f-890eb83a2fdd.png)
+![image](https://user-images.githubusercontent.com/81095100/189779225-037d136d-498c-4077-a488-95b3f0d08b9e.png)
+
+![image](https://user-images.githubusercontent.com/81095100/189779241-930c9a3e-ab36-4d3c-b1e8-7cef54909f3d.png)
+
+![image](https://user-images.githubusercontent.com/81095100/189779260-fcba5770-b5e8-40be-81da-b452743c079c.png)
+
+
+ 
 
