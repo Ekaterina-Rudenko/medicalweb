@@ -61,4 +61,7 @@ The EER diagram for data base is attached below:
 
 ![medical_web](https://user-images.githubusercontent.com/81095100/153303794-a2198f86-d557-48bd-bcee-a5ca21af71a4.png)
 
+Some pages:
+
+ 
 
